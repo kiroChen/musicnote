@@ -1,0 +1,497 @@
+extends layout
+
+block content
+  section.vbox
+    header.bg-white-only.header.header-md.navbar.navbar-fixed-top-xs
+      .navbar-header.aside.bg-info.dk
+        a.btn.btn-link.visible-xs(data-toggle='class:nav-off-screen,open', data-target='#nav,html')
+          i.icon-list
+        a.navbar-brand.text-lt(href='index.html')
+          i.icon-earphones
+          img.hide(src='images/logo.png', alt='.')
+          span.hidden-nav-xs.m-l-sm Musik
+        a.btn.btn-link.visible-xs(data-toggle='dropdown', data-target='.user')
+          i.icon-settings
+      ul.nav.navbar-nav.hidden-xs
+        li
+          a.text-muted(href='#nav,.navbar-header', data-toggle='class:nav-xs,nav-xs')
+            i.fa.fa-indent.text
+            i.fa.fa-dedent.text-active
+      form.navbar-form.navbar-left.input-s-lg.m-t.m-l-n-xs.hidden-xs(role='search')
+        .form-group
+          .input-group
+            span.input-group-btn
+              button.btn.btn-sm.bg-white.btn-icon.rounded(type='submit')
+                i.fa.fa-search
+            input.form-control.input-sm.no-border.rounded(type='text', placeholder='Search songs, albums...')
+      .navbar-right
+        ul.nav.navbar-nav.m-n.hidden-xs.nav-user.user
+          li.hidden-xs
+            a.dropdown-toggle.lt(href='#', data-toggle='dropdown')
+              i.icon-bell
+              span.badge.badge-sm.up.bg-danger.count 2
+            section.dropdown-menu.aside-xl.animated.fadeInUp
+              section.panel.bg-white
+                .panel-heading.b-light.bg-light
+                  strong
+                    | You have
+                    span.count 2
+                    | notifications
+                .list-group.list-group-alt
+                  a.media.list-group-item(href='#')
+                    span.pull-left.thumb-sm
+                      img.img-circle(src='images/a0.png', alt='...')
+                    span.media-body.block.m-b-none
+                      | Use awesome animate.css
+                      br
+                      small.text-muted 10 minutes ago
+                  a.media.list-group-item(href='#')
+                    span.media-body.block.m-b-none
+                      | 1.0 initial released
+                      br
+                      small.text-muted 1 hour ago
+                .panel-footer.text-sm
+                  a.pull-right(href='#')
+                    i.fa.fa-cog
+                  a(href='#notes', data-toggle='class:show animated fadeInRight') See all the notifications
+          li.dropdown
+            a.dropdown-toggle.bg.clear(href='#', data-toggle='dropdown')
+              span.thumb-sm.avatar.pull-right.m-t-n-sm.m-b-n-sm.m-l-sm
+                img(src='images/a0.png', alt='...')
+              | John.Smith
+              b.caret
+            ul.dropdown-menu.animated.fadeInRight
+              li
+                span.arrow.top
+                a(href='#') Settings
+              li
+                a(href='profile.html') Profile
+              li
+                a(href='#')
+                  span.badge.bg-danger.pull-right 3
+                  | Notifications
+              li
+                a(href='docs.html') Help
+              li.divider
+              li
+                a(href='modal.lockme.html', data-toggle='ajaxModal') Logout
+    section
+      section.hbox.stretch
+        // .aside
+        aside#nav.bg-black.dk.aside.hidden-print
+          section.vbox
+            section.w-f-md.scrollable
+              .slim-scroll(data-height='auto', data-disable-fade-out='true', data-distance='0', data-size='10px', data-railopacity='0.2')
+                // nav
+                nav.nav-primary.hidden-xs
+                  ul.nav.bg.clearfix
+                    li.hidden-nav-xs.padder.m-t.m-b-sm.text-xs.text-muted
+                      | Discover
+                    li
+                      a(href='index.html')
+                        i.icon-disc.icon.text-success
+                        span.font-bold What's new
+                    li
+                      a(href='genres.html')
+                        i.icon-music-tone-alt.icon.text-info
+                        span.font-bold Genres
+                    li
+                      a(href='events.html')
+                        i.icon-drawer.icon.text-primary-lter
+                        b.badge.bg-primary.pull-right 6
+                        span.font-bold Events
+                    li
+                      a(href='listen.html')
+                        i.icon-list.icon.text-info-dker
+                        span.font-bold Listen
+                    li
+                      a(href='video.html', data-target='#content', data-el='#bjax-el', data-replace='true')
+                        i.icon-social-youtube.icon.text-primary
+                        span.font-bold Video
+                    li.m-b.hidden-nav-xs
+                  ul.nav(data-ride='collapse')
+                    li.hidden-nav-xs.padder.m-t.m-b-sm.text-xs.text-muted
+                      | Interface
+                    li
+                      a.auto(href='#')
+                        span.pull-right.text-muted
+                          i.fa.fa-angle-left.text
+                          i.fa.fa-angle-down.text-active
+                        i.icon-screen-desktop.icon
+                        span Layouts
+                      ul.nav.dk.text-sm
+                        li
+                          a.auto(href='layout-color.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Color option
+                        li
+                          a.auto(href='layout-boxed.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Boxed layout
+                        li
+                          a.auto(href='layout-fluid.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Fluid layout
+                    li.active
+                      a.auto(href='#')
+                        span.pull-right.text-muted
+                          i.fa.fa-angle-left.text
+                          i.fa.fa-angle-down.text-active
+                        i.icon-chemistry.icon
+                        span UI Kit
+                      ul.nav.dk.text-sm
+                        li
+                          a.auto(href='buttons.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Buttons
+                        li
+                          a.auto(href='icons.html')
+                            b.badge.bg-info.pull-right 369
+                            i.fa.fa-angle-right.text-xs
+                            span Icons
+                        li
+                          a.auto(href='http://www.weidea.net')
+                            b.badge.bg-info.pull-right 369
+                            i.fa.fa-angle-right.text-xs
+                            span More
+                        li
+                          a.auto(href='grid.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Grid
+                        li
+                          a.auto(href='widgets.html')
+                            b.badge.bg-dark.pull-right 8
+                            i.fa.fa-angle-right.text-xs
+                            span Widgets
+                        li
+                          a.auto(href='components.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Components
+                        li
+                          a.auto(href='list.html')
+                            i.fa.fa-angle-right.text-xs
+                            span List group
+                        li
+                          a.auto(href='#table')
+                            span.pull-right.text-muted
+                              i.fa.fa-angle-left.text
+                              i.fa.fa-angle-down.text-active
+                            i.fa.fa-angle-right.text-xs
+                            span Table
+                          ul.nav.dker
+                            li
+                              a(href='table-static.html')
+                                i.fa.fa-angle-right
+                                span Table static
+                            li
+                              a(href='table-datatable.html')
+                                i.fa.fa-angle-right
+                                span Datatable
+                        li.active
+                          a.auto(href='#form')
+                            span.pull-right.text-muted
+                              i.fa.fa-angle-left.text
+                              i.fa.fa-angle-down.text-active
+                            i.fa.fa-angle-right.text-xs
+                            span Form
+                          ul.nav.dker
+                            li
+                              a(href='form-elements.html')
+                                i.fa.fa-angle-right
+                                span Form elements
+                            li.active
+                              a(href='form-validation.html')
+                                i.fa.fa-angle-right
+                                span Form validation
+                            li
+                              a(href='form-wizard.html')
+                                i.fa.fa-angle-right
+                                span Form wizard
+                        li
+                          a.auto(href='chart.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Chart
+                        li
+                          a.auto(href='portlet.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Portlet
+                        li
+                          a.auto(href='timeline.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Timeline
+                    li
+                      a.auto(href='#')
+                        span.pull-right.text-muted
+                          i.fa.fa-angle-left.text
+                          i.fa.fa-angle-down.text-active
+                        i.icon-grid.icon
+                        span Pages
+                      ul.nav.dk.text-sm
+                        li
+                          a.auto(href='profile.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Profile
+                        li
+                          a.auto(href='blog.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Blog
+                        li
+                          a.auto(href='invoice.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Invoice
+                        li
+                          a.auto(href='gmap.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Google Map
+                        li
+                          a.auto(href='jvectormap.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Vector Map
+                        li
+                          a.auto(href='signin.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Signin
+                        li
+                          a.auto(href='signup.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Signup
+                        li
+                          a.auto(href='404.html')
+                            i.fa.fa-angle-right.text-xs
+                            span 404
+                  ul.nav.text-sm
+                    li.hidden-nav-xs.padder.m-t.m-b-sm.text-xs.text-muted
+                      span.pull-right
+                        a(href='#')
+                          i.icon-plus.i-lg
+                      | Playlist
+                    li
+                      a(href='#')
+                        i.icon-music-tone.icon
+                        span Hip-Pop
+                    li
+                      a(href='#')
+                        i.icon-playlist.icon.text-success-lter
+                        b.badge.bg-success.dker.pull-right 9
+                        span Jazz
+                // / nav
+            footer.footer.hidden-xs.no-padder.text-center-nav-xs
+              .bg.hidden-xs
+                .dropdown.dropup.wrapper-sm.clearfix
+                  a.dropdown-toggle(href='#', data-toggle='dropdown')
+                    span.thumb-sm.avatar.pull-left.m-l-xs
+                      img.dker(src='images/a3.png', alt='...')
+                      i.on.b-black
+                    span.hidden-nav-xs.clear
+                      span.block.m-l
+                        strong.font-bold.text-lt John.Smith
+                        b.caret
+                      span.text-muted.text-xs.block.m-l Art Director
+                  ul.dropdown-menu.animated.fadeInRight.aside.text-left
+                    li
+                      span.arrow.bottom.hidden-nav-xs
+                      a(href='#') Settings
+                    li
+                      a(href='profile.html') Profile
+                    li
+                      a(href='#')
+                        span.badge.bg-danger.pull-right 3
+                        | Notifications
+                    li
+                      a(href='docs.html') Help
+                    li.divider
+                    li
+                      a(href='modal.lockme.html', data-toggle='ajaxModal') Logout
+        // /.aside
+        section#content
+          section.vbox
+            section.scrollable.padder
+              .m-b-md
+                h3.m-b-none Validation
+              .row
+                .col-sm-6
+                  form(data-validate='parsley')
+                    section.panel.panel-default
+                      header.panel-heading
+                        span.h4 Register
+                      .panel-body
+                        p.text-muted Please fill the information to continue
+                        .form-group
+                          label Username
+                          input.form-control(type='text', data-required='true')
+                        .form-group
+                          label Email
+                          input.form-control(type='text', data-type='email', data-required='true')
+                        .form-group.pull-in.clearfix
+                          .col-sm-6
+                            label Enter password
+                            input#pwd.form-control(type='password', data-required='true')
+                          .col-sm-6
+                            label Confirm password
+                            input.form-control(type='password', data-equalto='#pwd', data-required='true')
+                        .form-group
+                          label Phone
+                          input.form-control(type='text', data-type='phone', placeholder='(XXX) XXXX XXX', data-required='true')
+                        .checkbox.i-checks
+                          label
+                            input(type='checkbox', name='check', checked='', data-required='true')
+                            i
+                            | I agree to the
+                            a.text-info(href='#') Terms of Service
+                      footer.panel-footer.text-right.bg-light.lter
+                        button.btn.btn-success.btn-s-xs(type='submit') Submit
+                .col-sm-6
+                  form(data-validate='parsley')
+                    section.panel.panel-default
+                      header.panel-heading
+                        span.h4 Contact
+                      .panel-body
+                        p.text-muted Need support? please fill the fields below.
+                        .form-group.pull-in.clearfix
+                          .col-sm-6
+                            label Your name
+                            input.form-control(type='text', placeholder='Name', data-required='true')
+                          .col-sm-6
+                            label Email
+                            input.form-control(type='email', placeholder='Enter email', data-required='true')
+                        .form-group
+                          label Your website
+                          input.form-control(type='text', data-type='url', data-required='true', placeholder='Your website url')
+                        .form-group
+                          label Message
+                          textarea.form-control(rows='6', data-minwords='6', data-required='true', placeholder='Type your message')
+                      footer.panel-footer.text-right.bg-light.lter
+                        button.btn.btn-success.btn-s-xs(type='submit') Submit
+              .row
+                .col-sm-6
+                  form.form-horizontal(data-validate='parsley')
+                    section.panel.panel-default
+                      header.panel-heading
+                        strong Basic constraints
+                      .panel-body
+                        .form-group
+                          label.col-sm-3.control-label Required
+                          .col-sm-9
+                            input.form-control(type='text', data-required='true', placeholder='required field')
+                            select.form-control.m-t(data-required='true')
+                              option(value='') Please choose
+                              option(value='foo') Foo
+                              option(value='bar') Bar
+                            label.checkbox.i-checks
+                              input(type='checkbox', name='inlineCheckbox1', value='option1', data-required='true', data-error-message='You must agree to the site policy.')
+                              i
+                              | Agree to the policy
+                        .line.line-dashed.b-b.line-lg.pull-in
+                        .form-group
+                          label.col-sm-3.control-label Not blank
+                          .col-sm-9
+                            input.form-control(type='text', data-notblank='true', placeholder='not blank field')
+                        .line.line-dashed.b-b.line-lg.pull-in
+                        .form-group
+                          label.col-sm-3.control-label Min Length
+                          .col-sm-9
+                            input.form-control(type='text', data-minlength='6', placeholder='minlength = 6')
+                        .line.line-dashed.b-b.line-lg.pull-in
+                        .form-group
+                          label.col-sm-3.control-label Max Length
+                          .col-sm-9
+                            input.form-control(type='text', data-maxlength='6', placeholder='maxlength = 6')
+                        .line.line-dashed.b-b.line-lg.pull-in
+                        .form-group
+                          label.col-sm-3.control-label Range Length
+                          .col-sm-9
+                            input.form-control(type='text', data-rangelength='[5,10]', placeholder='data-rangelength = [5,10]')
+                        .line.line-dashed.b-b.line-lg.pull-in
+                        .form-group
+                          label.col-sm-3.control-label Min
+                          .col-sm-9
+                            input.form-control(type='text', data-min='6', placeholder='min = 6')
+                        .line.line-dashed.b-b.line-lg.pull-in
+                        .form-group
+                          label.col-sm-3.control-label Max
+                          .col-sm-9
+                            input.form-control(type='text', data-max='100', placeholder='max = 100')
+                        .line.line-dashed.b-b.line-lg.pull-in
+                        .form-group
+                          label.col-sm-3.control-label Range
+                          .col-sm-9
+                            input.form-control(type='text', data-range='[6, 100]', placeholder='data-range = [6, 100]')
+                        .line.line-dashed.b-b.line-lg.pull-in
+                        .form-group
+                          label.col-sm-3.control-label RegExp
+                          .col-sm-9
+                            input.form-control(type='text', data-regexp='#[A-Fa-f0-9]{6}', placeholder='hexa color code')
+                        .line.line-dashed.b-b.line-lg.pull-in
+                        .form-group
+                          label.col-sm-3.control-label Equal To
+                          .col-sm-9
+                            .row
+                              .col-sm-6
+                                input#foo.form-control(type='text', value='foo')
+                              .col-sm-6
+                                input.form-control(type='text', data-equalto='#foo', placeholder='equal to foo')
+                      footer.panel-footer.text-right.bg-light.lter
+                        button.btn.btn-success.btn-s-xs(type='submit') Submit
+                .col-sm-6
+                  form.form-horizontal(data-validate='parsley')
+                    section.panel.panel-default
+                      header.panel-heading
+                        strong Type constraints
+                      .panel-body
+                        .form-group
+                          label.col-sm-3.control-label Email
+                          .col-sm-9
+                            input.form-control(type='text', data-type='email', data-required='true', placeholder='email')
+                        .line.line-dashed.b-b.line-lg.pull-in
+                        .form-group
+                          label.col-sm-3.control-label Url
+                          .col-sm-9
+                            input.form-control(type='text', data-type='url', placeholder='url')
+                        .line.line-dashed.b-b.line-lg.pull-in
+                        .form-group
+                          label.col-sm-3.control-label Url strict
+                          .col-sm-9
+                            input.form-control(type='text', data-type='urlstrict', placeholder='urlstrict')
+                        .line.line-dashed.b-b.line-lg.pull-in
+                        .form-group
+                          label.col-sm-3.control-label Digits
+                          .col-sm-9
+                            input.form-control(type='text', data-type='digits', placeholder='digits')
+                        .line.line-dashed.b-b.line-lg.pull-in
+                        .form-group
+                          label.col-sm-3.control-label Number
+                          .col-sm-9
+                            input.form-control(type='text', data-type='number', placeholder='number')
+                        .line.line-dashed.b-b.line-lg.pull-in
+                        .form-group
+                          label.col-sm-3.control-label Alphanum
+                          .col-sm-9
+                            input.form-control(type='text', data-type='alphanum', placeholder='alphanumeric string')
+                        .line.line-dashed.b-b.line-lg.pull-in
+                        .form-group
+                          label.col-sm-3.control-label Date Iso
+                          .col-sm-9
+                            input.form-control(type='text', data-type='dateIso', placeholder='YYYY-MM-DD')
+                        .line.line-dashed.b-b.line-lg.pull-in
+                        .form-group
+                          label.col-sm-3.control-label Phone
+                          .col-sm-9
+                            input.form-control(type='text', data-type='phone', placeholder='(XXX) XXXX XXX')
+                        .line.line-dashed.b-b.line-lg.pull-in
+                        .form-group
+                          label.col-sm-3.control-label Min Words
+                          .col-sm-9
+                            input.form-control(type='text', data-minwords='6', placeholder='min 6 words')
+                        .line.line-dashed.b-b.line-lg.pull-in
+                        .form-group
+                          label.col-sm-3.control-label Max Words
+                          .col-sm-9
+                            input.form-control(type='text', data-maxwords='6', placeholder='max 6 words')
+                        .line.line-dashed.b-b.line-lg.pull-in
+                        .form-group
+                          label.col-sm-3.control-label Range Words
+                          .col-sm-9
+                            input.form-control(type='text', data-rangewords='[6,10]', placeholder='min 6 words & max 10 words')
+                      footer.panel-footer.text-right.bg-light.lter
+                        button.btn.btn-success.btn-s-xs(type='submit') Submit
+          a.hide.nav-off-screen-block(href='#', data-toggle='class:nav-off-screen,open', data-target='#nav,html')

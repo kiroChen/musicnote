@@ -1,0 +1,380 @@
+extends layout
+
+block content
+  section.vbox
+    header.bg-white-only.header.header-md.navbar.navbar-fixed-top-xs
+      .navbar-header.aside.bg-info.dk
+        a.btn.btn-link.visible-xs(data-toggle='class:nav-off-screen,open', data-target='#nav,html')
+          i.icon-list
+        a.navbar-brand.text-lt(href='index.html')
+          i.icon-earphones
+          img.hide(src='images/logo.png', alt='.')
+          span.hidden-nav-xs.m-l-sm Musik
+        a.btn.btn-link.visible-xs(data-toggle='dropdown', data-target='.user')
+          i.icon-settings
+      ul.nav.navbar-nav.hidden-xs
+        li
+          a.text-muted(href='#nav,.navbar-header', data-toggle='class:nav-xs,nav-xs')
+            i.fa.fa-indent.text
+            i.fa.fa-dedent.text-active
+      form.navbar-form.navbar-left.input-s-lg.m-t.m-l-n-xs.hidden-xs(role='search')
+        .form-group
+          .input-group
+            span.input-group-btn
+              button.btn.btn-sm.bg-white.btn-icon.rounded(type='submit')
+                i.fa.fa-search
+            input.form-control.input-sm.no-border.rounded(type='text', placeholder='Search songs, albums...')
+      .navbar-right
+        ul.nav.navbar-nav.m-n.hidden-xs.nav-user.user
+          li.hidden-xs
+            a.dropdown-toggle.lt(href='#', data-toggle='dropdown')
+              i.icon-bell
+              span.badge.badge-sm.up.bg-danger.count 2
+            section.dropdown-menu.aside-xl.animated.fadeInUp
+              section.panel.bg-white
+                .panel-heading.b-light.bg-light
+                  strong
+                    | You have
+                    span.count 2
+                    | notifications
+                .list-group.list-group-alt
+                  a.media.list-group-item(href='#')
+                    span.pull-left.thumb-sm
+                      img.img-circle(src='images/a0.png', alt='...')
+                    span.media-body.block.m-b-none
+                      | Use awesome animate.css
+                      br
+                      small.text-muted 10 minutes ago
+                  a.media.list-group-item(href='#')
+                    span.media-body.block.m-b-none
+                      | 1.0 initial released
+                      br
+                      small.text-muted 1 hour ago
+                .panel-footer.text-sm
+                  a.pull-right(href='#')
+                    i.fa.fa-cog
+                  a(href='#notes', data-toggle='class:show animated fadeInRight') See all the notifications
+          li.dropdown
+            a.dropdown-toggle.bg.clear(href='#', data-toggle='dropdown')
+              span.thumb-sm.avatar.pull-right.m-t-n-sm.m-b-n-sm.m-l-sm
+                img(src='images/a0.png', alt='...')
+              | John.Smith
+              b.caret
+            ul.dropdown-menu.animated.fadeInRight
+              li
+                span.arrow.top
+                a(href='#') Settings
+              li
+                a(href='profile.html') Profile
+              li
+                a(href='#')
+                  span.badge.bg-danger.pull-right 3
+                  | Notifications
+              li
+                a(href='docs.html') Help
+              li.divider
+              li
+                a(href='modal.lockme.html', data-toggle='ajaxModal') Logout
+    section
+      section.hbox.stretch
+        // .aside
+        aside#nav.bg-black.dk.aside.hidden-print
+          section.vbox
+            section.w-f-md.scrollable
+              .slim-scroll(data-height='auto', data-disable-fade-out='true', data-distance='0', data-size='10px', data-railopacity='0.2')
+                // nav
+                nav.nav-primary.hidden-xs
+                  ul.nav.bg.clearfix
+                    li.hidden-nav-xs.padder.m-t.m-b-sm.text-xs.text-muted
+                      | Discover
+                    li
+                      a(href='index.html')
+                        i.icon-disc.icon.text-success
+                        span.font-bold What's new
+                    li
+                      a(href='genres.html')
+                        i.icon-music-tone-alt.icon.text-info
+                        span.font-bold Genres
+                    li
+                      a(href='events.html')
+                        i.icon-drawer.icon.text-primary-lter
+                        b.badge.bg-primary.pull-right 6
+                        span.font-bold Events
+                    li
+                      a(href='listen.html')
+                        i.icon-list.icon.text-info-dker
+                        span.font-bold Listen
+                    li
+                      a(href='video.html', data-target='#content', data-el='#bjax-el', data-replace='true')
+                        i.icon-social-youtube.icon.text-primary
+                        span.font-bold Video
+                    li.m-b.hidden-nav-xs
+                  ul.nav(data-ride='collapse')
+                    li.hidden-nav-xs.padder.m-t.m-b-sm.text-xs.text-muted
+                      | Interface
+                    li
+                      a.auto(href='#')
+                        span.pull-right.text-muted
+                          i.fa.fa-angle-left.text
+                          i.fa.fa-angle-down.text-active
+                        i.icon-screen-desktop.icon
+                        span Layouts
+                      ul.nav.dk.text-sm
+                        li
+                          a.auto(href='layout-color.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Color option
+                        li
+                          a.auto(href='layout-boxed.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Boxed layout
+                        li
+                          a.auto(href='layout-fluid.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Fluid layout
+                    li.active
+                      a.auto(href='#')
+                        span.pull-right.text-muted
+                          i.fa.fa-angle-left.text
+                          i.fa.fa-angle-down.text-active
+                        i.icon-chemistry.icon
+                        span UI Kit
+                      ul.nav.dk.text-sm
+                        li
+                          a.auto(href='buttons.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Buttons
+                        li
+                          a.auto(href='icons.html')
+                            b.badge.bg-info.pull-right 369
+                            i.fa.fa-angle-right.text-xs
+                            span Icons
+                        li
+                          a.auto(href='http://www.weidea.net')
+                            b.badge.bg-info.pull-right 369
+                            i.fa.fa-angle-right.text-xs
+                            span More
+                        li
+                          a.auto(href='grid.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Grid
+                        li
+                          a.auto(href='widgets.html')
+                            b.badge.bg-dark.pull-right 8
+                            i.fa.fa-angle-right.text-xs
+                            span Widgets
+                        li
+                          a.auto(href='components.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Components
+                        li
+                          a.auto(href='list.html')
+                            i.fa.fa-angle-right.text-xs
+                            span List group
+                        li
+                          a.auto(href='#table')
+                            span.pull-right.text-muted
+                              i.fa.fa-angle-left.text
+                              i.fa.fa-angle-down.text-active
+                            i.fa.fa-angle-right.text-xs
+                            span Table
+                          ul.nav.dker
+                            li
+                              a(href='table-static.html')
+                                i.fa.fa-angle-right
+                                span Table static
+                            li
+                              a(href='table-datatable.html')
+                                i.fa.fa-angle-right
+                                span Datatable
+                        li.active
+                          a.auto(href='#form')
+                            span.pull-right.text-muted
+                              i.fa.fa-angle-left.text
+                              i.fa.fa-angle-down.text-active
+                            i.fa.fa-angle-right.text-xs
+                            span Form
+                          ul.nav.dker
+                            li
+                              a(href='form-elements.html')
+                                i.fa.fa-angle-right
+                                span Form elements
+                            li
+                              a(href='form-validation.html')
+                                i.fa.fa-angle-right
+                                span Form validation
+                            li.active
+                              a(href='form-wizard.html')
+                                i.fa.fa-angle-right
+                                span Form wizard
+                        li
+                          a.auto(href='chart.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Chart
+                        li
+                          a.auto(href='portlet.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Portlet
+                        li
+                          a.auto(href='timeline.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Timeline
+                    li
+                      a.auto(href='#')
+                        span.pull-right.text-muted
+                          i.fa.fa-angle-left.text
+                          i.fa.fa-angle-down.text-active
+                        i.icon-grid.icon
+                        span Pages
+                      ul.nav.dk.text-sm
+                        li
+                          a.auto(href='profile.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Profile
+                        li
+                          a.auto(href='blog.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Blog
+                        li
+                          a.auto(href='invoice.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Invoice
+                        li
+                          a.auto(href='gmap.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Google Map
+                        li
+                          a.auto(href='jvectormap.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Vector Map
+                        li
+                          a.auto(href='signin.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Signin
+                        li
+                          a.auto(href='signup.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Signup
+                        li
+                          a.auto(href='404.html')
+                            i.fa.fa-angle-right.text-xs
+                            span 404
+                  ul.nav.text-sm
+                    li.hidden-nav-xs.padder.m-t.m-b-sm.text-xs.text-muted
+                      span.pull-right
+                        a(href='#')
+                          i.icon-plus.i-lg
+                      | Playlist
+                    li
+                      a(href='#')
+                        i.icon-music-tone.icon
+                        span Hip-Pop
+                    li
+                      a(href='#')
+                        i.icon-playlist.icon.text-success-lter
+                        b.badge.bg-success.dker.pull-right 9
+                        span Jazz
+                // / nav
+            footer.footer.hidden-xs.no-padder.text-center-nav-xs
+              .bg.hidden-xs
+                .dropdown.dropup.wrapper-sm.clearfix
+                  a.dropdown-toggle(href='#', data-toggle='dropdown')
+                    span.thumb-sm.avatar.pull-left.m-l-xs
+                      img.dker(src='images/a3.png', alt='...')
+                      i.on.b-black
+                    span.hidden-nav-xs.clear
+                      span.block.m-l
+                        strong.font-bold.text-lt John.Smith
+                        b.caret
+                      span.text-muted.text-xs.block.m-l Art Director
+                  ul.dropdown-menu.animated.fadeInRight.aside.text-left
+                    li
+                      span.arrow.bottom.hidden-nav-xs
+                      a(href='#') Settings
+                    li
+                      a(href='profile.html') Profile
+                    li
+                      a(href='#')
+                        span.badge.bg-danger.pull-right 3
+                        | Notifications
+                    li
+                      a(href='docs.html') Help
+                    li.divider
+                    li
+                      a(href='modal.lockme.html', data-toggle='ajaxModal') Logout
+        // /.aside
+        section#content
+          section.vbox
+            section.scrollable.padder
+              .m-b-md
+                h3.m-b-none Form wizard
+              .row
+                .col-sm-6
+                  form#wizardform(method='get', action='index.html')
+                    .panel.panel-default
+                      .panel-heading
+                        ul.nav.nav-tabs.font-bold
+                          li
+                            a(href='#step1', data-toggle='tab') Step 1
+                          li
+                            a(href='#step2', data-toggle='tab') Step 2
+                          li
+                            a(href='#step3', data-toggle='tab') Step 3
+                      .panel-body
+                        p
+                          | This twitter bootstrap plugin builds a wizard out of a formatter tabbable structure. It allows to build a wizard functionality using buttons to go through the different wizard steps and using events allows to hook into each step individually.
+                        .line.line-lg
+                        h4 Validate Form
+                        .progress.progress-xs.m-t-md
+                          .progress-bar.bg-success
+                        .tab-content
+                          #step1.tab-pane
+                            p Your website:
+                            input.form-control(type='text', data-trigger='change', data-required='true', data-type='url', placeholder='website')
+                            p.m-t Your email:
+                            input.form-control(type='text', data-trigger='change', data-required='true', data-type='email', placeholder='email address')
+                          #step2.tab-pane
+                            p Your email:
+                            input.form-control(type='text', data-trigger='change', data-required='true', data-type='email', placeholder='email address')
+                          #step3.tab-pane This is step 3
+                          ul.pager.wizard.m-b-sm
+                            li.previous.first(style='display:none;')
+                              a(href='#') First
+                            li.previous
+                              a(href='#') Previous
+                            li.next.last(style='display:none;')
+                              a(href='#') Last
+                            li.next
+                              a(href='#') Next
+                .col-sm-6
+                  form#guessform
+                    section.panel.panel-default
+                      header.panel-heading
+                        ul.nav.nav-tabs.pull-right
+                          li
+                            a(href='#tab1', data-toggle='tab') Guess
+                          li
+                            a(href='#tab2', data-toggle='tab') Result
+                        span.font-bold Guess Game
+                      .panel-body
+                        .tab-content
+                          #tab1.tab-pane.text-center
+                            p.text-center.h4.m-t.m-b Guess a number between 1 and 50!
+                            input#gn.no-border.b-b.input-s-sm.h1.inline.text-center.text-success.wrapper-lg(type='text')
+                            p#gi.text-center.h4.m-t.m-b.text-danger .
+                          #tab2.tab-pane.text-center.wrapper-xl
+                            h1#answer.text-danger.m-b-xl
+                            h2.text-success.m-b-xl Correct!!
+                            p.h4
+                              | You guess
+                              span#count
+                              | time(s), [
+                              span#num
+                              | ]
+                      footer.panel-footer.text-right.bg-light.lter
+                        ul.pager.wizard.m-n
+                          li.previous
+                            a(href='#') Try again
+                          li.next
+                            a(href='#') Guess
+          a.hide.nav-off-screen-block(href='#', data-toggle='class:nav-off-screen,open', data-target='#nav,html')

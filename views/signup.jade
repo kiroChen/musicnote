@@ -1,0 +1,39 @@
+extends layout
+
+block content
+  section#content.m-t-lg.wrapper-md.animated.fadeInDown
+    .container.aside-xl
+      a.navbar-brand.block(href='index.html')
+        span.h1.font-bold Musik
+      section.m-b-lg
+        header.wrapper.text-center
+          strong Sign up to find interesting thing
+        form(action='index.html')
+          .form-group
+            input.form-control.rounded.input-lg.text-center.no-border(placeholder='Name')
+          .form-group
+            input.form-control.rounded.input-lg.text-center.no-border(type='email', placeholder='Email')
+          .form-group
+            input.form-control.rounded.input-lg.text-center.no-border(type='password', placeholder='Password')
+          .checkbox.i-checks.m-b
+            label.m-l
+              input(type='checkbox', checked='')
+              i
+              | Agree the
+              a(href='#') terms and policy
+          button.btn.btn-lg.btn-warning.lt.b-white.b-2x.btn-block.btn-rounded(type='submit')
+            i.icon-arrow-right.pull-right
+            span.m-r-n-lg Sign up
+          .line.line-dashed
+          p.text-muted.text-center
+            small Already have an account?
+          a.btn.btn-lg.btn-info.btn-block.btn-rounded(href='signin.html') Sign in
+  // footer
+  footer#footer
+    .text-center.padder.clearfix
+      p
+        small
+          | Web app framework base on Bootstrap
+          br
+          | © 2014
+  // / footer

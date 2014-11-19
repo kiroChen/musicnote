@@ -1,0 +1,31 @@
+extends layout
+
+block content
+  section#content
+    .row.m-n
+      .col-sm-4.col-sm-offset-4
+        .text-center.m-b-lg
+          h1.h.text-white.animated.fadeInDownBig 404
+        .list-group.auto.m-b-sm.m-b-lg
+          a.list-group-item(href='index.html')
+            i.fa.fa-chevron-right.icon-muted
+            i.fa.fa-fw.fa-home.icon-muted
+            | Goto homepage
+          a.list-group-item(href='#')
+            i.fa.fa-chevron-right.icon-muted
+            i.fa.fa-fw.fa-question.icon-muted
+            | Send us a tip
+          a.list-group-item(href='#')
+            i.fa.fa-chevron-right.icon-muted
+            span.badge.bg-info.lt 021-215-584
+            i.fa.fa-fw.fa-phone.icon-muted
+            | Call us
+  // footer
+  footer#footer
+    .text-center.padder.clearfix
+      p
+        small
+          | Web app framework base on Bootstrap
+          br
+          | © 2014
+  

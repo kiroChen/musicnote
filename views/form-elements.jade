@@ -1,0 +1,941 @@
+extends layout
+
+block content
+  section.vbox
+    header.bg-white-only.header.header-md.navbar.navbar-fixed-top-xs
+      .navbar-header.aside.bg-info.dk
+        a.btn.btn-link.visible-xs(data-toggle='class:nav-off-screen,open', data-target='#nav,html')
+          i.icon-list
+        a.navbar-brand.text-lt(href='index.html')
+          i.icon-earphones
+          img.hide(src='images/logo.png', alt='.')
+          span.hidden-nav-xs.m-l-sm Musik
+        a.btn.btn-link.visible-xs(data-toggle='dropdown', data-target='.user')
+          i.icon-settings
+      ul.nav.navbar-nav.hidden-xs
+        li
+          a.text-muted(href='#nav,.navbar-header', data-toggle='class:nav-xs,nav-xs')
+            i.fa.fa-indent.text
+            i.fa.fa-dedent.text-active
+      form.navbar-form.navbar-left.input-s-lg.m-t.m-l-n-xs.hidden-xs(role='search')
+        .form-group
+          .input-group
+            span.input-group-btn
+              button.btn.btn-sm.bg-white.btn-icon.rounded(type='submit')
+                i.fa.fa-search
+            input.form-control.input-sm.no-border.rounded(type='text', placeholder='Search songs, albums...')
+      .navbar-right
+        ul.nav.navbar-nav.m-n.hidden-xs.nav-user.user
+          li.hidden-xs
+            a.dropdown-toggle.lt(href='#', data-toggle='dropdown')
+              i.icon-bell
+              span.badge.badge-sm.up.bg-danger.count 2
+            section.dropdown-menu.aside-xl.animated.fadeInUp
+              section.panel.bg-white
+                .panel-heading.b-light.bg-light
+                  strong
+                    | You have
+                    span.count 2
+                    | notifications
+                .list-group.list-group-alt
+                  a.media.list-group-item(href='#')
+                    span.pull-left.thumb-sm
+                      img.img-circle(src='images/a0.png', alt='...')
+                    span.media-body.block.m-b-none
+                      | Use awesome animate.css
+                      br
+                      small.text-muted 10 minutes ago
+                  a.media.list-group-item(href='#')
+                    span.media-body.block.m-b-none
+                      | 1.0 initial released
+                      br
+                      small.text-muted 1 hour ago
+                .panel-footer.text-sm
+                  a.pull-right(href='#')
+                    i.fa.fa-cog
+                  a(href='#notes', data-toggle='class:show animated fadeInRight') See all the notifications
+          li.dropdown
+            a.dropdown-toggle.bg.clear(href='#', data-toggle='dropdown')
+              span.thumb-sm.avatar.pull-right.m-t-n-sm.m-b-n-sm.m-l-sm
+                img(src='images/a0.png', alt='...')
+              | John.Smith
+              b.caret
+            ul.dropdown-menu.animated.fadeInRight
+              li
+                span.arrow.top
+                a(href='#') Settings
+              li
+                a(href='profile.html') Profile
+              li
+                a(href='#')
+                  span.badge.bg-danger.pull-right 3
+                  | Notifications
+              li
+                a(href='docs.html') Help
+              li.divider
+              li
+                a(href='modal.lockme.html', data-toggle='ajaxModal') Logout
+    section
+      section.hbox.stretch
+        // .aside
+        aside#nav.bg-black.dk.aside.hidden-print
+          section.vbox
+            section.w-f-md.scrollable
+              .slim-scroll(data-height='auto', data-disable-fade-out='true', data-distance='0', data-size='10px', data-railopacity='0.2')
+                // nav
+                nav.nav-primary.hidden-xs
+                  ul.nav.bg.clearfix
+                    li.hidden-nav-xs.padder.m-t.m-b-sm.text-xs.text-muted
+                      | Discover
+                    li
+                      a(href='index.html')
+                        i.icon-disc.icon.text-success
+                        span.font-bold What's new
+                    li
+                      a(href='genres.html')
+                        i.icon-music-tone-alt.icon.text-info
+                        span.font-bold Genres
+                    li
+                      a(href='events.html')
+                        i.icon-drawer.icon.text-primary-lter
+                        b.badge.bg-primary.pull-right 6
+                        span.font-bold Events
+                    li
+                      a(href='listen.html')
+                        i.icon-list.icon.text-info-dker
+                        span.font-bold Listen
+                    li
+                      a(href='video.html', data-target='#content', data-el='#bjax-el', data-replace='true')
+                        i.icon-social-youtube.icon.text-primary
+                        span.font-bold Video
+                    li.m-b.hidden-nav-xs
+                  ul.nav(data-ride='collapse')
+                    li.hidden-nav-xs.padder.m-t.m-b-sm.text-xs.text-muted
+                      | Interface
+                    li
+                      a.auto(href='#')
+                        span.pull-right.text-muted
+                          i.fa.fa-angle-left.text
+                          i.fa.fa-angle-down.text-active
+                        i.icon-screen-desktop.icon
+                        span Layouts
+                      ul.nav.dk.text-sm
+                        li
+                          a.auto(href='layout-color.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Color option
+                        li
+                          a.auto(href='layout-boxed.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Boxed layout
+                        li
+                          a.auto(href='layout-fluid.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Fluid layout
+                    li.active
+                      a.auto(href='#')
+                        span.pull-right.text-muted
+                          i.fa.fa-angle-left.text
+                          i.fa.fa-angle-down.text-active
+                        i.icon-chemistry.icon
+                        span UI Kit
+                      ul.nav.dk.text-sm
+                        li
+                          a.auto(href='buttons.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Buttons
+                        li
+                          a.auto(href='icons.html')
+                            b.badge.bg-info.pull-right 369
+                            i.fa.fa-angle-right.text-xs
+                            span Icons
+                        li
+                          a.auto(href='http://www.weidea.net')
+                            b.badge.bg-info.pull-right 369
+                            i.fa.fa-angle-right.text-xs
+                            span More
+                        li
+                          a.auto(href='grid.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Grid
+                        li
+                          a.auto(href='widgets.html')
+                            b.badge.bg-dark.pull-right 8
+                            i.fa.fa-angle-right.text-xs
+                            span Widgets
+                        li
+                          a.auto(href='components.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Components
+                        li
+                          a.auto(href='list.html')
+                            i.fa.fa-angle-right.text-xs
+                            span List group
+                        li
+                          a.auto(href='#table')
+                            span.pull-right.text-muted
+                              i.fa.fa-angle-left.text
+                              i.fa.fa-angle-down.text-active
+                            i.fa.fa-angle-right.text-xs
+                            span Table
+                          ul.nav.dker
+                            li
+                              a(href='table-static.html')
+                                i.fa.fa-angle-right
+                                span Table static
+                            li
+                              a(href='table-datatable.html')
+                                i.fa.fa-angle-right
+                                span Datatable
+                        li.active
+                          a.auto(href='#form')
+                            span.pull-right.text-muted
+                              i.fa.fa-angle-left.text
+                              i.fa.fa-angle-down.text-active
+                            i.fa.fa-angle-right.text-xs
+                            span Form
+                          ul.nav.dker
+                            li.active
+                              a(href='form-elements.html')
+                                i.fa.fa-angle-right
+                                span Form elements
+                            li
+                              a(href='form-validation.html')
+                                i.fa.fa-angle-right
+                                span Form validation
+                            li
+                              a(href='form-wizard.html')
+                                i.fa.fa-angle-right
+                                span Form wizard
+                        li
+                          a.auto(href='chart.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Chart
+                        li
+                          a.auto(href='portlet.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Portlet
+                        li
+                          a.auto(href='timeline.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Timeline
+                    li
+                      a.auto(href='#')
+                        span.pull-right.text-muted
+                          i.fa.fa-angle-left.text
+                          i.fa.fa-angle-down.text-active
+                        i.icon-grid.icon
+                        span Pages
+                      ul.nav.dk.text-sm
+                        li
+                          a.auto(href='profile.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Profile
+                        li
+                          a.auto(href='blog.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Blog
+                        li
+                          a.auto(href='invoice.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Invoice
+                        li
+                          a.auto(href='gmap.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Google Map
+                        li
+                          a.auto(href='jvectormap.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Vector Map
+                        li
+                          a.auto(href='signin.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Signin
+                        li
+                          a.auto(href='signup.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Signup
+                        li
+                          a.auto(href='404.html')
+                            i.fa.fa-angle-right.text-xs
+                            span 404
+                  ul.nav.text-sm
+                    li.hidden-nav-xs.padder.m-t.m-b-sm.text-xs.text-muted
+                      span.pull-right
+                        a(href='#')
+                          i.icon-plus.i-lg
+                      | Playlist
+                    li
+                      a(href='#')
+                        i.icon-music-tone.icon
+                        span Hip-Pop
+                    li
+                      a(href='#')
+                        i.icon-playlist.icon.text-success-lter
+                        b.badge.bg-success.dker.pull-right 9
+                        span Jazz
+                // / nav
+            footer.footer.hidden-xs.no-padder.text-center-nav-xs
+              .bg.hidden-xs
+                .dropdown.dropup.wrapper-sm.clearfix
+                  a.dropdown-toggle(href='#', data-toggle='dropdown')
+                    span.thumb-sm.avatar.pull-left.m-l-xs
+                      img.dker(src='images/a3.png', alt='...')
+                      i.on.b-black
+                    span.hidden-nav-xs.clear
+                      span.block.m-l
+                        strong.font-bold.text-lt John.Smith
+                        b.caret
+                      span.text-muted.text-xs.block.m-l Art Director
+                  ul.dropdown-menu.animated.fadeInRight.aside.text-left
+                    li
+                      span.arrow.bottom.hidden-nav-xs
+                      a(href='#') Settings
+                    li
+                      a(href='profile.html') Profile
+                    li
+                      a(href='#')
+                        span.badge.bg-danger.pull-right 3
+                        | Notifications
+                    li
+                      a(href='docs.html') Help
+                    li.divider
+                    li
+                      a(href='modal.lockme.html', data-toggle='ajaxModal') Logout
+        // /.aside
+        section#content
+          section.vbox
+            section.scrollable.padder
+              .m-b-md
+                h3.m-b-none Elements
+              .row
+                .col-sm-6
+                  section.panel.panel-default
+                    header.panel-heading.font-bold Basic form
+                    .panel-body
+                      form(role='form')
+                        .form-group
+                          label Email address
+                          input.form-control(type='email', placeholder='Enter email')
+                        .form-group
+                          label Password
+                          input.form-control(type='password', placeholder='Password')
+                        .checkbox.i-checks
+                          label
+                            input(type='checkbox', checked='', disabled='')
+                            i
+                            | Check me out
+                        button.btn.btn-sm.btn-default(type='submit') Submit
+                .col-sm-6
+                  section.panel.panel-default
+                    header.panel-heading.font-bold Horizontal form
+                    .panel-body
+                      form.bs-example.form-horizontal
+                        .form-group
+                          label.col-lg-2.control-label Email
+                          .col-lg-10
+                            input.form-control(type='email', placeholder='Email')
+                            span.help-block.m-b-none Example block-level help text here.
+                        .form-group
+                          label.col-lg-2.control-label Password
+                          .col-lg-10
+                            input.form-control(type='password', placeholder='Password')
+                        .form-group
+                          .col-lg-offset-2.col-lg-10
+                            .checkbox.i-checks
+                              label
+                                input(type='checkbox', checked='')
+                                i
+                                | Remember me
+                        .form-group
+                          .col-lg-offset-2.col-lg-10
+                            button.btn.btn-sm.btn-default(type='submit') Sign in
+              section.panel.panel-default
+                header.panel-heading.font-bold
+                  | Inline form
+                .panel-body
+                  form.form-inline(role='form')
+                    .form-group
+                      label.sr-only(for='exampleInputEmail2') Email address
+                      input#exampleInputEmail2.form-control(type='email', placeholder='Enter email')
+                    .form-group
+                      label.sr-only(for='exampleInputPassword2') Password
+                      input#exampleInputPassword2.form-control(type='password', placeholder='Password')
+                    .checkbox.m-l.m-r-xs
+                      label.i-checks
+                        input(type='checkbox')
+                        i
+                        | Remember me
+                    button.btn.btn-default(type='submit') Sign in
+                    a.btn.btn-success(href='#modal-form', data-toggle='modal') Form in a modal
+              section.panel.panel-default
+                header.panel-heading.font-bold
+                  | Form elements
+                .panel-body
+                  form.form-horizontal(method='get')
+                    .form-group
+                      label.col-sm-2.control-label Rounded
+                      .col-sm-10
+                        input.form-control.rounded(type='text')
+                    .line.line-dashed.b-b.line-lg.pull-in
+                    .form-group
+                      label.col-sm-2.control-label With help
+                      .col-sm-10
+                        input.form-control(type='text')
+                        span.help-block.m-b-none A block of help text that breaks onto a new line and may extend beyond one line.
+                    .line.line-dashed.b-b.line-lg.pull-in
+                    .form-group
+                      label.col-sm-2.control-label(for='input-id-1') Label focus
+                      .col-sm-10
+                        input#input-id-1.form-control(type='text')
+                    .line.line-dashed.b-b.line-lg.pull-in
+                    .form-group
+                      label.col-sm-2.control-label Password
+                      .col-sm-10
+                        input.form-control(type='password', name='password')
+                    .line.line-dashed.b-b.line-lg.pull-in
+                    .form-group
+                      label.col-sm-2.control-label Placeholder
+                      .col-sm-10
+                        input.form-control(type='text', placeholder='placeholder')
+                    .line.line-dashed.b-b.line-lg.pull-in
+                    .form-group
+                      label.col-lg-2.control-label Disabled
+                      .col-lg-10
+                        input.form-control(type='text', placeholder='Disabled input here...', disabled='')
+                    .line.line-dashed.b-b.line-lg.pull-in
+                    .form-group
+                      label.col-lg-2.control-label Static control
+                      .col-lg-10
+                        p.form-control-static email@example.com
+                    .line.line-dashed.b-b.line-lg.pull-in
+                    .form-group
+                      label.col-sm-2.control-label Checkboxes and radios
+                      .col-sm-10
+                        .checkbox
+                          label
+                            input(type='checkbox', value='')
+                            | Option one is this and that—be sure to include why it's great
+                        .radio
+                          label
+                            input#optionsRadios1(type='radio', name='optionsRadios', value='option1', checked='')
+                            | Option one is this and that—be sure to include why it's great
+                        .radio
+                          label
+                            input#optionsRadios2(type='radio', name='optionsRadios', value='option2')
+                            | Option two can be something else and selecting it will deselect option one
+                    .line.line-dashed.b-b.line-lg.pull-in
+                    .form-group
+                      label.col-sm-2.control-label Inline checkboxes
+                      .col-sm-10
+                        label.checkbox-inline
+                          input(type='checkbox', value='option1')
+                          | a
+                        label.checkbox-inline
+                          input(type='checkbox', value='option2')
+                          | b
+                        label.checkbox-inline
+                          input(type='checkbox', value='option3')
+                          | c
+                    .line.line-dashed.b-b.line-lg.pull-in
+                    .form-group
+                      label.col-sm-2.control-label Custom Checkboxes & radios
+                      .col-sm-10
+                        .checkbox.i-checks
+                          label
+                            input(type='checkbox', value='')
+                            i
+                            | Option one
+                        .checkbox.i-checks
+                          label
+                            input(type='checkbox', checked='', value='')
+                            i
+                            | Option two checked
+                        .checkbox.i-checks
+                          label
+                            input(type='checkbox', checked='', disabled='', value='')
+                            i
+                            | Option three checked and disabled
+                        .checkbox.i-checks
+                          label
+                            input(type='checkbox', disabled='', value='')
+                            i
+                            | Option four disabled
+                        .radio.i-checks
+                          label
+                            input(type='radio', name='a', value='option1')
+                            i
+                            | Option one
+                        .radio.i-checks
+                          label
+                            input(type='radio', name='a', value='option2', checked='')
+                            i
+                            | Option two checked
+                        .radio.i-checks
+                          label
+                            input(type='radio', value='option2', checked='', disabled='')
+                            i
+                            | Option three checked and disabled
+                        .radio.i-checks
+                          label
+                            input(type='radio', name='a', disabled='')
+                            i
+                            | Option four disabled
+                    .line.line-dashed.b-b.line-lg.pull-in
+                    .form-group
+                      label.col-sm-2.control-label Inline checkboxes
+                      .col-sm-10
+                        label.checkbox-inline.i-checks
+                          input(type='checkbox', value='option1')
+                          i
+                          | a
+                        label.checkbox-inline.i-checks
+                          input(type='checkbox', value='option2')
+                          i
+                          | b
+                        label.checkbox-inline.i-checks
+                          input(type='checkbox', value='option3')
+                          i
+                          | c
+                    .line.line-dashed.b-b.line-lg.pull-in
+                    .form-group
+                      label.col-sm-2.control-label Select
+                      .col-sm-10
+                        select.form-control.m-b(name='account')
+                          option option 1
+                          option option 2
+                          option option 3
+                          option option 4
+                        .col-lg-4.m-l-n
+                          select.form-control(multiple='')
+                            option option 1
+                            option option 2
+                            option option 3
+                            option option 4
+                    .line.line-dashed.b-b.line-lg.pull-in
+                    .form-group.has-success
+                      label.col-sm-2.control-label Input with success
+                      .col-sm-10
+                        input.form-control(type='text')
+                    .line.line-dashed.b-b.line-lg.pull-in
+                    .form-group.has-warning
+                      label.col-sm-2.control-label Input with warning
+                      .col-sm-10
+                        input.form-control(type='text')
+                    .line.line-dashed.b-b.line-lg.pull-in
+                    .form-group.has-error
+                      label.col-sm-2.control-label Input with error
+                      .col-sm-10
+                        input.form-control(type='text')
+                    .line.line-dashed.b-b.line-lg.pull-in
+                    .form-group
+                      label.col-sm-2.control-label Control sizing
+                      .col-sm-10
+                        input.form-control.input-lg.m-b(type='text', placeholder='.input-lg')
+                        input.form-control.m-b(type='text', placeholder='Default input')
+                        input.form-control.input-sm(type='text', placeholder='.input-sm')
+                    .line.line-dashed.b-b.line-lg.pull-in
+                    .form-group
+                      label.col-sm-2.control-label Column sizing
+                      .col-sm-10
+                        .row
+                          .col-md-2
+                            input.form-control(type='text', placeholder='.col-md-2')
+                          .col-md-3
+                            input.form-control(type='text', placeholder='.col-md-3')
+                          .col-md-4
+                            input.form-control(type='text', placeholder='.col-md-4')
+                    .line.line-dashed.b-b.line-lg.pull-in
+                    .form-group
+                      label.col-sm-2.control-label Input groups
+                      .col-sm-10
+                        .input-group.m-b
+                          span.input-group-addon @
+                          input.form-control(type='text', placeholder='Username')
+                        .input-group.m-b
+                          input.form-control(type='text')
+                          span.input-group-addon .00
+                        .input-group.m-b
+                          span.input-group-addon $
+                          input.form-control(type='text')
+                          span.input-group-addon .00
+                        .input-group.m-b
+                          span.input-group-addon
+                            input(type='checkbox')
+                          input.form-control(type='text')
+                        .input-group
+                          span.input-group-addon
+                            input(type='radio')
+                          input.form-control(type='text')
+                    .line.line-dashed.b-b.line-lg.pull-in
+                    .form-group
+                      label.col-sm-2.control-label Button addons
+                      .col-sm-10
+                        .input-group.m-b
+                          span.input-group-btn
+                            button.btn.btn-default(type='button') Go!
+                          input.form-control(type='text')
+                        .input-group
+                          input.form-control(type='text')
+                          span.input-group-btn
+                            button.btn.btn-default(type='button') Go!
+                    .line.line-dashed.b-b.line-lg.pull-in
+                    .form-group
+                      label.col-sm-2.control-label With dropdowns
+                      .col-sm-10
+                        .input-group.m-b
+                          .input-group-btn
+                            button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+                              | Action
+                              span.caret
+                            ul.dropdown-menu
+                              li
+                                a(href='#') Action
+                              li
+                                a(href='#') Another action
+                              li
+                                a(href='#') Something else here
+                              li.divider
+                              li
+                                a(href='#') Separated link
+                          // /btn-group
+                          input.form-control(type='text')
+                        .input-group
+                          input.form-control(type='text')
+                          .input-group-btn
+                            button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+                              | Action
+                              span.caret
+                            ul.dropdown-menu.pull-right
+                              li
+                                a(href='#') Action
+                              li
+                                a(href='#') Another action
+                              li
+                                a(href='#') Something else here
+                              li.divider
+                              li
+                                a(href='#') Separated link
+                          // /btn-group
+                    .line.line-dashed.b-b.line-lg.pull-in
+                    .form-group
+                      label.col-sm-2.control-label Segmented
+                      .col-sm-10
+                        .input-group.m-b
+                          .input-group-btn
+                            button.btn.btn-default(type='button', tabindex='-1') Action
+                            button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+                              span.caret
+                            ul.dropdown-menu
+                              li
+                                a(href='#') Action
+                              li
+                                a(href='#') Another action
+                              li
+                                a(href='#') Something else here
+                              li.divider
+                              li
+                                a(href='#') Separated link
+                          // /btn-group
+                          input.form-control(type='text')
+                        .input-group
+                          input.form-control(type='text')
+                          .input-group-btn
+                            button.btn.btn-default(type='button', tabindex='-1') Action
+                            button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+                              span.caret
+                            ul.dropdown-menu.pull-right
+                              li
+                                a(href='#') Action
+                              li
+                                a(href='#') Another action
+                              li
+                                a(href='#') Something else here
+                              li.divider
+                              li
+                                a(href='#') Separated link
+                          // /btn-group
+                    .line.line-dashed.b-b.line-lg.pull-in
+                    .form-group
+                      label.col-sm-2.control-label Dropdown select
+                      .col-sm-10
+                        .btn-group.m-r
+                          button.btn.btn-sm.btn-default.dropdown-toggle(data-toggle='dropdown')
+                            span.dropdown-label Option1
+                            span.caret
+                          ul.dropdown-menu.dropdown-select
+                            li.active
+                              input(type='radio', name='d-s-r', checked='')
+                              a(href='#') Option1
+                            li
+                              input(type='radio', name='d-s-r')
+                              a(href='#') Option2
+                            li
+                              input(type='radio', name='d-s-r')
+                              a(href='#') Option3
+                            li.disabled
+                              input(type='radio', name='d-s-r', disabled='')
+                              a(href='#') I'm disabled
+                        .btn-group.m-r
+                          button.btn.btn-sm.btn-default.dropdown-toggle(data-toggle='dropdown')
+                            span.dropdown-label(data-placeholder='Please select') Please select
+                            span.caret
+                          ul.dropdown-menu.dropdown-select
+                            li
+                              input(type='checkbox', name='d-s-c-1')
+                              a(href='#') Option1
+                            li
+                              input(type='checkbox', name='d-s-c-2')
+                              a(href='#') Option2
+                            li
+                              input(type='checkbox', name='d-s-c-3')
+                              a(href='#') Option3
+                            li
+                              input(type='checkbox', name='d-s-c-4')
+                              a(href='#') Option4
+                            li
+                              input(type='checkbox', name='d-s-c-5')
+                              a(href='#') Option5
+                        .inline.v-middle
+                          .input-group.input-s-sm
+                            input#appendedInput.input-sm.form-control(type='text')
+                            .input-group-btn
+                              button.btn.btn-default.btn-sm.dropdown-toggle(data-toggle='dropdown')
+                                span.dropdown-label USD
+                                span.caret
+                              ul.dropdown-menu.dropdown-select.pull-right
+                                li.active
+                                  input(type='radio', value='USD', name='pay_unit', checked='')
+                                  a(href='#') USD
+                                li
+                                  input(type='radio', value='GBP', name='pay_unit')
+                                  a(href='#') GBP
+                    .line.line-dashed.b-b.line-lg.pull-in
+                    .form-group
+                      label.col-sm-2.control-label Slider
+                      .col-sm-10
+                        input.slider.slider-horizontal.form-control(type='text', value='', data-slider-min='5', data-slider-max='20', data-slider-step='1', data-slider-value='10', data-slider-orientation='horizontal')
+                    .line.line-dashed.b-b.line-lg.pull-in
+                    .form-group
+                      label.col-sm-2.control-label Vertical slider
+                      .col-sm-10
+                        input.slider.slider-vertical.form-control(type='text', value='', data-slider-min='5', data-slider-max='20', data-slider-step='1', data-slider-value='10', data-slider-orientation='vertical')
+                        input.slider.slider-vertical.form-control(type='text', value='', data-slider-min='5', data-slider-max='20', data-slider-step='1', data-slider-value='15', data-slider-orientation='vertical')
+                        input.slider.slider-vertical.form-control(type='text', value='', data-slider-min='5', data-slider-max='20', data-slider-step='1', data-slider-value='10', data-slider-orientation='vertical')
+                    .line.line-dashed.b-b.line-lg.pull-in
+                    .form-group
+                      label.col-sm-2.control-label Range selector
+                      .col-sm-10
+                        input#sl2.slider.form-control(type='text', value='', data-slider-min='10', data-slider-max='1000', data-slider-step='5', data-slider-value='[250,750]')
+                    .line.line-dashed.b-b.line-lg.pull-in
+                    .form-group
+                      label.col-sm-2.control-label Switch
+                      .col-sm-10
+                        label.switch
+                          input(type='checkbox')
+                          span
+                    .line.line-dashed.b-b.line-lg.pull-in
+                    .form-group
+                      label.col-sm-2.control-label Chosen
+                      .col-sm-10
+                        select.chosen-select(style='width:260px')
+                          optgroup(label='Alaskan/Hawaiian Time Zone')
+                            option(value='AK') Alaska
+                            option(value='HI') Hawaii
+                          optgroup(label='Pacific Time Zone')
+                            option(value='CA') California
+                            option(value='NV') Nevada
+                            option(value='OR') Oregon
+                            option(value='WA') Washington
+                          optgroup(label='Mountain Time Zone')
+                            option(value='AZ') Arizona
+                            option(value='CO') Colorado
+                            option(value='ID') Idaho
+                            option(value='MT') Montana
+                            option(value='NE') Nebraska
+                            option(value='NM') New Mexico
+                            option(value='ND') North Dakota
+                            option(value='UT') Utah
+                            option(value='WY') Wyoming
+                          optgroup(label='Central Time Zone')
+                            option(value='AL') Alabama
+                            option(value='AR') Arkansas
+                            option(value='IL') Illinois
+                            option(value='IA') Iowa
+                            option(value='KS') Kansas
+                            option(value='KY') Kentucky
+                            option(value='LA') Louisiana
+                            option(value='MN') Minnesota
+                            option(value='MS') Mississippi
+                            option(value='MO') Missouri
+                            option(value='OK') Oklahoma
+                            option(value='SD') South Dakota
+                            option(value='TX') Texas
+                            option(value='TN') Tennessee
+                            option(value='WI') Wisconsin
+                          optgroup(label='Eastern Time Zone')
+                            option(value='CT') Connecticut
+                            option(value='DE') Delaware
+                            option(value='FL') Florida
+                            option(value='GA') Georgia
+                            option(value='IN') Indiana
+                            option(value='ME') Maine
+                            option(value='MD') Maryland
+                            option(value='MA') Massachusetts
+                            option(value='MI') Michigan
+                            option(value='NH') New Hampshire
+                            option(value='NJ') New Jersey
+                            option(value='NY') New York
+                            option(value='NC') North Carolina
+                            option(value='OH') Ohio
+                            option(value='PA') Pennsylvania
+                            option(value='RI') Rhode Island
+                            option(value='SC') South Carolina
+                            option(value='VT') Vermont
+                            option(value='VA') Virginia
+                            option(value='WV') West Virginia
+                    .line.line-dashed.b-b.line-lg.pull-in
+                    .form-group
+                      label.col-sm-2.control-label Chosen multiple
+                      .col-sm-10
+                        select.chosen-select(style='width:260px', multiple='')
+                          option(value='AK') Alaska
+                          option(value='HI') Hawaii
+                          option(value='CA') California
+                          option(value='NV') Nevada
+                          option(value='OR') Oregon
+                          option(value='WA') Washington
+                    .line.line-dashed.b-b.line-lg.pull-in
+                    .form-group
+                      label.col-sm-2.control-label Datepicker
+                      .col-sm-10
+                        input.input-sm.input-s.datepicker-input.form-control(size='16', type='text', value='12-02-2013', data-date-format='dd-mm-yyyy')
+                    .line.line-dashed.b-b.line-lg.pull-in
+                    .form-group
+                      label.col-sm-2.control-label File input
+                      .col-sm-10
+                        input.filestyle(type='file', data-icon='false', data-classbutton='btn btn-default', data-classinput='form-control inline v-middle input-s')
+                    .line.line-dashed.b-b.line-lg.pull-in
+                    .form-group
+                      label.col-sm-2.control-label Markdown
+                      #epiceditor.col-lg-10
+                    .line.line-dashed.b-b.line-lg.pull-in
+                    .form-group
+                      label.col-sm-2.control-label Wysiwyg
+                      .col-sm-10
+                        .btn-toolbar.m-b-sm.btn-editor(data-role='editor-toolbar', data-target='#editor')
+                          .btn-group
+                            a.btn.btn-default.btn-sm.dropdown-toggle(data-toggle='dropdown', title='Font')
+                              i.fa.fa-font
+                              b.caret
+                            ul.dropdown-menu
+                          .btn-group
+                            a.btn.btn-default.btn-sm.dropdown-toggle(data-toggle='dropdown', title='Font Size')
+                              i.fa.fa-text-height
+                              b.caret
+                            ul.dropdown-menu
+                              li
+                                a(data-edit='fontSize 5', style='font-size:24px') Huge
+                              li
+                                a(data-edit='fontSize 3', style='font-size:18px') Normal
+                              li
+                                a(data-edit='fontSize 1', style='font-size:14px') Small
+                          .btn-group
+                            a.btn.btn-default.btn-sm(data-edit='bold', title='Bold (Ctrl/Cmd+B)')
+                              i.fa.fa-bold
+                            a.btn.btn-default.btn-sm(data-edit='italic', title='Italic (Ctrl/Cmd+I)')
+                              i.fa.fa-italic
+                            a.btn.btn-default.btn-sm(data-edit='strikethrough', title='Strikethrough')
+                              i.fa.fa-strikethrough
+                            a.btn.btn-default.btn-sm(data-edit='underline', title='Underline (Ctrl/Cmd+U)')
+                              i.fa.fa-underline
+                          .btn-group
+                            a.btn.btn-default.btn-sm(data-edit='insertunorderedlist', title='Bullet list')
+                              i.fa.fa-list-ul
+                            a.btn.btn-default.btn-sm(data-edit='insertorderedlist', title='Number list')
+                              i.fa.fa-list-ol
+                            a.btn.btn-default.btn-sm(data-edit='outdent', title='Reduce indent (Shift+Tab)')
+                              i.fa.fa-dedent
+                            a.btn.btn-default.btn-sm(data-edit='indent', title='Indent (Tab)')
+                              i.fa.fa-indent
+                          .btn-group
+                            a.btn.btn-default.btn-sm(data-edit='justifyleft', title='Align Left (Ctrl/Cmd+L)')
+                              i.fa.fa-align-left
+                            a.btn.btn-default.btn-sm(data-edit='justifycenter', title='Center (Ctrl/Cmd+E)')
+                              i.fa.fa-align-center
+                            a.btn.btn-default.btn-sm(data-edit='justifyright', title='Align Right (Ctrl/Cmd+R)')
+                              i.fa.fa-align-right
+                            a.btn.btn-default.btn-sm(data-edit='justifyfull', title='Justify (Ctrl/Cmd+J)')
+                              i.fa.fa-align-justify
+                          .btn-group
+                            a.btn.btn-default.btn-sm.dropdown-toggle(data-toggle='dropdown', title='Hyperlink')
+                              i.fa.fa-link
+                            .dropdown-menu
+                              .input-group.m-l-xs.m-r-xs
+                                input.form-control.input-sm(placeholder='URL', type='text', data-edit='createLink')
+                                .input-group-btn
+                                  button.btn.btn-default.btn-sm(type='button') Add
+                            a.btn.btn-default.btn-sm(data-edit='unlink', title='Remove Hyperlink')
+                              i.fa.fa-cut
+                          .btn-group.hide
+                            a#pictureBtn.btn.btn-default.btn-sm(title='Insert picture (or just drag & drop)')
+                              i.fa.fa-picture-o
+                            input(type='file', data-role='magic-overlay', data-target='#pictureBtn', data-edit='insertImage')
+                          .btn-group
+                            a.btn.btn-default.btn-sm(data-edit='undo', title='Undo (Ctrl/Cmd+Z)')
+                              i.fa.fa-undo
+                            a.btn.btn-default.btn-sm(data-edit='redo', title='Redo (Ctrl/Cmd+Y)')
+                              i.fa.fa-repeat
+                        #editor.form-control(style='overflow:scroll;height:150px;max-height:150px')
+                          | Go ahead…
+                    .line.line-dashed.b-b.line-lg.pull-in
+                    .form-group
+                      label.col-sm-2.control-label Drag and Drop
+                      .col-sm-10
+                        .dropfile.visible-lg
+                          small Drag and Drop file here
+                    .line.line-dashed.b-b.line-lg.pull-in
+                    .form-group
+                      .col-sm-4.col-sm-offset-2
+                        button.btn.btn-default(type='submit') Cancel
+                        button.btn.btn-primary(type='submit') Save changes
+          a.hide.nav-off-screen-block(href='#', data-toggle='class:nav-off-screen,open', data-target='#nav,html')
+  #modal-form.modal.fade
+    .modal-dialog
+      .modal-content
+        .modal-body.wrapper-lg
+          .row
+            .col-sm-6.b-r
+              h3.m-t-none.m-b Sign in
+              p Sign in to meet your friends.
+              form(role='form')
+                .form-group
+                  label Email
+                  input.form-control(type='email', placeholder='Enter email')
+                .form-group
+                  label Password
+                  input.form-control(type='password', placeholder='Password')
+                .checkbox.m-t-lg
+                  button.btn.btn-sm.btn-success.pull-right.text-uc.m-t-n-xs(type='submit')
+                    strong Log in
+                  label
+                    input(type='checkbox')
+                    | Remember me
+            .col-sm-6
+              h4 Not a member?
+              p
+                | You can create an account
+                a.text-info(href='#') here
+              p OR
+              a.btn.btn-primary.btn-block.m-b-sm(href='#')
+                i.fa.fa-facebook.pull-left
+                | Sign in with Facebook
+              a.btn.btn-info.btn-block.m-b-sm(href='#')
+                i.fa.fa-twitter.pull-left
+                | Sign in with Twitter
+              a.btn.btn-danger.btn-block(href='#')
+                i.fa.fa-google-plus.pull-left
+                | Sign in with Google+
+      // /.modal-content
+    // /.modal-dialog
+

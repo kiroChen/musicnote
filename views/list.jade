@@ -1,0 +1,555 @@
+extends layout
+
+block content
+  section.vbox
+    header.bg-white-only.header.header-md.navbar.navbar-fixed-top-xs
+      .navbar-header.aside.bg-info.dk
+        a.btn.btn-link.visible-xs(data-toggle='class:nav-off-screen,open', data-target='#nav,html')
+          i.icon-list
+        a.navbar-brand.text-lt(href='index.html')
+          i.icon-earphones
+          img.hide(src='images/logo.png', alt='.')
+          span.hidden-nav-xs.m-l-sm Musik
+        a.btn.btn-link.visible-xs(data-toggle='dropdown', data-target='.user')
+          i.icon-settings
+      ul.nav.navbar-nav.hidden-xs
+        li
+          a.text-muted(href='#nav,.navbar-header', data-toggle='class:nav-xs,nav-xs')
+            i.fa.fa-indent.text
+            i.fa.fa-dedent.text-active
+      form.navbar-form.navbar-left.input-s-lg.m-t.m-l-n-xs.hidden-xs(role='search')
+        .form-group
+          .input-group
+            span.input-group-btn
+              button.btn.btn-sm.bg-white.btn-icon.rounded(type='submit')
+                i.fa.fa-search
+            input.form-control.input-sm.no-border.rounded(type='text', placeholder='Search songs, albums...')
+      .navbar-right
+        ul.nav.navbar-nav.m-n.hidden-xs.nav-user.user
+          li.hidden-xs
+            a.dropdown-toggle.lt(href='#', data-toggle='dropdown')
+              i.icon-bell
+              span.badge.badge-sm.up.bg-danger.count 2
+            section.dropdown-menu.aside-xl.animated.fadeInUp
+              section.panel.bg-white
+                .panel-heading.b-light.bg-light
+                  strong
+                    | You have
+                    span.count 2
+                    | notifications
+                .list-group.list-group-alt
+                  a.media.list-group-item(href='#')
+                    span.pull-left.thumb-sm
+                      img.img-circle(src='images/a0.png', alt='...')
+                    span.media-body.block.m-b-none
+                      | Use awesome animate.css
+                      br
+                      small.text-muted 10 minutes ago
+                  a.media.list-group-item(href='#')
+                    span.media-body.block.m-b-none
+                      | 1.0 initial released
+                      br
+                      small.text-muted 1 hour ago
+                .panel-footer.text-sm
+                  a.pull-right(href='#')
+                    i.fa.fa-cog
+                  a(href='#notes', data-toggle='class:show animated fadeInRight') See all the notifications
+          li.dropdown
+            a.dropdown-toggle.bg.clear(href='#', data-toggle='dropdown')
+              span.thumb-sm.avatar.pull-right.m-t-n-sm.m-b-n-sm.m-l-sm
+                img(src='images/a0.png', alt='...')
+              | John.Smith
+              b.caret
+            ul.dropdown-menu.animated.fadeInRight
+              li
+                span.arrow.top
+                a(href='#') Settings
+              li
+                a(href='profile.html') Profile
+              li
+                a(href='#')
+                  span.badge.bg-danger.pull-right 3
+                  | Notifications
+              li
+                a(href='docs.html') Help
+              li.divider
+              li
+                a(href='modal.lockme.html', data-toggle='ajaxModal') Logout
+    section
+      section.hbox.stretch
+        // .aside
+        aside#nav.bg-black.dk.aside.hidden-print
+          section.vbox
+            section.w-f-md.scrollable
+              .slim-scroll(data-height='auto', data-disable-fade-out='true', data-distance='0', data-size='10px', data-railopacity='0.2')
+                // nav
+                nav.nav-primary.hidden-xs
+                  ul.nav.bg.clearfix
+                    li.hidden-nav-xs.padder.m-t.m-b-sm.text-xs.text-muted
+                      | Discover
+                    li
+                      a(href='index.html')
+                        i.icon-disc.icon.text-success
+                        span.font-bold What's new
+                    li
+                      a(href='genres.html')
+                        i.icon-music-tone-alt.icon.text-info
+                        span.font-bold Genres
+                    li
+                      a(href='events.html')
+                        i.icon-drawer.icon.text-primary-lter
+                        b.badge.bg-primary.pull-right 6
+                        span.font-bold Events
+                    li
+                      a(href='listen.html')
+                        i.icon-list.icon.text-info-dker
+                        span.font-bold Listen
+                    li
+                      a(href='video.html', data-target='#content', data-el='#bjax-el', data-replace='true')
+                        i.icon-social-youtube.icon.text-primary
+                        span.font-bold Video
+                    li.m-b.hidden-nav-xs
+                  ul.nav(data-ride='collapse')
+                    li.hidden-nav-xs.padder.m-t.m-b-sm.text-xs.text-muted
+                      | Interface
+                    li
+                      a.auto(href='#')
+                        span.pull-right.text-muted
+                          i.fa.fa-angle-left.text
+                          i.fa.fa-angle-down.text-active
+                        i.icon-screen-desktop.icon
+                        span Layouts
+                      ul.nav.dk.text-sm
+                        li
+                          a.auto(href='layout-color.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Color option
+                        li
+                          a.auto(href='layout-boxed.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Boxed layout
+                        li
+                          a.auto(href='layout-fluid.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Fluid layout
+                    li.active
+                      a.auto(href='#')
+                        span.pull-right.text-muted
+                          i.fa.fa-angle-left.text
+                          i.fa.fa-angle-down.text-active
+                        i.icon-chemistry.icon
+                        span UI Kit
+                      ul.nav.dk.text-sm
+                        li
+                          a.auto(href='buttons.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Buttons
+                        li
+                          a.auto(href='icons.html')
+                            b.badge.bg-info.pull-right 369
+                            i.fa.fa-angle-right.text-xs
+                            span Icons
+                        li
+                          a.auto(href='http://www.weidea.net')
+                            b.badge.bg-info.pull-right 369
+                            i.fa.fa-angle-right.text-xs
+                            span More
+                        li
+                          a.auto(href='grid.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Grid
+                        li
+                          a.auto(href='widgets.html')
+                            b.badge.bg-dark.pull-right 8
+                            i.fa.fa-angle-right.text-xs
+                            span Widgets
+                        li
+                          a.auto(href='components.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Components
+                        li.active
+                          a.auto(href='list.html')
+                            i.fa.fa-angle-right.text-xs
+                            span List group
+                        li
+                          a.auto(href='#table')
+                            span.pull-right.text-muted
+                              i.fa.fa-angle-left.text
+                              i.fa.fa-angle-down.text-active
+                            i.fa.fa-angle-right.text-xs
+                            span Table
+                          ul.nav.dker
+                            li
+                              a(href='table-static.html')
+                                i.fa.fa-angle-right
+                                span Table static
+                            li
+                              a(href='table-datatable.html')
+                                i.fa.fa-angle-right
+                                span Datatable
+                        li
+                          a.auto(href='#form')
+                            span.pull-right.text-muted
+                              i.fa.fa-angle-left.text
+                              i.fa.fa-angle-down.text-active
+                            i.fa.fa-angle-right.text-xs
+                            span Form
+                          ul.nav.dker
+                            li
+                              a(href='form-elements.html')
+                                i.fa.fa-angle-right
+                                span Form elements
+                            li
+                              a(href='form-validation.html')
+                                i.fa.fa-angle-right
+                                span Form validation
+                            li
+                              a(href='form-wizard.html')
+                                i.fa.fa-angle-right
+                                span Form wizard
+                        li
+                          a.auto(href='chart.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Chart
+                        li
+                          a.auto(href='portlet.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Portlet
+                        li
+                          a.auto(href='timeline.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Timeline
+                    li
+                      a.auto(href='#')
+                        span.pull-right.text-muted
+                          i.fa.fa-angle-left.text
+                          i.fa.fa-angle-down.text-active
+                        i.icon-grid.icon
+                        span Pages
+                      ul.nav.dk.text-sm
+                        li
+                          a.auto(href='profile.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Profile
+                        li
+                          a.auto(href='blog.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Blog
+                        li
+                          a.auto(href='invoice.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Invoice
+                        li
+                          a.auto(href='gmap.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Google Map
+                        li
+                          a.auto(href='jvectormap.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Vector Map
+                        li
+                          a.auto(href='signin.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Signin
+                        li
+                          a.auto(href='signup.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Signup
+                        li
+                          a.auto(href='404.html')
+                            i.fa.fa-angle-right.text-xs
+                            span 404
+                  ul.nav.text-sm
+                    li.hidden-nav-xs.padder.m-t.m-b-sm.text-xs.text-muted
+                      span.pull-right
+                        a(href='#')
+                          i.icon-plus.i-lg
+                      | Playlist
+                    li
+                      a(href='#')
+                        i.icon-music-tone.icon
+                        span Hip-Pop
+                    li
+                      a(href='#')
+                        i.icon-playlist.icon.text-success-lter
+                        b.badge.bg-success.dker.pull-right 9
+                        span Jazz
+                // / nav
+            footer.footer.hidden-xs.no-padder.text-center-nav-xs
+              .bg.hidden-xs
+                .dropdown.dropup.wrapper-sm.clearfix
+                  a.dropdown-toggle(href='#', data-toggle='dropdown')
+                    span.thumb-sm.avatar.pull-left.m-l-xs
+                      img.dker(src='images/a3.png', alt='...')
+                      i.on.b-black
+                    span.hidden-nav-xs.clear
+                      span.block.m-l
+                        strong.font-bold.text-lt John.Smith
+                        b.caret
+                      span.text-muted.text-xs.block.m-l Art Director
+                  ul.dropdown-menu.animated.fadeInRight.aside.text-left
+                    li
+                      span.arrow.bottom.hidden-nav-xs
+                      a(href='#') Settings
+                    li
+                      a(href='profile.html') Profile
+                    li
+                      a(href='#')
+                        span.badge.bg-danger.pull-right 3
+                        | Notifications
+                    li
+                      a(href='docs.html') Help
+                    li.divider
+                    li
+                      a(href='modal.lockme.html', data-toggle='ajaxModal') Logout
+        // /.aside
+        section#content
+          section.vbox
+            header.header.bg-light.b-b
+              p List groups
+            section.scrollable.wrapper
+              div
+                h4.m-t-none
+                  | Sortable list
+                  small (drag to sort)
+                ul.list-group.gutter.list-group-lg.list-group-sp.sortable
+                  li.list-group-item.bg-info
+                    span.pull-right
+                      a(href='#')
+                        i.fa.fa-pencil.fa-fw.m-r-xs
+                      a(href='#')
+                        i.fa.fa-plus.fa-fw.m-r-xs
+                      a(href='#')
+                        i.fa.fa-times.fa-fw
+                    span.pull-left.media-xs
+                      i.fa.fa-sort.text-muted.fa.m-r-sm
+                      | 01
+                    .clear.text-white
+                      | Browser compatibility
+                  li.list-group-item.bg-primary
+                    span.pull-right
+                      a(href='#')
+                        i.fa.fa-pencil.fa-fw.m-r-xs
+                      a(href='#')
+                        i.fa.fa-plus.fa-fw.m-r-xs
+                      a(href='#')
+                        i.fa.fa-times.fa-fw
+                    span.pull-left.media-xs
+                      i.fa.fa-sort.text-muted.fa.m-r-sm
+                      | 02
+                    .clear.text-white
+                      | Looking for more example templates
+                  li.list-group-item.bg-success
+                    span.pull-right
+                      a(href='#')
+                        i.fa.fa-pencil.fa-fw.m-r-xs
+                      a(href='#')
+                        i.fa.fa-plus.fa-fw.m-r-xs
+                      a(href='#')
+                        i.fa.fa-times.fa-fw
+                    span.pull-left.media-xs
+                      i.fa.fa-sort.text-muted.fa.m-r-sm
+                      | 03
+                    .clear.text-white
+                      | Customizing components
+                  li.list-group-item
+                    span.pull-right
+                      a(href='#')
+                        i.fa.fa-pencil.icon-muted.fa-fw.m-r-xs
+                      a(href='#')
+                        i.fa.fa-plus.icon-muted.fa-fw.m-r-xs
+                      a(href='#')
+                        i.fa.fa-times.icon-muted.fa-fw
+                    span.pull-left.media-xs
+                      i.fa.fa-sort.text-muted.fa.m-r-sm
+                      | 04
+                    .clear
+                      | The fastest way to get started
+                  li.list-group-item
+                    span.pull-right
+                      a(href='#')
+                        i.fa.fa-pencil.icon-muted.fa-fw.m-r-xs
+                      a(href='#')
+                        i.fa.fa-plus.icon-muted.fa-fw.m-r-xs
+                      a(href='#')
+                        i.fa.fa-times.icon-muted.fa-fw
+                    span.pull-left.media-xs
+                      i.fa.fa-sort.text-muted.fa.m-r-sm
+                      | 05
+                    .clear
+                      | HTML5 doctype required
+              h4.m-t-none
+                | Nestable list
+                button#nestable-menu.btn.btn-xs.btn-default.active(data-toggle='button')
+                  i.fa.fa-plus.text.fa-fw
+                  span.text Expand All
+                  i.fa.fa-minus.text-active.fa-fw
+                  span.text-active Collapse All
+              .row.m-b
+                .col-sm-4
+                  #nestable1.dd
+                    ol.dd-list
+                      li.dd-item(data-id='1')
+                        .dd-handle Item 1
+                      li.dd-item(data-id='2')
+                        .dd-handle Item 2
+                        ol.dd-list
+                          li.dd-item(data-id='3')
+                            .dd-handle Item 3
+                          li.dd-item(data-id='4')
+                            .dd-handle Item 4
+                          li.dd-item(data-id='5')
+                            .dd-handle Item 5
+                            ol.dd-list
+                              li.dd-item(data-id='6')
+                                .dd-handle Item 6
+                              li.dd-item(data-id='7')
+                                .dd-handle Item 7
+                              li.dd-item(data-id='8')
+                                .dd-handle Item 8
+                          li.dd-item(data-id='9')
+                            .dd-handle Item 9
+                .col-sm-4
+                  #nestable2.dd
+                    ol.dd-list
+                      li.dd-item(data-id='10')
+                        .dd-handle Item 10
+                        ol.dd-list
+                          li.dd-item(data-id='11')
+                            .dd-handle Item 11
+                      li.dd-item(data-id='12')
+                        .dd-handle Item 12
+                      li.dd-item(data-id='13')
+                        .dd-handle Item 13
+                      li.dd-item(data-id='14')
+                        .dd-handle Item 14
+                      li.dd-item(data-id='15')
+                        .dd-handle Item 15
+                        ol.dd-list
+                          li.dd-item(data-id='16')
+                            .dd-handle Item 16
+                          li.dd-item(data-id='17')
+                            .dd-handle Item 17
+                          li.dd-item(data-id='18')
+                            .dd-handle Item 18
+                .col-sm-4
+                  #nestable3.dd
+                    ol.dd-list
+                      li.dd-item.dd3-item(data-id='13')
+                        .dd-handle.dd3-handle Drag
+                        .dd3-content Item 13
+                      li.dd-item.dd3-item(data-id='14')
+                        .dd-handle.dd3-handle Drag
+                        .dd3-content Item 14
+                      li.dd-item.dd3-item(data-id='15')
+                        .dd-handle.dd3-handle Drag
+                        .dd3-content Item 15
+                        ol.dd-list
+                          li.dd-item.dd3-item(data-id='16')
+                            .dd-handle.dd3-handle Drag
+                            .dd3-content Item 16
+                          li.dd-item.dd3-item(data-id='17')
+                            .dd-handle.dd3-handle Drag
+                            .dd3-content Item 17
+                          li.dd-item.dd3-item(data-id='18')
+                            .dd-handle.dd3-handle Drag
+                            .dd3-content Item 18
+              .row
+                .col-sm-6
+                  .list-group
+                    a.list-group-item(href='#')
+                      i.fa.fa-chevron-right.icon-muted
+                      span.badge.badge-empty 201
+                      i.fa.fa-envelope.icon-muted.fa-fw
+                      | Inbox
+                    a.list-group-item(href='#')
+                      i.fa.fa-chevron-right.icon-muted
+                      span.badge.bg-info 5021
+                      i.fa.fa-eye.icon-muted.fa-fw
+                      | Profile visits
+                    a.list-group-item(href='#')
+                      i.fa.fa-chevron-right.icon-muted
+                      span.badge.bg-success 14
+                      i.fa.fa-phone.icon-muted.fa-fw
+                      | Call
+                    a.list-group-item(href='#')
+                      i.fa.fa-chevron-right.icon-muted
+                      span.badge.bg-dark 20
+                      i.fa.fa-comments-o.icon-muted.fa-fw
+                      | Messages
+                    a.list-group-item(href='#')
+                      i.fa.fa-chevron-right.icon-muted
+                      span.badge.bg-warning 14
+                      i.fa.fa-bookmark.icon-muted.fa-fw
+                      | Bookmarks
+                    a.list-group-item(href='#')
+                      i.fa.fa-chevron-right.icon-muted
+                      span.badge.bg-info 30
+                      i.fa.fa-bell.icon-muted.fa-fw
+                      | Notifications
+                    a.list-group-item(href='#')
+                      i.fa.fa-chevron-right.icon-muted
+                      span.badge.bg-danger 10
+                      i.fa.fa-clock-o.icon-muted.fa-fw
+                      | Watch
+                .col-sm-6
+                  section.panel.panel-default
+                    header.panel-heading
+                      .input-group.text-sm
+                        input.input-sm.form-control(type='text', placeholder='Search')
+                        .input-group-btn
+                          button.btn.btn-sm.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+                            | Action
+                            span.caret
+                          ul.dropdown-menu.pull-right
+                            li
+                              a(href='#') Action
+                            li
+                              a(href='#') Another action
+                            li
+                              a(href='#') Something else here
+                            li.divider
+                            li
+                              a(href='#') Separated link
+                    ul.list-group.alt
+                      li.list-group-item
+                        .media
+                          span.pull-left.thumb-sm
+                            img.img-circle(src='images/a0.png', alt='John said')
+                          .pull-right.text-success.m-t-sm
+                            i.fa.fa-circle
+                          .media-body
+                            div
+                              a(href='#') Chris Fox
+                            small.text-muted about 2 minutes ago
+                      li.list-group-item
+                        .media
+                          span.pull-left.thumb-sm
+                            img.img-circle(src='images/a0.png', alt='John said')
+                          .pull-right.text-muted.m-t-sm
+                            i.fa.fa-circle
+                          .media-body
+                            div
+                              a(href='#') Amanda Conlan
+                            small.text-muted about 2 hours ago
+                      li.list-group-item
+                        .media
+                          span.pull-left.thumb-sm
+                            img.img-circle(src='images/a0.png', alt='John said')
+                          .pull-right.text-warning.m-t-sm
+                            i.fa.fa-circle
+                          .media-body
+                            div
+                              a(href='#') Dan Doorack
+                            small.text-muted 3 days ago
+                      li.list-group-item
+                        .media
+                          span.pull-left.thumb-sm
+                            img.img-circle(src='images/a0.png', alt='John said')
+                          .pull-right.text-danger.m-t-sm
+                            i.fa.fa-circle
+                          .media-body
+                            div
+                              a(href='#') Lauren Taylor
+                            small.text-muted about 2 minutes ago
+          a.hide.nav-off-screen-block(href='#', data-toggle='class:nav-off-screen,open', data-target='#nav,html')

@@ -1,0 +1,950 @@
+extends layout
+
+block content
+  section.vbox
+    header.bg-white-only.header.header-md.navbar.navbar-fixed-top-xs
+      .navbar-header.aside.bg-info.nav-xs
+        a.btn.btn-link.visible-xs(data-toggle='class:nav-off-screen,open', data-target='#nav,html')
+          i.icon-list
+        a.navbar-brand.text-lt(href='index.html')
+          i.icon-earphones
+          img.hide(src='images/logo.png', alt='.')
+          span.hidden-nav-xs.m-l-sm Musik
+        a.btn.btn-link.visible-xs(data-toggle='dropdown', data-target='.user')
+          i.icon-settings
+      ul.nav.navbar-nav.hidden-xs
+        li
+          a.text-muted(href='#nav,.navbar-header', data-toggle='class:nav-xs,nav-xs')
+            i.fa.fa-indent.text
+            i.fa.fa-dedent.text-active
+      form.navbar-form.navbar-left.input-s-lg.m-t.m-l-n-xs.hidden-xs(role='search')
+        .form-group
+          .input-group
+            span.input-group-btn
+              button.btn.btn-sm.bg-white.btn-icon.rounded(type='submit')
+                i.fa.fa-search
+            input.form-control.input-sm.no-border.rounded(type='text', placeholder='Search songs, albums...')
+      .navbar-right
+        ul.nav.navbar-nav.m-n.hidden-xs.nav-user.user
+          li.hidden-xs
+            a.dropdown-toggle.lt(href='#', data-toggle='dropdown')
+              i.icon-bell
+              span.badge.badge-sm.up.bg-danger.count 2
+            section.dropdown-menu.aside-xl.animated.fadeInUp
+              section.panel.bg-white
+                .panel-heading.b-light.bg-light
+                  strong
+                    | You have
+                    span.count 2
+                    | notifications
+                .list-group.list-group-alt
+                  a.media.list-group-item(href='#')
+                    span.pull-left.thumb-sm
+                      img.img-circle(src='images/a0.png', alt='...')
+                    span.media-body.block.m-b-none
+                      | Use awesome animate.css
+                      br
+                      small.text-muted 10 minutes ago
+                  a.media.list-group-item(href='#')
+                    span.media-body.block.m-b-none
+                      | 1.0 initial released
+                      br
+                      small.text-muted 1 hour ago
+                .panel-footer.text-sm
+                  a.pull-right(href='#')
+                    i.fa.fa-cog
+                  a(href='#notes', data-toggle='class:show animated fadeInRight') See all the notifications
+          li.dropdown
+            a.dropdown-toggle.bg.clear(href='#', data-toggle='dropdown')
+              span.thumb-sm.avatar.pull-right.m-t-n-sm.m-b-n-sm.m-l-sm
+                img(src='images/a0.png', alt='...')
+              | John.Smith
+              b.caret
+            ul.dropdown-menu.animated.fadeInRight
+              li
+                span.arrow.top
+                a(href='#') Settings
+              li
+                a(href='profile.html') Profile
+              li
+                a(href='#')
+                  span.badge.bg-danger.pull-right 3
+                  | Notifications
+              li
+                a(href='docs.html') Help
+              li.divider
+              li
+                a(href='modal.lockme.html', data-toggle='ajaxModal') Logout
+    section
+      section.hbox.stretch
+        // .aside
+        aside#nav.bg-black.dk.nav-xs.aside.hidden-print
+          section.vbox
+            section.w-f-md.scrollable
+              .slim-scroll(data-height='auto', data-disable-fade-out='true', data-distance='0', data-size='10px', data-railopacity='0.2')
+                // nav
+                nav.nav-primary.hidden-xs
+                  ul.nav.bg.clearfix
+                    li.hidden-nav-xs.padder.m-t.m-b-sm.text-xs.text-muted
+                      | Discover
+                    li
+                      a(href='index.html')
+                        i.icon-disc.icon.text-success
+                        span.font-bold What's new
+                    li
+                      a(href='genres.html')
+                        i.icon-music-tone-alt.icon.text-info
+                        span.font-bold Genres
+                    li
+                      a(href='events.html')
+                        i.icon-drawer.icon.text-primary-lter
+                        b.badge.bg-primary.pull-right 6
+                        span.font-bold Events
+                    li
+                      a(href='listen.html')
+                        i.icon-list.icon.text-info-dker
+                        span.font-bold Listen
+                    li
+                      a(href='video.html', data-target='#content', data-el='#bjax-el', data-replace='true')
+                        i.icon-social-youtube.icon.text-primary
+                        span.font-bold Video
+                    li.m-b.hidden-nav-xs
+                  ul.nav(data-ride='collapse')
+                    li.hidden-nav-xs.padder.m-t.m-b-sm.text-xs.text-muted
+                      | Interface
+                    li
+                      a.auto(href='#')
+                        span.pull-right.text-muted
+                          i.fa.fa-angle-left.text
+                          i.fa.fa-angle-down.text-active
+                        i.icon-screen-desktop.icon
+                        span Layouts
+                      ul.nav.dk.text-sm
+                        li
+                          a.auto(href='layout-color.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Color option
+                        li
+                          a.auto(href='layout-boxed.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Boxed layout
+                        li
+                          a.auto(href='layout-fluid.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Fluid layout
+                    li
+                      a.auto(href='#')
+                        span.pull-right.text-muted
+                          i.fa.fa-angle-left.text
+                          i.fa.fa-angle-down.text-active
+                        i.icon-chemistry.icon
+                        span UI Kit
+                      ul.nav.dk.text-sm
+                        li
+                          a.auto(href='buttons.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Buttons
+                        li
+                          a.auto(href='icons.html')
+                            b.badge.bg-info.pull-right 369
+                            i.fa.fa-angle-right.text-xs
+                            span Icons
+                        li
+                          a.auto(href='http://www.weidea.net')
+                            b.badge.bg-info.pull-right 369
+                            i.fa.fa-angle-right.text-xs
+                            span More
+                        li
+                          a.auto(href='grid.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Grid
+                        li
+                          a.auto(href='widgets.html')
+                            b.badge.bg-dark.pull-right 8
+                            i.fa.fa-angle-right.text-xs
+                            span Widgets
+                        li
+                          a.auto(href='components.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Components
+                        li
+                          a.auto(href='list.html')
+                            i.fa.fa-angle-right.text-xs
+                            span List group
+                        li
+                          a.auto(href='#table')
+                            span.pull-right.text-muted
+                              i.fa.fa-angle-left.text
+                              i.fa.fa-angle-down.text-active
+                            i.fa.fa-angle-right.text-xs
+                            span Table
+                          ul.nav.dker
+                            li
+                              a(href='table-static.html')
+                                i.fa.fa-angle-right
+                                span Table static
+                            li
+                              a(href='table-datatable.html')
+                                i.fa.fa-angle-right
+                                span Datatable
+                        li
+                          a.auto(href='#form')
+                            span.pull-right.text-muted
+                              i.fa.fa-angle-left.text
+                              i.fa.fa-angle-down.text-active
+                            i.fa.fa-angle-right.text-xs
+                            span Form
+                          ul.nav.dker
+                            li
+                              a(href='form-elements.html')
+                                i.fa.fa-angle-right
+                                span Form elements
+                            li
+                              a(href='form-validation.html')
+                                i.fa.fa-angle-right
+                                span Form validation
+                            li
+                              a(href='form-wizard.html')
+                                i.fa.fa-angle-right
+                                span Form wizard
+                        li
+                          a.auto(href='chart.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Chart
+                        li
+                          a.auto(href='portlet.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Portlet
+                        li
+                          a.auto(href='timeline.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Timeline
+                    li
+                      a.auto(href='#')
+                        span.pull-right.text-muted
+                          i.fa.fa-angle-left.text
+                          i.fa.fa-angle-down.text-active
+                        i.icon-grid.icon
+                        span Pages
+                      ul.nav.dk.text-sm
+                        li
+                          a.auto(href='profile.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Profile
+                        li
+                          a.auto(href='blog.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Blog
+                        li
+                          a.auto(href='invoice.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Invoice
+                        li
+                          a.auto(href='gmap.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Google Map
+                        li
+                          a.auto(href='jvectormap.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Vector Map
+                        li
+                          a.auto(href='signin.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Signin
+                        li
+                          a.auto(href='signup.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Signup
+                        li
+                          a.auto(href='404.html')
+                            i.fa.fa-angle-right.text-xs
+                            span 404
+                  ul.nav.text-sm
+                    li.hidden-nav-xs.padder.m-t.m-b-sm.text-xs.text-muted
+                      span.pull-right
+                        a(href='#')
+                          i.icon-plus.i-lg
+                      | Playlist
+                    li
+                      a(href='#')
+                        i.icon-music-tone.icon
+                        span Hip-Pop
+                    li
+                      a(href='#')
+                        i.icon-playlist.icon.text-success-lter
+                        b.badge.bg-success.dker.pull-right 9
+                        span Jazz
+                // / nav
+            footer.footer.hidden-xs.no-padder.text-center-nav-xs
+              .bg.hidden-xs
+                .dropdown.dropup.wrapper-sm.clearfix
+                  a.dropdown-toggle(href='#', data-toggle='dropdown')
+                    span.thumb-sm.avatar.pull-left.m-l-xs
+                      img.dker(src='images/a3.png', alt='...')
+                      i.on.b-black
+                    span.hidden-nav-xs.clear
+                      span.block.m-l
+                        strong.font-bold.text-lt John.Smith
+                        b.caret
+                      span.text-muted.text-xs.block.m-l Art Director
+                  ul.dropdown-menu.animated.fadeInRight.aside.text-left
+                    li
+                      span.arrow.bottom.hidden-nav-xs
+                      a(href='#') Settings
+                    li
+                      a(href='profile.html') Profile
+                    li
+                      a(href='#')
+                        span.badge.bg-danger.pull-right 3
+                        | Notifications
+                    li
+                      a(href='docs.html') Help
+                    li.divider
+                    li
+                      a(href='modal.lockme.html', data-toggle='ajaxModal') Logout
+        // /.aside
+        section#content
+          section.hbox.stretch
+            section
+              section.vbox
+                section#bjax-target.scrollable.padder-lg.w-f-md
+                  a.pull-right.text-muted.m-t-lg(href='#', data-toggle='class:fa-spin')
+                    i#refresh.icon-refresh.i-lg.inline
+                  h2.font-thin.m-b
+                    | Discover
+                    span.musicbar.animate.inline.m-l-sm(style='width:20px;height:20px')
+                      span.bar1.a1.bg-primary.lter
+                      span.bar2.a2.bg-info.lt
+                      span.bar3.a3.bg-success
+                      span.bar4.a4.bg-warning.dk
+                      span.bar5.a5.bg-danger.dker
+                  .row.row-sm
+                    .col-xs-6.col-sm-4.col-md-3.col-lg-2
+                      .item
+                        .pos-rlt
+                          .bottom
+                            span.badge.bg-info.m-l-sm.m-b-sm 03:20
+                          .item-overlay.opacity.r.r-2x.bg-black
+                            .text-info.padder.m-t-sm.text-sm
+                              i.fa.fa-star
+                              i.fa.fa-star
+                              i.fa.fa-star
+                              i.fa.fa-star
+                              i.fa.fa-star-o.text-muted
+                            .center.text-center.m-t-n
+                              a(href='#')
+                                i.icon-control-play.i-2x
+                            .bottom.padder.m-b-sm
+                              a.pull-right(href='#')
+                                i.fa.fa-heart-o
+                              a(href='#')
+                                i.fa.fa-plus-circle
+                          a(href='#')
+                            img.r.r-2x.img-full(src='images/p1.jpg', alt='')
+                        .padder-v
+                          a.text-ellipsis(href='#') Tempered Song
+                          a.text-ellipsis.text-xs.text-muted(href='#') Miaow
+                    .col-xs-6.col-sm-4.col-md-3.col-lg-2
+                      .item
+                        .pos-rlt
+                          .item-overlay.opacity.r.r-2x.bg-black.active
+                            .text-info.padder.m-t-sm.text-sm
+                              i.fa.fa-star
+                              i.fa.fa-star
+                              i.fa.fa-star
+                              i.fa.fa-star-o.text-muted
+                              i.fa.fa-star-o.text-muted
+                            .center.text-center.m-t-n
+                              a(href='#', data-toggle='class')
+                                i.icon-control-play.i-2x.text
+                                i.icon-control-pause.i-2x.text-active
+                            .bottom.padder.m-b-sm
+                              a.pull-right.active(href='#', data-toggle='class')
+                                i.fa.fa-heart-o.text
+                                i.fa.fa-heart.text-active.text-danger
+                              a(href='#', data-toggle='class')
+                                i.fa.fa-plus-circle.text
+                                i.fa.fa-check-circle.text-active.text-info
+                          a(href='#')
+                            img.r.r-2x.img-full(src='images/p2.jpg', alt='')
+                        .padder-v
+                          a.text-ellipsis(href='#') Vivamus vel tincidunt libero
+                          a.text-ellipsis.text-xs.text-muted(href='#') Lauren Taylor
+                    .clearfix.visible-xs
+                    .col-xs-6.col-sm-4.col-md-3.col-lg-2
+                      .item
+                        .pos-rlt
+                          .item-overlay.opacity.r.r-2x.bg-black
+                            .text-info.padder.m-t-sm.text-sm
+                              i.fa.fa-star
+                              i.fa.fa-star
+                              i.fa.fa-star
+                              i.fa.fa-star
+                              i.fa.fa-star-o.text-muted
+                            .center.text-center.m-t-n
+                              a(href='#')
+                                i.icon-control-play.i-2x
+                            .bottom.padder.m-b-sm
+                              a.pull-right(href='#')
+                                i.fa.fa-heart-o
+                              a(href='#')
+                                i.fa.fa-plus-circle
+                          a(href='#')
+                            img.r.r-2x.img-full(src='images/p3.jpg', alt='')
+                        .padder-v
+                          a.text-ellipsis(href='#') Morbi id neque quam liquam sollicitudin
+                          a.text-ellipsis.text-xs.text-muted(href='#') Allen JH
+                    .col-xs-6.col-sm-4.col-md-3.col-lg-2
+                      .item
+                        .pos-rlt
+                          .item-overlay.opacity.r.r-2x.bg-black
+                            .text-info.padder.m-t-sm.text-sm
+                              i.fa.fa-star
+                              i.fa.fa-star
+                              i.fa.fa-star
+                              i.fa.fa-star
+                              i.fa.fa-star-o.text-muted
+                            .center.text-center.m-t-n
+                              a(href='#')
+                                i.icon-control-play.i-2x
+                            .bottom.padder.m-b-sm
+                              a.pull-right(href='#')
+                                i.fa.fa-heart-o
+                              a(href='#')
+                                i.fa.fa-plus-circle
+                          .top
+                            span.pull-right.m-t-n-xs.m-r-sm.text-white
+                              i.fa.fa-bookmark.i-lg
+                          a(href='#')
+                            img.r.r-2x.img-full(src='images/p4.jpg', alt='')
+                        .padder-v
+                          a.text-ellipsis(href='#') Tincidunt libero
+                          a.text-ellipsis.text-xs.text-muted(href='#') Amanda Conlan
+                    .clearfix.visible-xs
+                    .col-xs-6.col-sm-4.col-md-3.col-lg-2
+                      .item
+                        .pos-rlt
+                          .item-overlay.opacity.r.r-2x.bg-black
+                            .text-info.padder.m-t-sm.text-sm
+                              i.fa.fa-star
+                              i.fa.fa-star
+                              i.fa.fa-star
+                              i.fa.fa-star
+                              i.fa.fa-star-o.text-muted
+                            .center.text-center.m-t-n
+                              a(href='#')
+                                i.icon-control-play.i-2x
+                            .bottom.padder.m-b-sm
+                              a.pull-right(href='#')
+                                i.fa.fa-heart-o
+                              a(href='#')
+                                i.fa.fa-plus-circle
+                          a(href='#')
+                            img.r.r-2x.img-full(src='images/p5.jpg', alt='')
+                        .padder-v
+                          a.text-ellipsis(href='#') Fermentum diam
+                          a.text-ellipsis.text-xs.text-muted(href='#') Nisa Colen
+                    .col-xs-6.col-sm-4.col-md-3.col-lg-2
+                      .item
+                        .pos-rlt
+                          .top
+                            span.pull-right.m-t-sm.m-r-sm.badge.bg-info 6
+                          .item-overlay.opacity.r.r-2x.bg-black
+                            .text-info.padder.m-t-sm.text-sm
+                              i.fa.fa-star
+                              i.fa.fa-star
+                              i.fa.fa-star
+                              i.fa.fa-star
+                              i.fa.fa-star-o.text-muted
+                            .center.text-center.m-t-n
+                              a(href='#')
+                                i.icon-control-play.i-2x
+                            .bottom.padder.m-b-sm
+                              a.pull-right(href='#')
+                                i.fa.fa-heart-o
+                              a(href='#')
+                                i.fa.fa-plus-circle
+                          a(href='#')
+                            img.r.r-2x.img-full(src='images/p6.jpg', alt='')
+                        .padder-v
+                          a.text-ellipsis(href='#') Habitant
+                          a.text-ellipsis.text-xs.text-muted(href='#') Dan Doorack
+                    .clearfix.visible-xs
+                    .col-xs-6.col-sm-4.col-md-3.col-lg-2
+                      .item
+                        .pos-rlt
+                          .item-overlay.opacity.r.r-2x.bg-black
+                            .text-info.padder.m-t-sm.text-sm
+                              i.fa.fa-star
+                              i.fa.fa-star
+                              i.fa.fa-star
+                              i.fa.fa-star
+                              i.fa.fa-star-o.text-muted
+                            .center.text-center.m-t-n
+                              a(href='#')
+                                i.icon-control-play.i-2x
+                            .bottom.padder.m-b-sm
+                              a.pull-right(href='#')
+                                i.fa.fa-heart-o
+                              a(href='#')
+                                i.fa.fa-plus-circle
+                          .top
+                            span.pull-right.m-t-sm.m-r-sm.badge.bg-white 12
+                          a(href='#')
+                            img.r.r-2x.img-full(src='images/p7.jpg', alt='')
+                        .padder-v
+                          a.text-ellipsis(href='#') Vivamus vel tincidunt libero
+                          a.text-ellipsis.text-xs.text-muted(href='#') Ligula H
+                    .col-xs-6.col-sm-4.col-md-3.col-lg-2
+                      .item
+                        .pos-rlt
+                          .item-overlay.opacity.r.r-2x.bg-black
+                            .text-info.padder.m-t-sm.text-sm
+                              i.fa.fa-star
+                              i.fa.fa-star
+                              i.fa.fa-star
+                              i.fa.fa-star
+                              i.fa.fa-star-o.text-muted
+                            .center.text-center.m-t-n
+                              a(href='#')
+                                i.icon-control-play.i-2x
+                            .bottom.padder.m-b-sm
+                              a.pull-right(href='#')
+                                i.fa.fa-heart-o
+                              a(href='#')
+                                i.fa.fa-plus-circle
+                          a(href='#')
+                            img.r.r-2x.img-full(src='images/p8.jpg', alt='')
+                        .padder-v
+                          a.text-ellipsis(href='#') Aliquam sollicitudin venenati
+                          a.text-ellipsis.text-xs.text-muted(href='#') James East
+                    .clearfix.visible-xs
+                    .col-xs-6.col-sm-4.col-md-3.col-lg-2
+                      .item
+                        .pos-rlt
+                          .item-overlay.opacity.r.r-2x.bg-black
+                            .text-info.padder.m-t-sm.text-sm
+                              i.fa.fa-star
+                              i.fa.fa-star
+                              i.fa.fa-star
+                              i.fa.fa-star
+                              i.fa.fa-star-o.text-muted
+                            .center.text-center.m-t-n
+                              a(href='#')
+                                i.icon-control-play.i-2x
+                            .bottom.padder.m-b-sm
+                              a.pull-right(href='#')
+                                i.fa.fa-heart-o
+                              a(href='#')
+                                i.fa.fa-plus-circle
+                          a(href='#')
+                            img.r.r-2x.img-full(src='images/p9.jpg', alt='')
+                        .padder-v
+                          a.text-ellipsis(href='#') Lementum ligula vitae
+                          a.text-ellipsis.text-xs.text-muted(href='#') Lauren Taylor
+                    .col-xs-6.col-sm-4.col-md-3.col-lg-2
+                      .item
+                        .pos-rlt
+                          .item-overlay.r.r-2x.bg-light.dker.active
+                            .text-info.padder.m-t-sm.text-sm
+                              i.fa.fa-star
+                              i.fa.fa-star
+                              i.fa.fa-star
+                              i.fa.fa-star
+                              i.fa.fa-star-o.text-muted
+                            .center.text-center.m-t-n
+                              a.active(href='#', data-toggle='class')
+                                i.icon-control-play.i-2x.text
+                                i.icon-control-pause.i-2x.text-active
+                            .bottom.padder.m-b-sm
+                              a.pull-right(href='#', data-toggle='class')
+                                i.fa.fa-heart-o.text
+                                i.fa.fa-heart.text-active.text-danger
+                              a.active(href='#', data-toggle='class')
+                                i.fa.fa-plus-circle.text
+                                i.fa.fa-check-circle.text-active.text-info
+                          a(href='#')
+                            img.r.r-2x.img-full(src='images/p10.jpg', alt='')
+                        .padder-v
+                          a.text-ellipsis(href='#') Egestas dui nec fermentum 
+                          a.text-ellipsis.text-xs.text-muted(href='#') Chris Fox
+                    .clearfix.visible-xs
+                    .col-xs-6.col-sm-4.col-md-3.col-lg-2
+                      .item
+                        .pos-rlt
+                          .item-overlay.opacity.r.r-2x.bg-black
+                            .text-info.padder.m-t-sm.text-sm
+                              i.fa.fa-star
+                              i.fa.fa-star
+                              i.fa.fa-star
+                              i.fa.fa-star
+                              i.fa.fa-star-o.text-muted
+                            .center.text-center.m-t-n
+                              a(href='#')
+                                i.icon-control-play.i-2x
+                            .bottom.padder.m-b-sm
+                              a.pull-right(href='#')
+                                i.fa.fa-heart-o
+                              a(href='#')
+                                i.fa.fa-plus-circle
+                          a(href='#')
+                            img.r.r-2x.img-full(src='images/p11.jpg', alt='')
+                        .padder-v
+                          a.text-ellipsis(href='#') Aliquam sollicitudin venenatis ipsum
+                          a.text-ellipsis.text-xs.text-muted(href='#') Jack Jason
+                    .col-xs-6.col-sm-4.col-md-3.col-lg-2
+                      .item
+                        .pos-rlt
+                          .item-overlay.opacity.r.r-2x.bg-black
+                            .text-info.padder.m-t-sm.text-sm
+                              i.fa.fa-star
+                              i.fa.fa-star
+                              i.fa.fa-star
+                              i.fa.fa-star
+                              i.fa.fa-star-o.text-muted
+                            .center.text-center.m-t-n
+                              a(href='#')
+                                i.icon-control-play.i-2x
+                            .bottom.padder.m-b-sm
+                              a.pull-right(href='#')
+                                i.fa.fa-heart-o
+                              a(href='#')
+                                i.fa.fa-plus-circle
+                          a(href='#')
+                            img.r.r-2x.img-full(src='images/p12.jpg', alt='')
+                        .padder-v
+                          a.text-ellipsis(href='#') Vestibulum ullamcorper
+                          a.text-ellipsis.text-xs.text-muted(href='#') MM & DD
+                  .row
+                    .col-md-7
+                      h3.font-thin New Songs
+                      .row.row-sm
+                        .col-xs-6.col-sm-3
+                          .item
+                            .pos-rlt
+                              .item-overlay.opacity.r.r-2x.bg-black
+                                .center.text-center.m-t-n
+                                  a(href='#')
+                                    i.fa.fa-play-circle.i-2x
+                              a(href='#')
+                                img.r.r-2x.img-full(src='images/a2.png', alt='')
+                            .padder-v
+                              a.text-ellipsis(href='#') Spring rain
+                              a.text-ellipsis.text-xs.text-muted(href='#') Miaow
+                        .col-xs-6.col-sm-3
+                          .item
+                            .pos-rlt
+                              .item-overlay.opacity.r.r-2x.bg-black
+                                .center.text-center.m-t-n
+                                  a(href='#')
+                                    i.fa.fa-play-circle.i-2x
+                              a(href='#')
+                                img.r.r-2x.img-full(src='images/a3.png', alt='')
+                            .padder-v
+                              a.text-ellipsis(href='#') Hope
+                              a.text-ellipsis.text-xs.text-muted(href='#') Miya
+                        .col-xs-6.col-sm-3
+                          .item
+                            .pos-rlt
+                              .item-overlay.opacity.r.r-2x.bg-black
+                                .center.text-center.m-t-n
+                                  a(href='#')
+                                    i.fa.fa-play-circle.i-2x
+                              a(href='#')
+                                img.r.r-2x.img-full(src='images/a8.png', alt='')
+                            .padder-v
+                              a.text-ellipsis(href='#') Listen wind
+                              a.text-ellipsis.text-xs.text-muted(href='#') Soyia Jess
+                        .col-xs-6.col-sm-3
+                          .item
+                            .pos-rlt
+                              .item-overlay.opacity.r.r-2x.bg-black
+                                .center.text-center.m-t-n
+                                  a(href='#')
+                                    i.fa.fa-play-circle.i-2x
+                              a(href='#')
+                                img.r.r-2x.img-full(src='images/a9.png', alt='')
+                            .padder-v
+                              a.text-ellipsis(href='#') Breaking me
+                              a.text-ellipsis.text-xs.text-muted(href='#') Pett JA
+                        .col-xs-6.col-sm-3
+                          .item
+                            .pos-rlt
+                              .item-overlay.opacity.r.r-2x.bg-black
+                                .center.text-center.m-t-n
+                                  a(href='#')
+                                    i.fa.fa-play-circle.i-2x
+                              a(href='#')
+                                img.r.r-2x.img-full(src='images/a1.png', alt='')
+                            .padder-v
+                              a.text-ellipsis(href='#') Nothing
+                              a.text-ellipsis.text-xs.text-muted(href='#') Willion
+                        .col-xs-6.col-sm-3
+                          .item
+                            .pos-rlt
+                              .item-overlay.opacity.r.r-2x.bg-black
+                                .center.text-center.m-t-n
+                                  a(href='#')
+                                    i.fa.fa-play-circle.i-2x
+                              a(href='#')
+                                img.r.r-2x.img-full(src='images/a6.png', alt='')
+                            .padder-v
+                              a.text-ellipsis(href='#') Panda Style
+                              a.text-ellipsis.text-xs.text-muted(href='#') Lionie
+                        .col-xs-6.col-sm-3
+                          .item
+                            .pos-rlt
+                              .item-overlay.opacity.r.r-2x.bg-black
+                                .center.text-center.m-t-n
+                                  a(href='#')
+                                    i.fa.fa-play-circle.i-2x
+                              a(href='#')
+                                img.r.r-2x.img-full(src='images/a7.png', alt='')
+                            .padder-v
+                              a.text-ellipsis(href='#') Hook Me
+                              a.text-ellipsis.text-xs.text-muted(href='#') Gossi
+                        .col-xs-6.col-sm-3
+                          .item
+                            .pos-rlt
+                              .item-overlay.opacity.r.r-2x.bg-black
+                                .center.text-center.m-t-n
+                                  a(href='#')
+                                    i.fa.fa-play-circle.i-2x
+                              a(href='#')
+                                img.r.r-2x.img-full(src='images/a5.png', alt='')
+                            .padder-v
+                              a.text-ellipsis(href='#') Tempered Song
+                              a.text-ellipsis.text-xs.text-muted(href='#') Miaow
+                    .col-md-5
+                      h3.font-thin Top Songs
+                      .list-group.bg-white.list-group-lg.no-bg.auto
+                        a.list-group-item.clearfix(href='#')
+                          span.pull-right.h2.text-muted.m-l 1
+                          span.pull-left.thumb-sm.avatar.m-r
+                            img(src='images/a4.png', alt='...')
+                          span.clear
+                            span Little Town
+                            small.text-muted.clear.text-ellipsis by Chris Fox
+                        a.list-group-item.clearfix(href='#')
+                          span.pull-right.h2.text-muted.m-l 2
+                          span.pull-left.thumb-sm.avatar.m-r
+                            img(src='images/a5.png', alt='...')
+                          span.clear
+                            span Lementum ligula vitae
+                            small.text-muted.clear.text-ellipsis by Amanda Conlan
+                        a.list-group-item.clearfix(href='#')
+                          span.pull-right.h2.text-muted.m-l 3
+                          span.pull-left.thumb-sm.avatar.m-r
+                            img(src='images/a6.png', alt='...')
+                          span.clear
+                            span Aliquam sollicitudin venenatis
+                            small.text-muted.clear.text-ellipsis by Dan Doorack
+                        a.list-group-item.clearfix(href='#')
+                          span.pull-right.h2.text-muted.m-l 4
+                          span.pull-left.thumb-sm.avatar.m-r
+                            img(src='images/a7.png', alt='...')
+                          span.clear
+                            span Aliquam sollicitudin venenatis ipsum
+                            small.text-muted.clear.text-ellipsis by Lauren Taylor
+                        a.list-group-item.clearfix(href='#')
+                          span.pull-right.h2.text-muted.m-l 5
+                          span.pull-left.thumb-sm.avatar.m-r
+                            img(src='images/a8.png', alt='...')
+                          span.clear
+                            span Vestibulum ullamcorper
+                            small.text-muted.clear.text-ellipsis by Dan Doorack
+                  .row.m-t-lg.m-b-lg
+                    .col-sm-6
+                      .bg-primary.wrapper-md.r
+                        a(href='#')
+                          span.h4.m-b-xs.block
+                            i.icon-user-follow.i-lg
+                            | Login or Create account
+                          span.text-muted
+                            | Save and share your playlist with your friends when you log in or create an account.
+                    .col-sm-6
+                      .bg-black.wrapper-md.r
+                        a(href='#')
+                          span.h4.m-b-xs.block
+                            i.icon-cloud-download.i-lg
+                            | Download our app
+                          span.text-muted
+                            | Get the apps for desktop and mobile to start listening music at anywhere and anytime.
+                footer.footer.bg-dark
+                  #jp_container_N
+                    .jp-type-playlist
+                      #jplayer_N.jp-jplayer.hide
+                      .jp-gui
+                        .jp-video-play.hide
+                          a.jp-video-play-icon play
+                        .jp-interface
+                          .jp-controls
+                            div
+                              a.jp-previous
+                                i.icon-control-rewind.i-lg
+                            div
+                              a.jp-play
+                                i.icon-control-play.i-2x
+                              a.jp-pause.hid
+                                i.icon-control-pause.i-2x
+                            div
+                              a.jp-next
+                                i.icon-control-forward.i-lg
+                            .hide
+                              a.jp-stop
+                                i.fa.fa-stop
+                            div
+                              a(data-toggle='dropdown', data-target='#playlist')
+                                i.icon-list
+                            .jp-progress.hidden-xs
+                              .jp-seek-bar.dk
+                                .jp-play-bar.bg-info
+                                .jp-title.text-lt
+                                  ul
+                                    li
+                            .hidden-xs.hidden-sm.jp-current-time.text-xs.text-muted
+                            .hidden-xs.hidden-sm.jp-duration.text-xs.text-muted
+                            .hidden-xs.hidden-sm
+                              a.jp-mute(title='mute')
+                                i.icon-volume-2
+                              a.jp-unmute.hid(title='unmute')
+                                i.icon-volume-off
+                            .hidden-xs.hidden-sm.jp-volume
+                              .jp-volume-bar.dk
+                                .jp-volume-bar-value.lter
+                            div
+                              a.jp-shuffle(title='shuffle')
+                                i.icon-shuffle.text-muted
+                              a.jp-shuffle-off.hid(title='shuffle off')
+                                i.icon-shuffle.text-lt
+                            div
+                              a.jp-repeat(title='repeat')
+                                i.icon-loop.text-muted
+                              a.jp-repeat-off.hid(title='repeat off')
+                                i.icon-loop.text-lt
+                            .hide
+                              a.jp-full-screen(title='full screen')
+                                i.fa.fa-expand
+                              a.jp-restore-screen(title='restore screen')
+                                i.fa.fa-compress.text-lt
+                      #playlist.jp-playlist.dropup
+                        ul.dropdown-menu.aside-xl.dker
+                          // The method Playlist.displayPlaylist() uses this unordered list
+                          li.list-group-item
+                      .jp-no-solution.hide
+                        span Update Required
+                        | To play the media you will need to either update your browser to a recent version or update your
+                        a(href='http://get.adobe.com/flashplayer/', target='_blank') Flash plugin
+                        | .
+            // side content
+            aside#sidebar.aside-md.bg-light.dk
+              section.vbox.animated.fadeInRight
+                section.w-f-md.scrollable.hover
+                  h4.font-thin.m-l-md.m-t Connected
+                  ul.list-group.no-bg.no-borders.auto.m-t-n-xxs
+                    li.list-group-item
+                      span.pull-left.thumb-xs.m-t-xs.avatar.m-l-xs.m-r-sm
+                        img.img-circle(src='images/a1.png', alt='...')
+                        i.on.b-light.right.sm
+                      .clear
+                        div
+                          a(href='#') Chris Fox
+                        small.text-muted New York
+                    li.list-group-item
+                      span.pull-left.thumb-xs.m-t-xs.avatar.m-l-xs.m-r-sm
+                        img(src='images/a2.png', alt='...')
+                        i.on.b-light.right.sm
+                      .clear
+                        div
+                          a(href='#') Amanda Conlan
+                        small.text-muted France
+                    li.list-group-item
+                      span.pull-left.thumb-xs.m-t-xs.avatar.m-l-xs.m-r-sm
+                        img(src='images/a3.png', alt='...')
+                        i.busy.b-light.right.sm
+                      .clear
+                        div
+                          a(href='#') Dan Doorack
+                        small.text-muted Hamburg
+                    li.list-group-item
+                      span.pull-left.thumb-xs.m-t-xs.avatar.m-l-xs.m-r-sm
+                        img(src='images/a4.png', alt='...')
+                        i.away.b-light.right.sm
+                      .clear
+                        div
+                          a(href='#') Lauren Taylor
+                        small.text-muted London
+                    li.list-group-item
+                      span.pull-left.thumb-xs.m-t-xs.avatar.m-l-xs.m-r-sm
+                        img.img-circle(src='images/a5.png', alt='...')
+                        i.on.b-light.right.sm
+                      .clear
+                        div
+                          a(href='#') Chris Fox
+                        small.text-muted Milan
+                    li.list-group-item
+                      span.pull-left.thumb-xs.m-t-xs.avatar.m-l-xs.m-r-sm
+                        img(src='images/a6.png', alt='...')
+                        i.on.b-light.right.sm
+                      .clear
+                        div
+                          a(href='#') Amanda Conlan
+                        small.text-muted Copenhagen
+                    li.list-group-item
+                      span.pull-left.thumb-xs.m-t-xs.avatar.m-l-xs.m-r-sm
+                        img(src='images/a7.png', alt='...')
+                        i.busy.b-light.right.sm
+                      .clear
+                        div
+                          a(href='#') Dan Doorack
+                        small.text-muted Barcelona
+                    li.list-group-item
+                      span.pull-left.thumb-xs.m-t-xs.avatar.m-l-xs.m-r-sm
+                        img(src='images/a8.png', alt='...')
+                        i.away.b-light.right.sm
+                      .clear
+                        div
+                          a(href='#') Lauren Taylor
+                        small.text-muted Tokyo
+                    li.list-group-item
+                      span.pull-left.thumb-xs.m-t-xs.avatar.m-l-xs.m-r-sm
+                        img.img-circle(src='images/a9.png', alt='...')
+                        i.on.b-light.right.sm
+                      .clear
+                        div
+                          a(href='#') Chris Fox
+                        small.text-muted UK
+                    li.list-group-item
+                      span.pull-left.thumb-xs.m-t-xs.avatar.m-l-xs.m-r-sm
+                        img(src='images/a1.png', alt='...')
+                        i.on.b-light.right.sm
+                      .clear
+                        div
+                          a(href='#') Amanda Conlan
+                        small.text-muted Africa
+                    li.list-group-item
+                      span.pull-left.thumb-xs.m-t-xs.avatar.m-l-xs.m-r-sm
+                        img(src='images/a2.png', alt='...')
+                        i.busy.b-light.right.sm
+                      .clear
+                        div
+                          a(href='#') Dan Doorack
+                        small.text-muted Paris
+                    li.list-group-item
+                      span.pull-left.thumb-xs.m-t-xs.avatar.m-l-xs.m-r-sm
+                        img(src='images/a3.png', alt='...')
+                        i.away.b-light.right.sm
+                      .clear
+                        div
+                          a(href='#') Lauren Taylor
+                        small.text-muted Brussels
+                footer.footer.footer-md.bg-black
+                  form(role='search')
+                    .form-group.clearfix.m-b-none
+                      .input-group.m-t.m-b
+                        span.input-group-btn
+                          button.btn.btn-sm.bg-empty.text-muted.btn-icon(type='submit')
+                            i.fa.fa-search
+                        input.form-control.input-sm.text-white.bg-empty.b-b.b-dark.no-border(type='text', placeholder='Search members')
+            // / side content
+          a.hide.nav-off-screen-block(href='#', data-toggle='class:nav-off-screen,open', data-target='#nav,html')

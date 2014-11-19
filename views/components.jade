@@ -1,0 +1,672 @@
+extends layout
+
+block content
+  section.vbox
+    header.bg-white-only.header.header-md.navbar.navbar-fixed-top-xs
+      .navbar-header.aside.bg-info.dk
+        a.btn.btn-link.visible-xs(data-toggle='class:nav-off-screen,open', data-target='#nav,html')
+          i.icon-list
+        a.navbar-brand.text-lt(href='index.html')
+          i.icon-earphones
+          img.hide(src='images/logo.png', alt='.')
+          span.hidden-nav-xs.m-l-sm Musik
+        a.btn.btn-link.visible-xs(data-toggle='dropdown', data-target='.user')
+          i.icon-settings
+      ul.nav.navbar-nav.hidden-xs
+        li
+          a.text-muted(href='#nav,.navbar-header', data-toggle='class:nav-xs,nav-xs')
+            i.fa.fa-indent.text
+            i.fa.fa-dedent.text-active
+      form.navbar-form.navbar-left.input-s-lg.m-t.m-l-n-xs.hidden-xs(role='search')
+        .form-group
+          .input-group
+            span.input-group-btn
+              button.btn.btn-sm.bg-white.btn-icon.rounded(type='submit')
+                i.fa.fa-search
+            input.form-control.input-sm.no-border.rounded(type='text', placeholder='Search songs, albums...')
+      .navbar-right
+        ul.nav.navbar-nav.m-n.hidden-xs.nav-user.user
+          li.hidden-xs
+            a.dropdown-toggle.lt(href='#', data-toggle='dropdown')
+              i.icon-bell
+              span.badge.badge-sm.up.bg-danger.count 2
+            section.dropdown-menu.aside-xl.animated.fadeInUp
+              section.panel.bg-white
+                .panel-heading.b-light.bg-light
+                  strong
+                    | You have
+                    span.count 2
+                    | notifications
+                .list-group.list-group-alt
+                  a.media.list-group-item(href='#')
+                    span.pull-left.thumb-sm
+                      img.img-circle(src='images/a0.png', alt='...')
+                    span.media-body.block.m-b-none
+                      | Use awesome animate.css
+                      br
+                      small.text-muted 10 minutes ago
+                  a.media.list-group-item(href='#')
+                    span.media-body.block.m-b-none
+                      | 1.0 initial released
+                      br
+                      small.text-muted 1 hour ago
+                .panel-footer.text-sm
+                  a.pull-right(href='#')
+                    i.fa.fa-cog
+                  a(href='#notes', data-toggle='class:show animated fadeInRight') See all the notifications
+          li.dropdown
+            a.dropdown-toggle.bg.clear(href='#', data-toggle='dropdown')
+              span.thumb-sm.avatar.pull-right.m-t-n-sm.m-b-n-sm.m-l-sm
+                img(src='images/a0.png', alt='...')
+              | John.Smith
+              b.caret
+            ul.dropdown-menu.animated.fadeInRight
+              li
+                span.arrow.top
+                a(href='#') Settings
+              li
+                a(href='profile.html') Profile
+              li
+                a(href='#')
+                  span.badge.bg-danger.pull-right 3
+                  | Notifications
+              li
+                a(href='docs.html') Help
+              li.divider
+              li
+                a(href='modal.lockme.html', data-toggle='ajaxModal') Logout
+    section
+      section.hbox.stretch
+        // .aside
+        aside#nav.bg-black.dk.aside.hidden-print
+          section.vbox
+            section.w-f-md.scrollable
+              .slim-scroll(data-height='auto', data-disable-fade-out='true', data-distance='0', data-size='10px', data-railopacity='0.2')
+                // nav
+                nav.nav-primary.hidden-xs
+                  ul.nav.bg.clearfix
+                    li.hidden-nav-xs.padder.m-t.m-b-sm.text-xs.text-muted
+                      | Discover
+                    li
+                      a(href='index.html')
+                        i.icon-disc.icon.text-success
+                        span.font-bold What's new
+                    li
+                      a(href='genres.html')
+                        i.icon-music-tone-alt.icon.text-info
+                        span.font-bold Genres
+                    li
+                      a(href='events.html')
+                        i.icon-drawer.icon.text-primary-lter
+                        b.badge.bg-primary.pull-right 6
+                        span.font-bold Events
+                    li
+                      a(href='listen.html')
+                        i.icon-list.icon.text-info-dker
+                        span.font-bold Listen
+                    li
+                      a(href='video.html', data-target='#content', data-el='#bjax-el', data-replace='true')
+                        i.icon-social-youtube.icon.text-primary
+                        span.font-bold Video
+                    li.m-b.hidden-nav-xs
+                  ul.nav(data-ride='collapse')
+                    li.hidden-nav-xs.padder.m-t.m-b-sm.text-xs.text-muted
+                      | Interface
+                    li
+                      a.auto(href='#')
+                        span.pull-right.text-muted
+                          i.fa.fa-angle-left.text
+                          i.fa.fa-angle-down.text-active
+                        i.icon-screen-desktop.icon
+                        span Layouts
+                      ul.nav.dk.text-sm
+                        li
+                          a.auto(href='layout-color.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Color option
+                        li
+                          a.auto(href='layout-boxed.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Boxed layout
+                        li
+                          a.auto(href='layout-fluid.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Fluid layout
+                    li.active
+                      a.auto(href='#')
+                        span.pull-right.text-muted
+                          i.fa.fa-angle-left.text
+                          i.fa.fa-angle-down.text-active
+                        i.icon-chemistry.icon
+                        span UI Kit
+                      ul.nav.dk.text-sm
+                        li
+                          a.auto(href='buttons.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Buttons
+                        li
+                          a.auto(href='icons.html')
+                            b.badge.bg-info.pull-right 369
+                            i.fa.fa-angle-right.text-xs
+                            span Icons
+                        li
+                          a.auto(href='http://www.weidea.net')
+                            b.badge.bg-info.pull-right 369
+                            i.fa.fa-angle-right.text-xs
+                            span More
+                        li
+                          a.auto(href='grid.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Grid
+                        li
+                          a.auto(href='widgets.html')
+                            b.badge.bg-dark.pull-right 8
+                            i.fa.fa-angle-right.text-xs
+                            span Widgets
+                        li.active
+                          a.auto(href='components.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Components
+                        li
+                          a.auto(href='list.html')
+                            i.fa.fa-angle-right.text-xs
+                            span List group
+                        li
+                          a.auto(href='#table')
+                            span.pull-right.text-muted
+                              i.fa.fa-angle-left.text
+                              i.fa.fa-angle-down.text-active
+                            i.fa.fa-angle-right.text-xs
+                            span Table
+                          ul.nav.dker
+                            li
+                              a(href='table-static.html')
+                                i.fa.fa-angle-right
+                                span Table static
+                            li
+                              a(href='table-datatable.html')
+                                i.fa.fa-angle-right
+                                span Datatable
+                        li
+                          a.auto(href='#form')
+                            span.pull-right.text-muted
+                              i.fa.fa-angle-left.text
+                              i.fa.fa-angle-down.text-active
+                            i.fa.fa-angle-right.text-xs
+                            span Form
+                          ul.nav.dker
+                            li
+                              a(href='form-elements.html')
+                                i.fa.fa-angle-right
+                                span Form elements
+                            li
+                              a(href='form-validation.html')
+                                i.fa.fa-angle-right
+                                span Form validation
+                            li
+                              a(href='form-wizard.html')
+                                i.fa.fa-angle-right
+                                span Form wizard
+                        li
+                          a.auto(href='chart.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Chart
+                        li
+                          a.auto(href='portlet.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Portlet
+                        li
+                          a.auto(href='timeline.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Timeline
+                    li
+                      a.auto(href='#')
+                        span.pull-right.text-muted
+                          i.fa.fa-angle-left.text
+                          i.fa.fa-angle-down.text-active
+                        i.icon-grid.icon
+                        span Pages
+                      ul.nav.dk.text-sm
+                        li
+                          a.auto(href='profile.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Profile
+                        li
+                          a.auto(href='blog.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Blog
+                        li
+                          a.auto(href='invoice.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Invoice
+                        li
+                          a.auto(href='gmap.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Google Map
+                        li
+                          a.auto(href='jvectormap.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Vector Map
+                        li
+                          a.auto(href='signin.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Signin
+                        li
+                          a.auto(href='signup.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Signup
+                        li
+                          a.auto(href='404.html')
+                            i.fa.fa-angle-right.text-xs
+                            span 404
+                  ul.nav.text-sm
+                    li.hidden-nav-xs.padder.m-t.m-b-sm.text-xs.text-muted
+                      span.pull-right
+                        a(href='#')
+                          i.icon-plus.i-lg
+                      | Playlist
+                    li
+                      a(href='#')
+                        i.icon-music-tone.icon
+                        span Hip-Pop
+                    li
+                      a(href='#')
+                        i.icon-playlist.icon.text-success-lter
+                        b.badge.bg-success.dker.pull-right 9
+                        span Jazz
+                // / nav
+            footer.footer.hidden-xs.no-padder.text-center-nav-xs
+              .bg.hidden-xs
+                .dropdown.dropup.wrapper-sm.clearfix
+                  a.dropdown-toggle(href='#', data-toggle='dropdown')
+                    span.thumb-sm.avatar.pull-left.m-l-xs
+                      img.dker(src='images/a3.png', alt='...')
+                      i.on.b-black
+                    span.hidden-nav-xs.clear
+                      span.block.m-l
+                        strong.font-bold.text-lt John.Smith
+                        b.caret
+                      span.text-muted.text-xs.block.m-l Art Director
+                  ul.dropdown-menu.animated.fadeInRight.aside.text-left
+                    li
+                      span.arrow.bottom.hidden-nav-xs
+                      a(href='#') Settings
+                    li
+                      a(href='profile.html') Profile
+                    li
+                      a(href='#')
+                        span.badge.bg-danger.pull-right 3
+                        | Notifications
+                    li
+                      a(href='docs.html') Help
+                    li.divider
+                    li
+                      a(href='modal.lockme.html', data-toggle='ajaxModal') Logout
+        // /.aside
+        section#content
+          section.vbox
+            header.header.bg-light.dk
+              p Components
+            section.scrollable.wrapper
+              .row
+                .col-lg-12
+                  // .breadcrumb
+                  ul.breadcrumb
+                    li
+                      a(href='#')
+                        i.fa.fa-home
+                        | Home
+                    li
+                      a(href='#')
+                        i.fa.fa-list-ul
+                        | Elements
+                    li.active Components
+                  // / .breadcrumb
+                .col-lg-6
+                  // .crousel slide
+                  section.panel.panel-default
+                    #c-slide.carousel.slide.auto.panel-body
+                      ol.carousel-indicators.out
+                        li.active(data-target='#c-slide', data-slide-to='0')
+                        li(data-target='#c-slide', data-slide-to='1')
+                        li(data-target='#c-slide', data-slide-to='2')
+                      .carousel-inner
+                        .item.active
+                          p.text-center
+                            em.h4.text-mute Save your time
+                            br
+                            small.text-muted Many components
+                        .item
+                          p.text-center
+                            em.h4.text-mute Nice and easy to use
+                            br
+                            small.text-muted Full documents
+                        .item
+                          p.text-center
+                            em.h4.text-mute Mobile header first
+                            br
+                            small.text-muted Mobile/Tablet/Desktop
+                      a.left.carousel-control(href='#c-slide', data-slide='prev')
+                        i.fa.fa-angle-left
+                      a.right.carousel-control(href='#c-slide', data-slide='next')
+                        i.fa.fa-angle-right
+                  // / .carousel slide
+                .col-lg-6
+                  // .crousel fade
+                  section.panel.bg-dark
+                    #c-fade.carousel.slide.carousel-fade.panel-body
+                      ol.carousel-indicators.out
+                        li(data-target='#c-fade', data-slide-to='0')
+                        li.active(data-target='#c-fade', data-slide-to='1')
+                        li(data-target='#c-fade', data-slide-to='2')
+                      .carousel-inner
+                        .item
+                          p.text-center
+                            em.h4.text-mute Save your time
+                            br
+                            small.text-muted Many components
+                        .item.active
+                          p.text-center
+                            em.h4.text-mute Nice and easy to use
+                            br
+                            small.text-muted Full documents
+                        .item
+                          p.text-center
+                            em.h4.text-mute Mobile header first
+                            br
+                            small.text-muted Mobile/Tablet/Desktop
+                      a.left.carousel-control(href='#c-fade', data-slide='prev')
+                        i.fa.fa-angle-left
+                      a.right.carousel-control(href='#c-fade', data-slide='next')
+                        i.fa.fa-angle-right
+                  // / .carousel fade
+                .col-lg-6
+                  // .accordion
+                  #accordion2.panel-group.m-b
+                    .panel.panel-default
+                      .panel-heading
+                        a.accordion-toggle(data-toggle='collapse', data-parent='#accordion2', href='#collapseOne')
+                          | Collapsible Group Item #1
+                      #collapseOne.panel-collapse.in
+                        .panel-body.text-sm
+                          | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    .panel.panel-default
+                      .panel-heading
+                        a.accordion-toggle(data-toggle='collapse', data-parent='#accordion2', href='#collapseTwo')
+                          | Collapsible Group Item #2
+                      #collapseTwo.panel-collapse.collapse
+                        .panel-body.text-sm
+                          | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    .panel.panel-default
+                      .panel-heading
+                        a.accordion-toggle(data-toggle='collapse', data-parent='#accordion2', href='#collapseThree')
+                          | Collapsible Group Item #3
+                      #collapseThree.panel-collapse.collapse
+                        .panel-body.text-sm
+                          | Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  // / .accordion
+                  // .nav-justified
+                  section.panel.panel-default
+                    header.panel-heading.bg-light
+                      ul.nav.nav-tabs.nav-justified
+                        li.active
+                          a(href='#home', data-toggle='tab') Home
+                        li
+                          a(href='#profile', data-toggle='tab') Profile
+                        li
+                          a(href='#messages', data-toggle='tab') Messages
+                        li
+                          a(href='#settings', data-toggle='tab') Settings
+                    .panel-body
+                      .tab-content
+                        #home.tab-pane.active home
+                        #profile.tab-pane profile
+                        #messages.tab-pane message
+                        #settings.tab-pane settings
+                  // / .nav-justified
+                  // left tab
+                  section.panel.panel-default
+                    header.panel-heading.bg-light
+                      ul.nav.nav-tabs.pull-right
+                        li.active
+                          a(href='#messages-1', data-toggle='tab')
+                            i.fa.fa-comments.text-muted
+                        li
+                          a(href='#profile-1', data-toggle='tab')
+                            i.fa.fa-user.text-muted
+                            | Profile
+                        li
+                          a(href='#settings-1', data-toggle='tab')
+                            i.fa.fa-cog.text-muted
+                            | Settings
+                      span.hidden-sm Right
+                    .panel-body
+                      .tab-content
+                        #messages-1.tab-pane.active message
+                        #profile-1.tab-pane profile
+                        #settings-1.tab-pane settings
+                  // / left tab
+                  // right tab
+                  section.panel.panel-default
+                    header.panel-heading.text-right.bg-light
+                      ul.nav.nav-tabs.pull-left
+                        li
+                          a(href='#messages-2', data-toggle='tab')
+                            i.fa.fa-comments.text-muted
+                        li.active
+                          a(href='#profile-2', data-toggle='tab')
+                            i.fa.fa-user.text-muted
+                            | Profile
+                        li.dropdown
+                          a.dropdown-toggle(href='#', data-toggle='dropdown')
+                            i.fa.fa-cog.text-muted
+                            | Settings
+                            b.caret
+                          ul.dropdown-menu.text-left
+                            li
+                              a(href='#dropdown1', data-toggle='tab') @fat
+                            li
+                              a(href='#dropdown2', data-toggle='tab') @mdo
+                      span.hidden-sm Left
+                    .panel-body
+                      .tab-content
+                        #messages-2.tab-pane.fade message
+                        #profile-2.tab-pane.fade.active.in profile
+                        #dropdown1.tab-pane.fade dropdown1
+                        #dropdown2.tab-pane.fade dropdown2
+                  // / right tab
+                  // .dropdown
+                  section.panel.panel-default.pos-rlt.clearfix
+                    header.panel-heading
+                      ul.nav.nav-pills.pull-right
+                        li
+                          a.panel-toggle.text-muted(href='#')
+                            i.fa.fa-caret-down.text-active
+                            i.fa.fa-caret-up.text
+                      | Dropdown
+                    .panel-body.clearfix
+                      .dropdown.pull-left.m-r
+                        ul.dropdown-menu.pos-stc.inline(role='menu')
+                          li
+                            a(tabindex='-1', href='#') Action
+                          li
+                            a(tabindex='-1', href='#') Another action
+                          li
+                            a(tabindex='-1', href='#') Something else here
+                          li.divider
+                          li.dropdown-submenu
+                            a(tabindex='-1', href='#') Separated link
+                            ul.dropdown-menu(role='menu')
+                              li
+                                a(tabindex='-1', href='#') Action
+                              li
+                                a(tabindex='-1', href='#') Another action
+                              li
+                                a(tabindex='-1', href='#') Something else here
+                      .dropdown.dropup.pull-left
+                        ul.dropdown-menu.pos-stc.inline(role='menu')
+                          li
+                            a(tabindex='-1', href='#') Action
+                          li
+                            a(tabindex='-1', href='#') Another action
+                          li
+                            a(tabindex='-1', href='#') Something else here
+                          li.divider
+                          li.dropdown-submenu
+                            a(tabindex='-1', href='#') Separated link
+                            ul.dropdown-menu(role='menu')
+                              li.dropdown-submenu.pull-left
+                                a(tabindex='-1', href='#') Action
+                                ul.dropdown-menu(role='menu')
+                                  li
+                                    a(tabindex='-1', href='#') Action
+                                  li
+                                    a(tabindex='-1', href='#') Another action
+                                  li
+                                    a(tabindex='-1', href='#') Something else here
+                              li
+                                a(tabindex='-1', href='#') Another action
+                              li
+                                a(tabindex='-1', href='#') Something else here
+                  // / .dropmenu
+                  // .tooltip & popup
+                  section.panel.panel-default.text-sm.doc-buttons
+                    .panel-body
+                      button.btn.btn-sm.btn-default(data-toggle='tooltip', data-placement='top', title='Tooltip on top') Tooltip on top
+                      button.btn.btn-sm.btn-default(data-toggle='tooltip', data-placement='right', title='Tooltip on right') On right
+                      button.btn.btn-sm.btn-default(data-toggle='tooltip', data-placement='bottom', title='Tooltip on bottom') On bottom
+                      button.btn.btn-sm.btn-default(data-toggle='tooltip', data-placement='left', title='Tooltip on left') On left
+                      button.btn.btn-sm.btn-info(data-toggle='popover', data-html='true', data-placement='top', data-content='<div class="scrollable" style="height:40px">Vivamus sagittis lacus vel augue laoreet rutrum faucibus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus.</div>', title='', data-original-title='<button type="button" class="close pull-right" data-dismiss="popover">×</button>Popover on top') Popover on top
+                      a.btn.btn-sm.btn-default(href='modal.html', data-toggle='ajaxModal') Modal
+                .col-lg-6
+                  section#progressbar.panel.panel-default
+                    header.panel-heading
+                      ul.nav.nav-pills.pull-right
+                        li
+                          a(href='#', data-toggle='progress', data-target='#progressbar') Random
+                      | Progress bar
+                    ul.list-group
+                      li.list-group-item
+                        .progress.progress-xs.m-t-sm
+                          .progress-bar.bg-info(data-toggle='tooltip', data-original-title='40%', style='width: 40%')
+                        .progress.progress-xs.progress-striped
+                          .progress-bar.bg-success(data-toggle='tooltip', data-original-title='10%', style='width: 10%')
+                        .progress.progress-xs.progress-striped
+                          .progress-bar.bg-warning(data-toggle='tooltip', data-original-title='50%', style='width: 50%')
+                        .progress.progress-xs.progress-striped.active
+                          .progress-bar.bg-danger(data-toggle='tooltip', data-original-title='30%', style='width: 30%')
+                      li.list-group-item
+                        .progress.progress-sm.m-t-sm
+                          .progress-bar.bg-primary(data-toggle='tooltip', data-original-title='10%', style='width: 10%')
+                        .progress.progress-sm.progress-striped.active
+                          .progress-bar.bg-info.lter(data-toggle='tooltip', data-original-title='30%', style='width: 30%')
+                        .progress.progress-sm.progress-striped
+                          .progress-bar.bg-warning(data-toggle='tooltip', data-original-title='20%', style='width: 20%')
+                        .progress.progress-sm.progress-striped
+                          .progress-bar.bg-danger(data-toggle='tooltip', data-original-title='10%', style='width: 10%')
+                      li.list-group-item
+                        .progress.m-t-sm
+                          .progress-bar.bg-success(data-toggle='tooltip', data-original-title='20%', style='width: 20%')
+                          .progress-bar.bg-success.lt(data-toggle='tooltip', data-original-title='20%', style='width: 20%')
+                          .progress-bar.bg-success.lter(data-toggle='tooltip', data-original-title='15%', style='width: 15%')
+                .col-lg-6
+                  // .label and .badge
+                  .m-b-lg.text-center
+                    p
+                      span.label.bg-light label
+                      span.label.bg-primary Primary
+                      span.label.bg-success Success
+                      span.label.bg-info Info
+                      span.label.bg-dark dark
+                      span.label.bg-warning Warning
+                      span.label.bg-danger Danger
+                    p.m-b-none
+                      span.badge 15
+                      span.badge.bg-primary 15
+                      span.badge.bg-success 20
+                      span.badge.bg-info 21
+                      span.badge.bg-dark 13
+                      span.badge.bg-warning 35
+                      span.badge.bg-danger 32
+                  // / .label and .badge
+                  .alert.alert-warning.alert-block
+                    button.close(type='button', data-dismiss='alert') ×
+                    h4
+                      i.fa.fa-bell-alt
+                      | Warning!
+                    p Best check yo self, you're not looking too good...
+                  .alert.alert-danger
+                    button.close(type='button', data-dismiss='alert') ×
+                    i.fa.fa-ban-circle
+                    strong Oh snap!
+                    a.alert-link(href='#') Change a few things up
+                    | and try submitting again.
+                  .alert.alert-success
+                    button.close(type='button', data-dismiss='alert') ×
+                    i.fa.fa-ok-sign
+                    strong Well done!
+                    | You successfully read
+                    a.alert-link(href='#') this important alert message
+                    | .
+                  .alert.alert-info
+                    button.close(type='button', data-dismiss='alert') ×
+                    i.fa.fa-info-sign
+                    strong Heads up!
+                    | This
+                    a.alert-link(href='#') alert needs your attention
+                    | , but it's not super important.
+                  .text-center
+                    ul.pagination.pagination-lg
+                      li
+                        a(href='#')
+                          i.fa.fa-chevron-left
+                      li.active
+                        a(href='#') 1
+                      li
+                        a(href='#') 2
+                      li
+                        a(href='#') 3
+                      li
+                        a(href='#') 4
+                      li
+                        a(href='#') 5
+                      li
+                        a(href='#')
+                          i.fa.fa-chevron-right
+                  .text-center
+                    ul.pagination.pagination
+                      li
+                        a(href='#')
+                          i.fa.fa-chevron-left
+                      li
+                        a(href='#') 1
+                      li
+                        a(href='#') 2
+                      li
+                        a(href='#') 3
+                      li
+                        a(href='#') 4
+                      li
+                        a(href='#') 5
+                      li
+                        a(href='#')
+                          i.fa.fa-chevron-right
+                  .text-center
+                    ul.pagination.pagination-sm
+                      li
+                        a(href='#')
+                          i.fa.fa-chevron-left
+                      li
+                        a(href='#') 1
+                      li
+                        a(href='#') 2
+                      li
+                        a(href='#') 3
+                      li
+                        a(href='#') 4
+                      li
+                        a(href='#') 5
+                      li
+                        a(href='#')
+                          i.fa.fa-chevron-right
+          a.hide.nav-off-screen-block(href='#', data-toggle='class:nav-off-screen,open', data-target='#nav,html')

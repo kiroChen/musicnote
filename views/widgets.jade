@@ -1,0 +1,575 @@
+extends layout
+
+block content
+  section.vbox
+    header.bg-white-only.header.header-md.navbar.navbar-fixed-top-xs
+      .navbar-header.aside.bg-info.dk
+        a.btn.btn-link.visible-xs(data-toggle='class:nav-off-screen,open', data-target='#nav,html')
+          i.icon-list
+        a.navbar-brand.text-lt(href='index.html')
+          i.icon-earphones
+          img.hide(src='images/logo.png', alt='.')
+          span.hidden-nav-xs.m-l-sm Musik
+        a.btn.btn-link.visible-xs(data-toggle='dropdown', data-target='.user')
+          i.icon-settings
+      ul.nav.navbar-nav.hidden-xs
+        li
+          a.text-muted(href='#nav,.navbar-header', data-toggle='class:nav-xs,nav-xs')
+            i.fa.fa-indent.text
+            i.fa.fa-dedent.text-active
+      form.navbar-form.navbar-left.input-s-lg.m-t.m-l-n-xs.hidden-xs(role='search')
+        .form-group
+          .input-group
+            span.input-group-btn
+              button.btn.btn-sm.bg-white.btn-icon.rounded(type='submit')
+                i.fa.fa-search
+            input.form-control.input-sm.no-border.rounded(type='text', placeholder='Search songs, albums...')
+      .navbar-right
+        ul.nav.navbar-nav.m-n.hidden-xs.nav-user.user
+          li.hidden-xs
+            a.dropdown-toggle.lt(href='#', data-toggle='dropdown')
+              i.icon-bell
+              span.badge.badge-sm.up.bg-danger.count 2
+            section.dropdown-menu.aside-xl.animated.fadeInUp
+              section.panel.bg-white
+                .panel-heading.b-light.bg-light
+                  strong
+                    | You have
+                    span.count 2
+                    | notifications
+                .list-group.list-group-alt
+                  a.media.list-group-item(href='#')
+                    span.pull-left.thumb-sm
+                      img.img-circle(src='images/a0.png', alt='...')
+                    span.media-body.block.m-b-none
+                      | Use awesome animate.css
+                      br
+                      small.text-muted 10 minutes ago
+                  a.media.list-group-item(href='#')
+                    span.media-body.block.m-b-none
+                      | 1.0 initial released
+                      br
+                      small.text-muted 1 hour ago
+                .panel-footer.text-sm
+                  a.pull-right(href='#')
+                    i.fa.fa-cog
+                  a(href='#notes', data-toggle='class:show animated fadeInRight') See all the notifications
+          li.dropdown
+            a.dropdown-toggle.bg.clear(href='#', data-toggle='dropdown')
+              span.thumb-sm.avatar.pull-right.m-t-n-sm.m-b-n-sm.m-l-sm
+                img(src='images/a0.png', alt='...')
+              | John.Smith
+              b.caret
+            ul.dropdown-menu.animated.fadeInRight
+              li
+                span.arrow.top
+                a(href='#') Settings
+              li
+                a(href='profile.html') Profile
+              li
+                a(href='#')
+                  span.badge.bg-danger.pull-right 3
+                  | Notifications
+              li
+                a(href='docs.html') Help
+              li.divider
+              li
+                a(href='modal.lockme.html', data-toggle='ajaxModal') Logout
+    section
+      section.hbox.stretch
+        // .aside
+        aside#nav.bg-black.dk.aside.hidden-print
+          section.vbox
+            section.w-f-md.scrollable
+              .slim-scroll(data-height='auto', data-disable-fade-out='true', data-distance='0', data-size='10px', data-railopacity='0.2')
+                // nav
+                nav.nav-primary.hidden-xs
+                  ul.nav.bg.clearfix
+                    li.hidden-nav-xs.padder.m-t.m-b-sm.text-xs.text-muted
+                      | Discover
+                    li
+                      a(href='index.html')
+                        i.icon-disc.icon.text-success
+                        span.font-bold What's new
+                    li
+                      a(href='genres.html')
+                        i.icon-music-tone-alt.icon.text-info
+                        span.font-bold Genres
+                    li
+                      a(href='events.html')
+                        i.icon-drawer.icon.text-primary-lter
+                        b.badge.bg-primary.pull-right 6
+                        span.font-bold Events
+                    li
+                      a(href='listen.html')
+                        i.icon-list.icon.text-info-dker
+                        span.font-bold Listen
+                    li
+                      a(href='video.html', data-target='#content', data-el='#bjax-el', data-replace='true')
+                        i.icon-social-youtube.icon.text-primary
+                        span.font-bold Video
+                    li.m-b.hidden-nav-xs
+                  ul.nav(data-ride='collapse')
+                    li.hidden-nav-xs.padder.m-t.m-b-sm.text-xs.text-muted
+                      | Interface
+                    li
+                      a.auto(href='#')
+                        span.pull-right.text-muted
+                          i.fa.fa-angle-left.text
+                          i.fa.fa-angle-down.text-active
+                        i.icon-screen-desktop.icon
+                        span Layouts
+                      ul.nav.dk.text-sm
+                        li
+                          a.auto(href='layout-color.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Color option
+                        li
+                          a.auto(href='layout-boxed.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Boxed layout
+                        li
+                          a.auto(href='layout-fluid.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Fluid layout
+                    li.active
+                      a.auto(href='#')
+                        span.pull-right.text-muted
+                          i.fa.fa-angle-left.text
+                          i.fa.fa-angle-down.text-active
+                        i.icon-chemistry.icon
+                        span UI Kit
+                      ul.nav.dk.text-sm
+                        li
+                          a.auto(href='buttons.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Buttons
+                        li
+                          a.auto(href='icons.html')
+                            b.badge.bg-info.pull-right 369
+                            i.fa.fa-angle-right.text-xs
+                            span Icons
+                        li
+                          a.auto(href='http://www.weidea.net')
+                            b.badge.bg-info.pull-right 369
+                            i.fa.fa-angle-right.text-xs
+                            span More
+                        li
+                          a.auto(href='grid.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Grid
+                        li.active
+                          a.auto(href='widgets.html')
+                            b.badge.bg-dark.pull-right 8
+                            i.fa.fa-angle-right.text-xs
+                            span Widgets
+                        li
+                          a.auto(href='components.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Components
+                        li
+                          a.auto(href='list.html')
+                            i.fa.fa-angle-right.text-xs
+                            span List group
+                        li
+                          a.auto(href='#table')
+                            span.pull-right.text-muted
+                              i.fa.fa-angle-left.text
+                              i.fa.fa-angle-down.text-active
+                            i.fa.fa-angle-right.text-xs
+                            span Table
+                          ul.nav.dker
+                            li
+                              a(href='table-static.html')
+                                i.fa.fa-angle-right
+                                span Table static
+                            li
+                              a(href='table-datatable.html')
+                                i.fa.fa-angle-right
+                                span Datatable
+                        li
+                          a.auto(href='#form')
+                            span.pull-right.text-muted
+                              i.fa.fa-angle-left.text
+                              i.fa.fa-angle-down.text-active
+                            i.fa.fa-angle-right.text-xs
+                            span Form
+                          ul.nav.dker
+                            li
+                              a(href='form-elements.html')
+                                i.fa.fa-angle-right
+                                span Form elements
+                            li
+                              a(href='form-validation.html')
+                                i.fa.fa-angle-right
+                                span Form validation
+                            li
+                              a(href='form-wizard.html')
+                                i.fa.fa-angle-right
+                                span Form wizard
+                        li
+                          a.auto(href='chart.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Chart
+                        li
+                          a.auto(href='portlet.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Portlet
+                        li
+                          a.auto(href='timeline.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Timeline
+                    li
+                      a.auto(href='#')
+                        span.pull-right.text-muted
+                          i.fa.fa-angle-left.text
+                          i.fa.fa-angle-down.text-active
+                        i.icon-grid.icon
+                        span Pages
+                      ul.nav.dk.text-sm
+                        li
+                          a.auto(href='profile.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Profile
+                        li
+                          a.auto(href='blog.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Blog
+                        li
+                          a.auto(href='invoice.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Invoice
+                        li
+                          a.auto(href='gmap.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Google Map
+                        li
+                          a.auto(href='jvectormap.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Vector Map
+                        li
+                          a.auto(href='signin.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Signin
+                        li
+                          a.auto(href='signup.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Signup
+                        li
+                          a.auto(href='404.html')
+                            i.fa.fa-angle-right.text-xs
+                            span 404
+                  ul.nav.text-sm
+                    li.hidden-nav-xs.padder.m-t.m-b-sm.text-xs.text-muted
+                      span.pull-right
+                        a(href='#')
+                          i.icon-plus.i-lg
+                      | Playlist
+                    li
+                      a(href='#')
+                        i.icon-music-tone.icon
+                        span Hip-Pop
+                    li
+                      a(href='#')
+                        i.icon-playlist.icon.text-success-lter
+                        b.badge.bg-success.dker.pull-right 9
+                        span Jazz
+                // / nav
+            footer.footer.hidden-xs.no-padder.text-center-nav-xs
+              .bg.hidden-xs
+                .dropdown.dropup.wrapper-sm.clearfix
+                  a.dropdown-toggle(href='#', data-toggle='dropdown')
+                    span.thumb-sm.avatar.pull-left.m-l-xs
+                      img.dker(src='images/a3.png', alt='...')
+                      i.on.b-black
+                    span.hidden-nav-xs.clear
+                      span.block.m-l
+                        strong.font-bold.text-lt John.Smith
+                        b.caret
+                      span.text-muted.text-xs.block.m-l Art Director
+                  ul.dropdown-menu.animated.fadeInRight.aside.text-left
+                    li
+                      span.arrow.bottom.hidden-nav-xs
+                      a(href='#') Settings
+                    li
+                      a(href='profile.html') Profile
+                    li
+                      a(href='#')
+                        span.badge.bg-danger.pull-right 3
+                        | Notifications
+                    li
+                      a(href='docs.html') Help
+                    li.divider
+                    li
+                      a(href='modal.lockme.html', data-toggle='ajaxModal') Logout
+        // /.aside
+        section#content
+          section.vbox
+            section.scrollable.wrapper
+              p
+                | Widgets
+                small (colorful)
+              .row
+                .col-lg-8
+                  .row
+                    .col-sm-6
+                      section.panel.panel-default
+                        header.panel-heading.bg-light.no-border
+                          .clearfix
+                            a.pull-left.thumb-md.avatar.b-3x.m-r(href='#')
+                              img(src='images/a1.png', alt='...')
+                            .clear
+                              .h3.m-t-xs.m-b-xs
+                                | John.Smith
+                                i.fa.fa-circle.text-success.pull-right.text-xs.m-t-sm
+                              small.text-muted Art director
+                        .list-group.no-radius.alt
+                          a.list-group-item(href='#')
+                            span.badge.bg-success 25
+                            i.fa.fa-comment.icon-muted
+                            | Messages
+                          a.list-group-item(href='#')
+                            span.badge.bg-info 16
+                            i.fa.fa-envelope.icon-muted
+                            | Inbox
+                          a.list-group-item(href='#')
+                            span.badge.bg-light 5
+                            i.fa.fa-eye.icon-muted
+                            | Profile visits
+                      section.panel.panel-info
+                        .panel-body
+                          a.thumb.pull-right.m-l.m-t-xs.avatar(href='#')
+                            img(src='images/a4.png', alt='...')
+                            i.on.md.b-white.bottom
+                          .clear
+                            a.text-info(href='#')
+                              | @Mike Mcalidek
+                              i.icon-twitter
+                            small.block.text-muted 2,415 followers / 225 tweets
+                            a.btn.btn-xs.btn-success.m-t-xs(href='#') Follow
+                    .col-sm-6
+                      section.panel.panel-default
+                        .text-center.wrapper.bg-light.lt
+                          .sparkline.inline(data-type='bar', data-height='126', data-bar-width='6', data-bar-spacing='20', data-stacked-bar-color='["#1d89cf", "#e0e6f0"]') 10:10,8:12,12:8,10:10,11:9,7:13,9:11,8:12,11:9
+                        ul.list-group.no-radius
+                          li.list-group-item
+                            span.pull-right 45,000
+                            span.label.bg-primary 1
+                            | .inc company
+                          li.list-group-item
+                            span.pull-right 23,200
+                            span.label.bg-info 2
+                            | Gamecorp
+                          li.list-group-item
+                            span.pull-right 21,000
+                            span.label.bg-success 3
+                            | Starup
+                          li.list-group-item
+                            span.pull-right 15,000
+                            span.label.bg-light 4
+                            | Neosoft company
+                .col-lg-4
+                  section.panel.panel-default
+                    .panel-body
+                      .clearfix.text-center.m-t
+                        .inline
+                          .easypiechart(data-percent='75', data-line-width='5', data-bar-color='#4cc0c1', data-track-color='#f5f5f5', data-scale-color='false', data-size='134', data-line-cap='butt', data-animate='1000')
+                            .thumb-lg
+                              img.img-circle(src='images/a5.png', alt='...')
+                          .h4.m-t.m-b-xs John.Smith
+                          small.text-muted.m-b Art director
+                    footer.panel-footer.bg-info.text-center
+                      .row.pull-out
+                        .col-xs-4
+                          .padder-v
+                            span.m-b-xs.h3.block.text-white 245
+                            small.text-muted Followers
+                        .col-xs-4.dk
+                          .padder-v
+                            span.m-b-xs.h3.block.text-white 55
+                            small.text-muted Following
+                        .col-xs-4
+                          .padder-v
+                            span.m-b-xs.h3.block.text-white 2,035
+                            small.text-muted Tweets
+              .row
+                .col-lg-6
+                  // chat
+                  section.panel.panel-default
+                    header.panel-heading Chat
+                    section.chat-list.panel-body
+                      article#chat-id-1.chat-item.left
+                        a.pull-left.thumb-sm.avatar(href='#')
+                          img(src='images/a2.png', alt='...')
+                        section.chat-body
+                          .panel.b-light.text-sm.m-b-none
+                            .panel-body
+                              span.arrow.left
+                              p.m-b-none Hi John, What's up...
+                          small.text-muted
+                            i.fa.fa-ok.text-success
+                            | 2 minutes ago
+                      article#chat-id-2.chat-item.right
+                        a.pull-right.thumb-sm.avatar(href='#')
+                          img.img-circle(src='images/a3.png', alt='...')
+                        section.chat-body
+                          .panel.bg-light.text-sm.m-b-none
+                            .panel-body
+                              span.arrow.right
+                              p.m-b-none
+                                | Lorem ipsum dolor sit amet, conse
+                                br
+                                | adipiscing eli...
+                                br
+                                | :)
+                          small.text-muted 1 minutes ago
+                    footer.panel-footer
+                      // chat form
+                      article#chat-form.chat-item
+                        a.pull-left.thumb-sm.avatar
+                          img.img-circle(src='images/a3.png', alt='...')
+                        section.chat-body
+                          form.m-b-none(action='index.html')
+                            .input-group
+                              input.form-control(type='text', placeholder='Say something')
+                              span.input-group-btn
+                                button.btn.btn-default(type='button') SEND
+                  // /chat
+                  section.panel.panel-default
+                    header.panel-heading
+                      span.label.bg-dark 15
+                      | Inbox
+                    section.panel-body.slim-scroll(data-height='230px', data-size='10px')
+                      article.media
+                        span.pull-left.thumb-sm
+                          img(src='images/a2.png', alt='...')
+                        .media-body
+                          .pull-right.media-xs.text-center.text-muted
+                            strong.h4 12:18
+                            br
+                            small.label.bg-light pm
+                          a.h4(href='#') Bootstrap 3 released
+                          small.block
+                            a(href='#') John Smith
+                            span.label.label-success Circle
+                          small.block.m-t-sm
+                            | Sleek, intuitive, and powerful mobile-first front-end framework for faster and easier web development.
+                      .line.pull-in
+                      article.media
+                        span.pull-left.thumb-sm
+                          i.fa.fa-file-o.fa-3x.icon-muted
+                        .media-body
+                          .pull-right.media-xs.text-center.text-muted
+                            strong.h4 17
+                            br
+                            small.label.bg-light feb
+                          a.h4(href='#') Bootstrap documents
+                          small.block
+                            a(href='#') John Smith
+                            span.label.label-info Friends
+                          small.block.m-t-sm
+                            | There are a few easy ways to quickly get started with Bootstrap, each one appealing to a different skill level and use case. Read through to see what suits your particular needs.
+                      .line.pull-in
+                      article.media
+                        .media-body
+                          .pull-right.media-xs.text-center.text-muted
+                            strong.h4 09
+                            br
+                            small.label.bg-light jan
+                          a.h4.text-success(href='#') Mobile first html/css framework
+                          small.block.m-t-sm Bootstrap, Ratchet
+                .col-lg-6
+                  // .comment-list
+                  section.comment-list.block
+                    article#comment-id-1.comment-item
+                      a.pull-left.thumb-sm.avatar
+                        img.img-circle(src='images/a1.png', alt='...')
+                      span.arrow.left
+                      section.comment-body.panel.panel-default
+                        header.panel-heading.bg-white
+                          a(href='#') John smith
+                          label.label.bg-info.m-l-xs Editor
+                          span.text-muted.m-l-sm.pull-right
+                            i.fa.fa-clock-o
+                            | Just now
+                        .panel-body
+                          div
+                            | Lorem ipsum dolor sit amet, consecteter adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet.
+                          .comment-action.m-t-sm
+                            a.btn.btn-default.btn-xs.active(href='#', data-toggle='class')
+                              i.fa.fa-star-o.text-muted.text
+                              i.fa.fa-star.text-danger.text-active
+                              | Like
+                            a.btn.btn-default.btn-xs(href='#comment-form')
+                              i.fa.fa-mail-reply.text-muted
+                              | Reply
+                    // .comment-reply
+                    article#comment-id-2.comment-item.comment-reply
+                      a.pull-left.thumb-sm.avatar
+                        img(src='images/a8.png', alt='...')
+                      span.arrow.left
+                      section.comment-body.panel.panel-default.text-sm
+                        .panel-body
+                          span.text-muted.m-l-sm.pull-right
+                            i.fa.fa-clock-o
+                            | 10m ago
+                          a(href='#') Mika Sam
+                          label.label.bg-dark.m-l-xs Admin
+                          | Report this comment is helpful
+                    // / .comment-reply
+                    article#comment-id-3.comment-item
+                      a.pull-left.thumb-sm.avatar
+                        img(src='images/a9.png', alt='...')
+                      span.arrow.left
+                      section.comment-body.panel.panel-default
+                        header.panel-heading
+                          a(href='#') By me
+                          label.label.bg-success.m-l-xs User
+                          span.text-muted.m-l-sm.pull-right
+                            i.fa.fa-clock-o
+                            | 1h ago
+                        .panel-body
+                          div This comment was posted by you.
+                          .comment-action.m-t-sm
+                            a.btn.btn-default.btn-xs(href='#comment-id-3', data-dismiss='alert')
+                              i.fa.fa-trash-o.text-muted
+                              | Remove
+                    article#comment-id-4.comment-item
+                      a.pull-left.thumb-sm.avatar
+                        img(src='images/a5.png', alt='...')
+                      span.arrow.left
+                      section.comment-body.panel.panel-default
+                        header.panel-heading
+                          a(href='#') Peter
+                          label.label.bg-primary.m-l-xs Vip
+                          span.text-muted.m-l-sm.pull-right
+                            i.fa.fa-clock-o
+                            | 2hs ago
+                        .panel-body
+                          blockquote
+                            p
+                              | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
+                            small
+                              | Someone famous in
+                              cite(title='Source Title') Source Title
+                          div Lorem ipsum dolor sit amet, consecteter adipiscing elit...
+                          .comment-action.m-t-sm
+                            a.btn.btn-default.btn-xs(href='#', data-toggle='class')
+                              i.fa.fa-star-o.text-muted.text
+                              i.fa.fa-star.text-danger.text-active
+                              | Like
+                            a.btn.btn-default.btn-xs(href='#comment-form')
+                              i.fa.fa-mail-reply.text-muted
+                              | Reply
+                    // comment form
+                    article#comment-form.comment-item.media
+                      a.pull-left.thumb-sm.avatar
+                        img(src='images/a6.png', alt='...')
+                      section.media-body
+                        form.m-b-none(action='index.html')
+                          .input-group
+                            input.form-control(type='text', placeholder='Input your comment here')
+                            span.input-group-btn
+                              button.btn.btn-primary(type='button') POST
+                  // / .comment-list
+          a.hide.nav-off-screen-block(href='#', data-toggle='class:nav-off-screen,open', data-target='#nav,html')

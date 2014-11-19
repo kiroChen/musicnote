@@ -1,0 +1,2189 @@
+extends layout
+
+block content
+  section.vbox
+    header.bg-white-only.header.header-md.navbar.navbar-fixed-top-xs
+      .navbar-header.aside.bg-info.dk
+        a.btn.btn-link.visible-xs(data-toggle='class:nav-off-screen,open', data-target='#nav,html')
+          i.icon-list
+        a.navbar-brand.text-lt(href='index.html')
+          i.icon-earphones
+          img.hide(src='images/logo.png', alt='.')
+          span.hidden-nav-xs.m-l-sm Musik
+        a.btn.btn-link.visible-xs(data-toggle='dropdown', data-target='.user')
+          i.icon-settings
+      ul.nav.navbar-nav.hidden-xs
+        li
+          a.text-muted(href='#nav,.navbar-header', data-toggle='class:nav-xs,nav-xs')
+            i.fa.fa-indent.text
+            i.fa.fa-dedent.text-active
+      form.navbar-form.navbar-left.input-s-lg.m-t.m-l-n-xs.hidden-xs(role='search')
+        .form-group
+          .input-group
+            span.input-group-btn
+              button.btn.btn-sm.bg-white.btn-icon.rounded(type='submit')
+                i.fa.fa-search
+            input.form-control.input-sm.no-border.rounded(type='text', placeholder='Search songs, albums...')
+      .navbar-right
+        ul.nav.navbar-nav.m-n.hidden-xs.nav-user.user
+          li.hidden-xs
+            a.dropdown-toggle.lt(href='#', data-toggle='dropdown')
+              i.icon-bell
+              span.badge.badge-sm.up.bg-danger.count 2
+            section.dropdown-menu.aside-xl.animated.fadeInUp
+              section.panel.bg-white
+                .panel-heading.b-light.bg-light
+                  strong
+                    | You have
+                    span.count 2
+                    | notifications
+                .list-group.list-group-alt
+                  a.media.list-group-item(href='#')
+                    span.pull-left.thumb-sm
+                      img.img-circle(src='images/a0.png', alt='...')
+                    span.media-body.block.m-b-none
+                      | Use awesome animate.css
+                      br
+                      small.text-muted 10 minutes ago
+                  a.media.list-group-item(href='#')
+                    span.media-body.block.m-b-none
+                      | 1.0 initial released
+                      br
+                      small.text-muted 1 hour ago
+                .panel-footer.text-sm
+                  a.pull-right(href='#')
+                    i.fa.fa-cog
+                  a(href='#notes', data-toggle='class:show animated fadeInRight') See all the notifications
+          li.dropdown
+            a.dropdown-toggle.bg.clear(href='#', data-toggle='dropdown')
+              span.thumb-sm.avatar.pull-right.m-t-n-sm.m-b-n-sm.m-l-sm
+                img(src='images/a0.png', alt='...')
+              | John.Smith
+              b.caret
+            ul.dropdown-menu.animated.fadeInRight
+              li
+                span.arrow.top
+                a(href='#') Settings
+              li
+                a(href='profile.html') Profile
+              li
+                a(href='#')
+                  span.badge.bg-danger.pull-right 3
+                  | Notifications
+              li
+                a(href='docs.html') Help
+              li.divider
+              li
+                a(href='modal.lockme.html', data-toggle='ajaxModal') Logout
+    section
+      section.hbox.stretch
+        // .aside
+        aside#nav.bg-black.dk.aside.hidden-print
+          section.vbox
+            section.w-f-md.scrollable
+              .slim-scroll(data-height='auto', data-disable-fade-out='true', data-distance='0', data-size='10px', data-railopacity='0.2')
+                // nav
+                nav.nav-primary.hidden-xs
+                  ul.nav.bg.clearfix
+                    li.hidden-nav-xs.padder.m-t.m-b-sm.text-xs.text-muted
+                      | Discover
+                    li
+                      a(href='index.html')
+                        i.icon-disc.icon.text-success
+                        span.font-bold What's new
+                    li
+                      a(href='genres.html')
+                        i.icon-music-tone-alt.icon.text-info
+                        span.font-bold Genres
+                    li
+                      a(href='events.html')
+                        i.icon-drawer.icon.text-primary-lter
+                        b.badge.bg-primary.pull-right 6
+                        span.font-bold Events
+                    li
+                      a(href='listen.html')
+                        i.icon-list.icon.text-info-dker
+                        span.font-bold Listen
+                    li
+                      a(href='video.html', data-target='#content', data-el='#bjax-el', data-replace='true')
+                        i.icon-social-youtube.icon.text-primary
+                        span.font-bold Video
+                    li.m-b.hidden-nav-xs
+                  ul.nav(data-ride='collapse')
+                    li.hidden-nav-xs.padder.m-t.m-b-sm.text-xs.text-muted
+                      | Interface
+                    li
+                      a.auto(href='#')
+                        span.pull-right.text-muted
+                          i.fa.fa-angle-left.text
+                          i.fa.fa-angle-down.text-active
+                        i.icon-screen-desktop.icon
+                        span Layouts
+                      ul.nav.dk.text-sm
+                        li
+                          a.auto(href='layout-color.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Color option
+                        li
+                          a.auto(href='layout-boxed.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Boxed layout
+                        li
+                          a.auto(href='layout-fluid.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Fluid layout
+                    li.active
+                      a.auto(href='#')
+                        span.pull-right.text-muted
+                          i.fa.fa-angle-left.text
+                          i.fa.fa-angle-down.text-active
+                        i.icon-chemistry.icon
+                        span UI Kit
+                      ul.nav.dk.text-sm
+                        li
+                          a.auto(href='buttons.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Buttons
+                        li.active
+                          a.auto(href='icons.html')
+                            b.badge.bg-info.pull-right 369
+                            i.fa.fa-angle-right.text-xs
+                            span Icons
+                        li
+                          a.auto(href='grid.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Grid
+                        li
+                          a.auto(href='widgets.html')
+                            b.badge.bg-dark.pull-right 8
+                            i.fa.fa-angle-right.text-xs
+                            span Widgets
+                        li
+                          a.auto(href='components.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Components
+                        li
+                          a.auto(href='list.html')
+                            i.fa.fa-angle-right.text-xs
+                            span List group
+                        li
+                          a.auto(href='#table')
+                            span.pull-right.text-muted
+                              i.fa.fa-angle-left.text
+                              i.fa.fa-angle-down.text-active
+                            i.fa.fa-angle-right.text-xs
+                            span Table
+                          ul.nav.dker
+                            li
+                              a(href='table-static.html')
+                                i.fa.fa-angle-right
+                                span Table static
+                            li
+                              a(href='table-datatable.html')
+                                i.fa.fa-angle-right
+                                span Datatable
+                        li
+                          a.auto(href='#form')
+                            span.pull-right.text-muted
+                              i.fa.fa-angle-left.text
+                              i.fa.fa-angle-down.text-active
+                            i.fa.fa-angle-right.text-xs
+                            span Form
+                          ul.nav.dker
+                            li
+                              a(href='form-elements.html')
+                                i.fa.fa-angle-right
+                                span Form elements
+                            li
+                              a(href='form-validation.html')
+                                i.fa.fa-angle-right
+                                span Form validation
+                            li
+                              a(href='form-wizard.html')
+                                i.fa.fa-angle-right
+                                span Form wizard
+                        li
+                          a.auto(href='chart.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Chart
+                        li
+                          a.auto(href='portlet.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Portlet
+                        li
+                          a.auto(href='timeline.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Timeline
+                    li
+                      a.auto(href='#')
+                        span.pull-right.text-muted
+                          i.fa.fa-angle-left.text
+                          i.fa.fa-angle-down.text-active
+                        i.icon-grid.icon
+                        span Pages
+                      ul.nav.dk.text-sm
+                        li
+                          a.auto(href='profile.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Profile
+                        li
+                          a.auto(href='blog.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Blog
+                        li
+                          a.auto(href='invoice.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Invoice
+                        li
+                          a.auto(href='gmap.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Google Map
+                        li
+                          a.auto(href='jvectormap.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Vector Map
+                        li
+                          a.auto(href='signin.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Signin
+                        li
+                          a.auto(href='signup.html')
+                            i.fa.fa-angle-right.text-xs
+                            span Signup
+                        li
+                          a.auto(href='404.html')
+                            i.fa.fa-angle-right.text-xs
+                            span 404
+                  ul.nav.text-sm
+                    li.hidden-nav-xs.padder.m-t.m-b-sm.text-xs.text-muted
+                      span.pull-right
+                        a(href='#')
+                          i.icon-plus.i-lg
+                      | Playlist
+                    li
+                      a(href='#')
+                        i.icon-music-tone.icon
+                        span Hip-Pop
+                    li
+                      a(href='#')
+                        i.icon-playlist.icon.text-success-lter
+                        b.badge.bg-success.dker.pull-right 9
+                        span Jazz
+                // / nav
+            footer.footer.hidden-xs.no-padder.text-center-nav-xs
+              .bg.hidden-xs
+                .dropdown.dropup.wrapper-sm.clearfix
+                  a.dropdown-toggle(href='#', data-toggle='dropdown')
+                    span.thumb-sm.avatar.pull-left.m-l-xs
+                      img.dker(src='images/a3.png', alt='...')
+                      i.on.b-black
+                    span.hidden-nav-xs.clear
+                      span.block.m-l
+                        strong.font-bold.text-lt John.Smith
+                        b.caret
+                      span.text-muted.text-xs.block.m-l Art Director
+                  ul.dropdown-menu.animated.fadeInRight.aside.text-left
+                    li
+                      span.arrow.bottom.hidden-nav-xs
+                      a(href='#') Settings
+                    li
+                      a(href='profile.html') Profile
+                    li
+                      a(href='#')
+                        span.badge.bg-danger.pull-right 3
+                        | Notifications
+                    li
+                      a(href='docs.html') Help
+                    li.divider
+                    li
+                      a(href='modal.lockme.html', data-toggle='ajaxModal') Logout
+        // /.aside
+        section#content
+          section.vbox
+            section.scrollable.wrapper
+              h3.font-thin.m-t-xs Simple Line Icons
+              section#classes.row.list-icon
+                .col-md-3.col-sm-4
+                  i.icon-user
+                  | icon-user
+                .col-md-3.col-sm-4
+                  i.icon-user-female
+                  | icon-user-female
+                .col-md-3.col-sm-4
+                  i.icon-users
+                  | icon-users
+                .col-md-3.col-sm-4
+                  i.icon-user-follow
+                  | icon-user-follow
+                .col-md-3.col-sm-4
+                  i.icon-user-following
+                  | icon-user-following
+                .col-md-3.col-sm-4
+                  i.icon-user-unfollow
+                  | icon-user-unfollow
+                .col-md-3.col-sm-4
+                  i.icon-trophy
+                  | icon-trophy
+                .col-md-3.col-sm-4
+                  i.icon-speedometer
+                  | icon-speedometer
+                .col-md-3.col-sm-4
+                  i.icon-social-youtube
+                  | icon-social-youtube
+                .col-md-3.col-sm-4
+                  i.icon-social-twitter
+                  | icon-social-twitter
+                .col-md-3.col-sm-4
+                  i.icon-social-tumblr
+                  | icon-social-tumblr
+                .col-md-3.col-sm-4
+                  i.icon-social-facebook
+                  | icon-social-facebook
+                .col-md-3.col-sm-4
+                  i.icon-social-dropbox
+                  | icon-social-dropbox
+                .col-md-3.col-sm-4
+                  i.icon-social-dribbble
+                  | icon-social-dribbble
+                .col-md-3.col-sm-4
+                  i.icon-shield
+                  | icon-shield
+                .col-md-3.col-sm-4
+                  i.icon-screen-tablet
+                  | icon-screen-tablet
+                .col-md-3.col-sm-4
+                  i.icon-screen-smartphone
+                  | icon-screen-smartphone
+                .col-md-3.col-sm-4
+                  i.icon-screen-desktop
+                  | icon-screen-desktop
+                .col-md-3.col-sm-4
+                  i.icon-plane
+                  | icon-plane
+                .col-md-3.col-sm-4
+                  i.icon-notebook
+                  | icon-notebook
+                .col-md-3.col-sm-4
+                  i.icon-moustache
+                  | icon-moustache
+                .col-md-3.col-sm-4
+                  i.icon-mouse
+                  | icon-mouse
+                .col-md-3.col-sm-4
+                  i.icon-magnet
+                  | icon-magnet
+                .col-md-3.col-sm-4
+                  i.icon-magic-wand
+                  | icon-magic-wand
+                .col-md-3.col-sm-4
+                  i.icon-hourglass
+                  | icon-hourglass
+                .col-md-3.col-sm-4
+                  i.icon-graduation
+                  | icon-graduation
+                .col-md-3.col-sm-4
+                  i.icon-ghost
+                  | icon-ghost
+                .col-md-3.col-sm-4
+                  i.icon-game-controller
+                  | icon-game-controller
+                .col-md-3.col-sm-4
+                  i.icon-fire
+                  | icon-fire
+                .col-md-3.col-sm-4
+                  i.icon-eyeglasses
+                  | icon-eyeglasses
+                .col-md-3.col-sm-4
+                  i.icon-envelope-open
+                  | icon-envelope-open
+                .col-md-3.col-sm-4
+                  i.icon-envelope-letter
+                  | icon-envelope-letter
+                .col-md-3.col-sm-4
+                  i.icon-energy
+                  | icon-energy
+                .col-md-3.col-sm-4
+                  i.icon-emoticon-smile
+                  | icon-emoticon-smile
+                .col-md-3.col-sm-4
+                  i.icon-disc
+                  | icon-disc
+                .col-md-3.col-sm-4
+                  i.icon-cursor-move
+                  | icon-cursor-move
+                .col-md-3.col-sm-4
+                  i.icon-crop
+                  | icon-crop
+                .col-md-3.col-sm-4
+                  i.icon-credit-card
+                  | icon-credit-card
+                .col-md-3.col-sm-4
+                  i.icon-chemistry
+                  | icon-chemistry
+                .col-md-3.col-sm-4
+                  i.icon-bell
+                  | icon-bell
+                .col-md-3.col-sm-4
+                  i.icon-badge
+                  | icon-badge
+                .col-md-3.col-sm-4
+                  i.icon-anchor
+                  | icon-anchor
+                .col-md-3.col-sm-4
+                  i.icon-action-redo
+                  | icon-action-redo
+                .col-md-3.col-sm-4
+                  i.icon-action-undo
+                  | icon-action-undo
+                .col-md-3.col-sm-4
+                  i.icon-bag
+                  | icon-bag
+                .col-md-3.col-sm-4
+                  i.icon-basket
+                  | icon-basket
+                .col-md-3.col-sm-4
+                  i.icon-basket-loaded
+                  | icon-basket-loaded
+                .col-md-3.col-sm-4
+                  i.icon-book-open
+                  | icon-book-open
+                .col-md-3.col-sm-4
+                  i.icon-briefcase
+                  | icon-briefcase
+                .col-md-3.col-sm-4
+                  i.icon-bubbles
+                  | icon-bubbles
+                .col-md-3.col-sm-4
+                  i.icon-calculator
+                  | icon-calculator
+                .col-md-3.col-sm-4
+                  i.icon-call-end
+                  | icon-call-end
+                .col-md-3.col-sm-4
+                  i.icon-call-in
+                  | icon-call-in
+                .col-md-3.col-sm-4
+                  i.icon-call-out
+                  | icon-call-out
+                .col-md-3.col-sm-4
+                  i.icon-compass
+                  | icon-compass
+                .col-md-3.col-sm-4
+                  i.icon-cup
+                  | icon-cup
+                .col-md-3.col-sm-4
+                  i.icon-diamond
+                  | icon-diamond
+                .col-md-3.col-sm-4
+                  i.icon-direction
+                  | icon-direction
+                .col-md-3.col-sm-4
+                  i.icon-directions
+                  | icon-directions
+                .col-md-3.col-sm-4
+                  i.icon-docs
+                  | icon-docs
+                .col-md-3.col-sm-4
+                  i.icon-drawer
+                  | icon-drawer
+                .col-md-3.col-sm-4
+                  i.icon-drop
+                  | icon-drop
+                .col-md-3.col-sm-4
+                  i.icon-earphones
+                  | icon-earphones
+                .col-md-3.col-sm-4
+                  i.icon-earphones-alt
+                  | icon-earphones-alt
+                .col-md-3.col-sm-4
+                  i.icon-feed
+                  | icon-feed
+                .col-md-3.col-sm-4
+                  i.icon-film
+                  | icon-film
+                .col-md-3.col-sm-4
+                  i.icon-folder-alt
+                  | icon-folder-alt
+                .col-md-3.col-sm-4
+                  i.icon-frame
+                  | icon-frame
+                .col-md-3.col-sm-4
+                  i.icon-globe
+                  | icon-globe
+                .col-md-3.col-sm-4
+                  i.icon-globe-alt
+                  | icon-globe-alt
+                .col-md-3.col-sm-4
+                  i.icon-handbag
+                  | icon-handbag
+                .col-md-3.col-sm-4
+                  i.icon-layers
+                  | icon-layers
+                .col-md-3.col-sm-4
+                  i.icon-map
+                  | icon-map
+                .col-md-3.col-sm-4
+                  i.icon-picture
+                  | icon-picture
+                .col-md-3.col-sm-4
+                  i.icon-pin
+                  | icon-pin
+                .col-md-3.col-sm-4
+                  i.icon-playlist
+                  | icon-playlist
+                .col-md-3.col-sm-4
+                  i.icon-present
+                  | icon-present
+                .col-md-3.col-sm-4
+                  i.icon-printer
+                  | icon-printer
+                .col-md-3.col-sm-4
+                  i.icon-puzzle
+                  | icon-puzzle
+                .col-md-3.col-sm-4
+                  i.icon-speech
+                  | icon-speech
+                .col-md-3.col-sm-4
+                  i.icon-vector
+                  | icon-vector
+                .col-md-3.col-sm-4
+                  i.icon-wallet
+                  | icon-wallet
+                .col-md-3.col-sm-4
+                  i.icon-arrow-down
+                  | icon-arrow-down
+                .col-md-3.col-sm-4
+                  i.icon-arrow-left
+                  | icon-arrow-left
+                .col-md-3.col-sm-4
+                  i.icon-arrow-right
+                  | icon-arrow-right
+                .col-md-3.col-sm-4
+                  i.icon-arrow-up
+                  | icon-arrow-up
+                .col-md-3.col-sm-4
+                  i.icon-bar-chart
+                  | icon-bar-chart
+                .col-md-3.col-sm-4
+                  i.icon-bulb
+                  | icon-bulb
+                .col-md-3.col-sm-4
+                  i.icon-calendar
+                  | icon-calendar
+                .col-md-3.col-sm-4
+                  i.icon-control-end
+                  | icon-control-end
+                .col-md-3.col-sm-4
+                  i.icon-control-forward
+                  | icon-control-forward
+                .col-md-3.col-sm-4
+                  i.icon-control-pause
+                  | icon-control-pause
+                .col-md-3.col-sm-4
+                  i.icon-control-play
+                  | icon-control-play
+                .col-md-3.col-sm-4
+                  i.icon-control-rewind
+                  | icon-control-rewind
+                .col-md-3.col-sm-4
+                  i.icon-control-start
+                  | icon-control-start
+                .col-md-3.col-sm-4
+                  i.icon-cursor
+                  | icon-cursor
+                .col-md-3.col-sm-4
+                  i.icon-dislike
+                  | icon-dislike
+                .col-md-3.col-sm-4
+                  i.icon-equalizer
+                  | icon-equalizer
+                .col-md-3.col-sm-4
+                  i.icon-graph
+                  | icon-graph
+                .col-md-3.col-sm-4
+                  i.icon-grid
+                  | icon-grid
+                .col-md-3.col-sm-4
+                  i.icon-home
+                  | icon-home
+                .col-md-3.col-sm-4
+                  i.icon-like
+                  | icon-like
+                .col-md-3.col-sm-4
+                  i.icon-list
+                  | icon-list
+                .col-md-3.col-sm-4
+                  i.icon-login
+                  | icon-login
+                .col-md-3.col-sm-4
+                  i.icon-logout
+                  | icon-logout
+                .col-md-3.col-sm-4
+                  i.icon-loop
+                  | icon-loop
+                .col-md-3.col-sm-4
+                  i.icon-microphone
+                  | icon-microphone
+                .col-md-3.col-sm-4
+                  i.icon-music-tone
+                  | icon-music-tone
+                .col-md-3.col-sm-4
+                  i.icon-music-tone-alt
+                  | icon-music-tone-alt
+                .col-md-3.col-sm-4
+                  i.icon-note
+                  | icon-note
+                .col-md-3.col-sm-4
+                  i.icon-pencil
+                  | icon-pencil
+                .col-md-3.col-sm-4
+                  i.icon-pie-chart
+                  | icon-pie-chart
+                .col-md-3.col-sm-4
+                  i.icon-question
+                  | icon-question
+                .col-md-3.col-sm-4
+                  i.icon-rocket
+                  | icon-rocket
+                .col-md-3.col-sm-4
+                  i.icon-share
+                  | icon-share
+                .col-md-3.col-sm-4
+                  i.icon-share-alt
+                  | icon-share-alt
+                .col-md-3.col-sm-4
+                  i.icon-shuffle
+                  | icon-shuffle
+                .col-md-3.col-sm-4
+                  i.icon-size-actual
+                  | icon-size-actual
+                .col-md-3.col-sm-4
+                  i.icon-size-fullscreen
+                  | icon-size-fullscreen
+                .col-md-3.col-sm-4
+                  i.icon-support
+                  | icon-support
+                .col-md-3.col-sm-4
+                  i.icon-tag
+                  | icon-tag
+                .col-md-3.col-sm-4
+                  i.icon-trash
+                  | icon-trash
+                .col-md-3.col-sm-4
+                  i.icon-umbrella
+                  | icon-umbrella
+                .col-md-3.col-sm-4
+                  i.icon-wrench
+                  | icon-wrench
+                .col-md-3.col-sm-4
+                  i.icon-ban
+                  | icon-ban
+                .col-md-3.col-sm-4
+                  i.icon-bubble
+                  | icon-bubble
+                .col-md-3.col-sm-4
+                  i.icon-camcorder
+                  | icon-camcorder
+                .col-md-3.col-sm-4
+                  i.icon-camera
+                  | icon-camera
+                .col-md-3.col-sm-4
+                  i.icon-check
+                  | icon-check
+                .col-md-3.col-sm-4
+                  i.icon-clock
+                  | icon-clock
+                .col-md-3.col-sm-4
+                  i.icon-close
+                  | icon-close
+                .col-md-3.col-sm-4
+                  i.icon-cloud-download
+                  | icon-cloud-download
+                .col-md-3.col-sm-4
+                  i.icon-cloud-upload
+                  | icon-cloud-upload
+                .col-md-3.col-sm-4
+                  i.icon-doc
+                  | icon-doc
+                .col-md-3.col-sm-4
+                  i.icon-envelope
+                  | icon-envelope
+                .col-md-3.col-sm-4
+                  i.icon-eye
+                  | icon-eye
+                .col-md-3.col-sm-4
+                  i.icon-flag
+                  | icon-flag
+                .col-md-3.col-sm-4
+                  i.icon-folder
+                  | icon-folder
+                .col-md-3.col-sm-4
+                  i.icon-heart
+                  | icon-heart
+                .col-md-3.col-sm-4
+                  i.icon-info
+                  | icon-info
+                .col-md-3.col-sm-4
+                  i.icon-key
+                  | icon-key
+                .col-md-3.col-sm-4
+                  i.icon-link
+                  | icon-link
+                .col-md-3.col-sm-4
+                  i.icon-lock
+                  | icon-lock
+                .col-md-3.col-sm-4
+                  i.icon-lock-open
+                  | icon-lock-open
+                .col-md-3.col-sm-4
+                  i.icon-magnifier
+                  | icon-magnifier
+                .col-md-3.col-sm-4
+                  i.icon-magnifier-add
+                  | icon-magnifier-add
+                .col-md-3.col-sm-4
+                  i.icon-magnifier-remove
+                  | icon-magnifier-remove
+                .col-md-3.col-sm-4
+                  i.icon-paper-clip
+                  | icon-paper-clip
+                .col-md-3.col-sm-4
+                  i.icon-paper-plane
+                  | icon-paper-plane
+                .col-md-3.col-sm-4
+                  i.icon-plus
+                  | icon-plus
+                .col-md-3.col-sm-4
+                  i.icon-pointer
+                  | icon-pointer
+                .col-md-3.col-sm-4
+                  i.icon-power
+                  | icon-power
+                .col-md-3.col-sm-4
+                  i.icon-refresh
+                  | icon-refresh
+                .col-md-3.col-sm-4
+                  i.icon-reload
+                  | icon-reload
+                .col-md-3.col-sm-4
+                  i.icon-settings
+                  | icon-settings
+                .col-md-3.col-sm-4
+                  i.icon-star
+                  | icon-star
+                .col-md-3.col-sm-4
+                  i.icon-symbol-female
+                  | icon-symbol-female
+                .col-md-3.col-sm-4
+                  i.icon-symbol-male
+                  | icon-symbol-male
+                .col-md-3.col-sm-4
+                  i.icon-target
+                  | icon-target
+                .col-md-3.col-sm-4
+                  i.icon-volume-1
+                  | icon-volume-1
+                .col-md-3.col-sm-4
+                  i.icon-volume-2
+                  | icon-volume-2
+                .col-md-3.col-sm-4
+                  i.icon-volume-off
+                  | icon-volume-off
+              h3.font-thin
+                | FontAwesome!
+                span.label.label-lg.bg-info 4.0
+              p
+                | Font Awesome gives you scalable vector icons that can instantly be customized — size, color, drop shadow, and anything that can be done with the power of CSS.
+              div
+                section#web-application
+                  h4.page-header Web Application Icons
+                  .row.list-icon
+                    .col-md-3.col-sm-4
+                      i.fa.fa-adjust
+                      | fa-adjust
+                    .col-md-3.col-sm-4
+                      i.fa.fa-anchor
+                      | fa-anchor
+                    .col-md-3.col-sm-4
+                      i.fa.fa-archive
+                      | fa-archive
+                    .col-md-3.col-sm-4
+                      i.fa.fa-arrows
+                      | fa-arrows
+                    .col-md-3.col-sm-4
+                      i.fa.fa-arrows-h
+                      | fa-arrows-h
+                    .col-md-3.col-sm-4
+                      i.fa.fa-arrows-v
+                      | fa-arrows-v
+                    .col-md-3.col-sm-4
+                      i.fa.fa-asterisk
+                      | fa-asterisk
+                    .col-md-3.col-sm-4
+                      i.fa.fa-ban
+                      | fa-ban
+                    .col-md-3.col-sm-4
+                      i.fa.fa-bar-chart-o
+                      | fa-bar-chart-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-barcode
+                      | fa-barcode
+                    .col-md-3.col-sm-4
+                      i.fa.fa-bars
+                      | fa-bars
+                    .col-md-3.col-sm-4
+                      i.fa.fa-beer
+                      | fa-beer
+                    .col-md-3.col-sm-4
+                      i.fa.fa-bell
+                      | fa-bell
+                    .col-md-3.col-sm-4
+                      i.fa.fa-bell-o
+                      | fa-bell-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-bolt
+                      | fa-bolt
+                    .col-md-3.col-sm-4
+                      i.fa.fa-book
+                      | fa-book
+                    .col-md-3.col-sm-4
+                      i.fa.fa-bookmark
+                      | fa-bookmark
+                    .col-md-3.col-sm-4
+                      i.fa.fa-bookmark-o
+                      | fa-bookmark-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-briefcase
+                      | fa-briefcase
+                    .col-md-3.col-sm-4
+                      i.fa.fa-bug
+                      | fa-bug
+                    .col-md-3.col-sm-4
+                      i.fa.fa-building-o
+                      | fa-building-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-bullhorn
+                      | fa-bullhorn
+                    .col-md-3.col-sm-4
+                      i.fa.fa-bullseye
+                      | fa-bullseye
+                    .col-md-3.col-sm-4
+                      i.fa.fa-calendar
+                      | fa-calendar
+                    .col-md-3.col-sm-4
+                      i.fa.fa-calendar-o
+                      | fa-calendar-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-camera
+                      | fa-camera
+                    .col-md-3.col-sm-4
+                      i.fa.fa-camera-retro
+                      | fa-camera-retro
+                    .col-md-3.col-sm-4
+                      i.fa.fa-caret-square-o-down
+                      | fa-caret-square-o-down
+                    .col-md-3.col-sm-4
+                      i.fa.fa-caret-square-o-left
+                      | fa-caret-square-o-left
+                    .col-md-3.col-sm-4
+                      i.fa.fa-caret-square-o-right
+                      | fa-caret-square-o-right
+                    .col-md-3.col-sm-4
+                      i.fa.fa-caret-square-o-up
+                      | fa-caret-square-o-up
+                    .col-md-3.col-sm-4
+                      i.fa.fa-certificate
+                      | fa-certificate
+                    .col-md-3.col-sm-4
+                      i.fa.fa-check
+                      | fa-check
+                    .col-md-3.col-sm-4
+                      i.fa.fa-check-circle
+                      | fa-check-circle
+                    .col-md-3.col-sm-4
+                      i.fa.fa-check-circle-o
+                      | fa-check-circle-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-check-square
+                      | fa-check-square
+                    .col-md-3.col-sm-4
+                      i.fa.fa-check-square-o
+                      | fa-check-square-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-circle
+                      | fa-circle
+                    .col-md-3.col-sm-4
+                      i.fa.fa-circle-o
+                      | fa-circle-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-clock-o
+                      | fa-clock-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-cloud
+                      | fa-cloud
+                    .col-md-3.col-sm-4
+                      i.fa.fa-cloud-download
+                      | fa-cloud-download
+                    .col-md-3.col-sm-4
+                      i.fa.fa-cloud-upload
+                      | fa-cloud-upload
+                    .col-md-3.col-sm-4
+                      i.fa.fa-code
+                      | fa-code
+                    .col-md-3.col-sm-4
+                      i.fa.fa-code-fork
+                      | fa-code-fork
+                    .col-md-3.col-sm-4
+                      i.fa.fa-coffee
+                      | fa-coffee
+                    .col-md-3.col-sm-4
+                      i.fa.fa-cog
+                      | fa-cog
+                    .col-md-3.col-sm-4
+                      i.fa.fa-cogs
+                      | fa-cogs
+                    .col-md-3.col-sm-4
+                      i.fa.fa-comment
+                      | fa-comment
+                    .col-md-3.col-sm-4
+                      i.fa.fa-comment-o
+                      | fa-comment-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-comments
+                      | fa-comments
+                    .col-md-3.col-sm-4
+                      i.fa.fa-comments-o
+                      | fa-comments-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-compass
+                      | fa-compass
+                    .col-md-3.col-sm-4
+                      i.fa.fa-credit-card
+                      | fa-credit-card
+                    .col-md-3.col-sm-4
+                      i.fa.fa-crop
+                      | fa-crop
+                    .col-md-3.col-sm-4
+                      i.fa.fa-crosshairs
+                      | fa-crosshairs
+                    .col-md-3.col-sm-4
+                      i.fa.fa-cutlery
+                      | fa-cutlery
+                    .col-md-3.col-sm-4
+                      i.fa.fa-dashboard
+                      | fa-dashboard
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-desktop
+                      | fa-desktop
+                    .col-md-3.col-sm-4
+                      i.fa.fa-dot-circle-o
+                      | fa-dot-circle-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-download
+                      | fa-download
+                    .col-md-3.col-sm-4
+                      i.fa.fa-edit
+                      | fa-edit
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-ellipsis-h
+                      | fa-ellipsis-h
+                    .col-md-3.col-sm-4
+                      i.fa.fa-ellipsis-v
+                      | fa-ellipsis-v
+                    .col-md-3.col-sm-4
+                      i.fa.fa-envelope
+                      | fa-envelope
+                    .col-md-3.col-sm-4
+                      i.fa.fa-envelope-o
+                      | fa-envelope-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-eraser
+                      | fa-eraser
+                    .col-md-3.col-sm-4
+                      i.fa.fa-exchange
+                      | fa-exchange
+                    .col-md-3.col-sm-4
+                      i.fa.fa-exclamation
+                      | fa-exclamation
+                    .col-md-3.col-sm-4
+                      i.fa.fa-exclamation-circle
+                      | fa-exclamation-circle
+                    .col-md-3.col-sm-4
+                      i.fa.fa-exclamation-triangle
+                      | fa-exclamation-triangle
+                    .col-md-3.col-sm-4
+                      i.fa.fa-external-link
+                      | fa-external-link
+                    .col-md-3.col-sm-4
+                      i.fa.fa-external-link-square
+                      | fa-external-link-square
+                    .col-md-3.col-sm-4
+                      i.fa.fa-eye
+                      | fa-eye
+                    .col-md-3.col-sm-4
+                      i.fa.fa-eye-slash
+                      | fa-eye-slash
+                    .col-md-3.col-sm-4
+                      i.fa.fa-female
+                      | fa-female
+                    .col-md-3.col-sm-4
+                      i.fa.fa-fighter-jet
+                      | fa-fighter-jet
+                    .col-md-3.col-sm-4
+                      i.fa.fa-film
+                      | fa-film
+                    .col-md-3.col-sm-4
+                      i.fa.fa-filter
+                      | fa-filter
+                    .col-md-3.col-sm-4
+                      i.fa.fa-fire
+                      | fa-fire
+                    .col-md-3.col-sm-4
+                      i.fa.fa-fire-extinguisher
+                      | fa-fire-extinguisher
+                    .col-md-3.col-sm-4
+                      i.fa.fa-flag
+                      | fa-flag
+                    .col-md-3.col-sm-4
+                      i.fa.fa-flag-checkered
+                      | fa-flag-checkered
+                    .col-md-3.col-sm-4
+                      i.fa.fa-flag-o
+                      | fa-flag-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-flash
+                      | fa-flash
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-flask
+                      | fa-flask
+                    .col-md-3.col-sm-4
+                      i.fa.fa-folder
+                      | fa-folder
+                    .col-md-3.col-sm-4
+                      i.fa.fa-folder-o
+                      | fa-folder-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-folder-open
+                      | fa-folder-open
+                    .col-md-3.col-sm-4
+                      i.fa.fa-folder-open-o
+                      | fa-folder-open-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-frown-o
+                      | fa-frown-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-gamepad
+                      | fa-gamepad
+                    .col-md-3.col-sm-4
+                      i.fa.fa-gavel
+                      | fa-gavel
+                    .col-md-3.col-sm-4
+                      i.fa.fa-gear
+                      | fa-gear
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-gears
+                      | fa-gears
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-gift
+                      | fa-gift
+                    .col-md-3.col-sm-4
+                      i.fa.fa-glass
+                      | fa-glass
+                    .col-md-3.col-sm-4
+                      i.fa.fa-globe
+                      | fa-globe
+                    .col-md-3.col-sm-4
+                      i.fa.fa-group
+                      | fa-group
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-hdd-o
+                      | fa-hdd-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-headphones
+                      | fa-headphones
+                    .col-md-3.col-sm-4
+                      i.fa.fa-heart
+                      | fa-heart
+                    .col-md-3.col-sm-4
+                      i.fa.fa-heart-o
+                      | fa-heart-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-home
+                      | fa-home
+                    .col-md-3.col-sm-4
+                      i.fa.fa-inbox
+                      | fa-inbox
+                    .col-md-3.col-sm-4
+                      i.fa.fa-info
+                      | fa-info
+                    .col-md-3.col-sm-4
+                      i.fa.fa-info-circle
+                      | fa-info-circle
+                    .col-md-3.col-sm-4
+                      i.fa.fa-key
+                      | fa-key
+                    .col-md-3.col-sm-4
+                      i.fa.fa-keyboard-o
+                      | fa-keyboard-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-laptop
+                      | fa-laptop
+                    .col-md-3.col-sm-4
+                      i.fa.fa-leaf
+                      | fa-leaf
+                    .col-md-3.col-sm-4
+                      i.fa.fa-legal
+                      | fa-legal
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-lemon-o
+                      | fa-lemon-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-level-down
+                      | fa-level-down
+                    .col-md-3.col-sm-4
+                      i.fa.fa-level-up
+                      | fa-level-up
+                    .col-md-3.col-sm-4
+                      i.fa.fa-lightbulb-o
+                      | fa-lightbulb-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-location-arrow
+                      | fa-location-arrow
+                    .col-md-3.col-sm-4
+                      i.fa.fa-lock
+                      | fa-lock
+                    .col-md-3.col-sm-4
+                      i.fa.fa-magic
+                      | fa-magic
+                    .col-md-3.col-sm-4
+                      i.fa.fa-magnet
+                      | fa-magnet
+                    .col-md-3.col-sm-4
+                      i.fa.fa-mail-forward
+                      | fa-mail-forward
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-mail-reply
+                      | fa-mail-reply
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-mail-reply-all
+                      | fa-mail-reply-all
+                    .col-md-3.col-sm-4
+                      i.fa.fa-male
+                      | fa-male
+                    .col-md-3.col-sm-4
+                      i.fa.fa-map-marker
+                      | fa-map-marker
+                    .col-md-3.col-sm-4
+                      i.fa.fa-meh-o
+                      | fa-meh-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-microphone
+                      | fa-microphone
+                    .col-md-3.col-sm-4
+                      i.fa.fa-microphone-slash
+                      | fa-microphone-slash
+                    .col-md-3.col-sm-4
+                      i.fa.fa-minus
+                      | fa-minus
+                    .col-md-3.col-sm-4
+                      i.fa.fa-minus-circle
+                      | fa-minus-circle
+                    .col-md-3.col-sm-4
+                      i.fa.fa-minus-square
+                      | fa-minus-square
+                    .col-md-3.col-sm-4
+                      i.fa.fa-minus-square-o
+                      | fa-minus-square-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-mobile
+                      | fa-mobile
+                    .col-md-3.col-sm-4
+                      i.fa.fa-mobile-phone
+                      | fa-mobile-phone
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-money
+                      | fa-money
+                    .col-md-3.col-sm-4
+                      i.fa.fa-moon-o
+                      | fa-moon-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-music
+                      | fa-music
+                    .col-md-3.col-sm-4
+                      i.fa.fa-pencil
+                      | fa-pencil
+                    .col-md-3.col-sm-4
+                      i.fa.fa-pencil-square
+                      | fa-pencil-square
+                    .col-md-3.col-sm-4
+                      i.fa.fa-pencil-square-o
+                      | fa-pencil-square-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-phone
+                      | fa-phone
+                    .col-md-3.col-sm-4
+                      i.fa.fa-phone-square
+                      | fa-phone-square
+                    .col-md-3.col-sm-4
+                      i.fa.fa-picture-o
+                      | fa-picture-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-plane
+                      | fa-plane
+                    .col-md-3.col-sm-4
+                      i.fa.fa-plus
+                      | fa-plus
+                    .col-md-3.col-sm-4
+                      i.fa.fa-plus-circle
+                      | fa-plus-circle
+                    .col-md-3.col-sm-4
+                      i.fa.fa-plus-square
+                      | fa-plus-square
+                    .col-md-3.col-sm-4
+                      i.fa.fa-plus-square-o
+                      | fa-plus-square-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-power-off
+                      | fa-power-off
+                    .col-md-3.col-sm-4
+                      i.fa.fa-print
+                      | fa-print
+                    .col-md-3.col-sm-4
+                      i.fa.fa-puzzle-piece
+                      | fa-puzzle-piece
+                    .col-md-3.col-sm-4
+                      i.fa.fa-qrcode
+                      | fa-qrcode
+                    .col-md-3.col-sm-4
+                      i.fa.fa-question
+                      | fa-question
+                    .col-md-3.col-sm-4
+                      i.fa.fa-question-circle
+                      | fa-question-circle
+                    .col-md-3.col-sm-4
+                      i.fa.fa-quote-left
+                      | fa-quote-left
+                    .col-md-3.col-sm-4
+                      i.fa.fa-quote-right
+                      | fa-quote-right
+                    .col-md-3.col-sm-4
+                      i.fa.fa-random
+                      | fa-random
+                    .col-md-3.col-sm-4
+                      i.fa.fa-refresh
+                      | fa-refresh
+                    .col-md-3.col-sm-4
+                      i.fa.fa-reply
+                      | fa-reply
+                    .col-md-3.col-sm-4
+                      i.fa.fa-reply-all
+                      | fa-reply-all
+                    .col-md-3.col-sm-4
+                      i.fa.fa-retweet
+                      | fa-retweet
+                    .col-md-3.col-sm-4
+                      i.fa.fa-road
+                      | fa-road
+                    .col-md-3.col-sm-4
+                      i.fa.fa-rocket
+                      | fa-rocket
+                    .col-md-3.col-sm-4
+                      i.fa.fa-rss
+                      | fa-rss
+                    .col-md-3.col-sm-4
+                      i.fa.fa-rss-square
+                      | fa-rss-square
+                    .col-md-3.col-sm-4
+                      i.fa.fa-search
+                      | fa-search
+                    .col-md-3.col-sm-4
+                      i.fa.fa-search-minus
+                      | fa-search-minus
+                    .col-md-3.col-sm-4
+                      i.fa.fa-search-plus
+                      | fa-search-plus
+                    .col-md-3.col-sm-4
+                      i.fa.fa-share
+                      | fa-share
+                    .col-md-3.col-sm-4
+                      i.fa.fa-share-square
+                      | fa-share-square
+                    .col-md-3.col-sm-4
+                      i.fa.fa-share-square-o
+                      | fa-share-square-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-shield
+                      | fa-shield
+                    .col-md-3.col-sm-4
+                      i.fa.fa-shopping-cart
+                      | fa-shopping-cart
+                    .col-md-3.col-sm-4
+                      i.fa.fa-sign-in
+                      | fa-sign-in
+                    .col-md-3.col-sm-4
+                      i.fa.fa-sign-out
+                      | fa-sign-out
+                    .col-md-3.col-sm-4
+                      i.fa.fa-signal
+                      | fa-signal
+                    .col-md-3.col-sm-4
+                      i.fa.fa-sitemap
+                      | fa-sitemap
+                    .col-md-3.col-sm-4
+                      i.fa.fa-smile-o
+                      | fa-smile-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-sort
+                      | fa-sort
+                    .col-md-3.col-sm-4
+                      i.fa.fa-sort-alpha-asc
+                      | fa-sort-alpha-asc
+                    .col-md-3.col-sm-4
+                      i.fa.fa-sort-alpha-desc
+                      | fa-sort-alpha-desc
+                    .col-md-3.col-sm-4
+                      i.fa.fa-sort-amount-asc
+                      | fa-sort-amount-asc
+                    .col-md-3.col-sm-4
+                      i.fa.fa-sort-amount-desc
+                      | fa-sort-amount-desc
+                    .col-md-3.col-sm-4
+                      i.fa.fa-sort-asc
+                      | fa-sort-asc
+                    .col-md-3.col-sm-4
+                      i.fa.fa-sort-desc
+                      | fa-sort-desc
+                    .col-md-3.col-sm-4
+                      i.fa.fa-sort-down
+                      | fa-sort-down
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-sort-numeric-asc
+                      | fa-sort-numeric-asc
+                    .col-md-3.col-sm-4
+                      i.fa.fa-sort-numeric-desc
+                      | fa-sort-numeric-desc
+                    .col-md-3.col-sm-4
+                      i.fa.fa-sort-up
+                      | fa-sort-up
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-spinner
+                      | fa-spinner
+                    .col-md-3.col-sm-4
+                      i.fa.fa-square
+                      | fa-square
+                    .col-md-3.col-sm-4
+                      i.fa.fa-square-o
+                      | fa-square-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-star
+                      | fa-star
+                    .col-md-3.col-sm-4
+                      i.fa.fa-star-half
+                      | fa-star-half
+                    .col-md-3.col-sm-4
+                      i.fa.fa-star-half-empty
+                      | fa-star-half-empty
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-star-half-full
+                      | fa-star-half-full
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-star-half-o
+                      | fa-star-half-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-star-o
+                      | fa-star-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-subscript
+                      | fa-subscript
+                    .col-md-3.col-sm-4
+                      i.fa.fa-suitcase
+                      | fa-suitcase
+                    .col-md-3.col-sm-4
+                      i.fa.fa-sun-o
+                      | fa-sun-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-superscript
+                      | fa-superscript
+                    .col-md-3.col-sm-4
+                      i.fa.fa-tablet
+                      | fa-tablet
+                    .col-md-3.col-sm-4
+                      i.fa.fa-tachometer
+                      | fa-tachometer
+                    .col-md-3.col-sm-4
+                      i.fa.fa-tag
+                      | fa-tag
+                    .col-md-3.col-sm-4
+                      i.fa.fa-tags
+                      | fa-tags
+                    .col-md-3.col-sm-4
+                      i.fa.fa-tasks
+                      | fa-tasks
+                    .col-md-3.col-sm-4
+                      i.fa.fa-terminal
+                      | fa-terminal
+                    .col-md-3.col-sm-4
+                      i.fa.fa-thumb-tack
+                      | fa-thumb-tack
+                    .col-md-3.col-sm-4
+                      i.fa.fa-thumbs-down
+                      | fa-thumbs-down
+                    .col-md-3.col-sm-4
+                      i.fa.fa-thumbs-o-down
+                      | fa-thumbs-o-down
+                    .col-md-3.col-sm-4
+                      i.fa.fa-thumbs-o-up
+                      | fa-thumbs-o-up
+                    .col-md-3.col-sm-4
+                      i.fa.fa-thumbs-up
+                      | fa-thumbs-up
+                    .col-md-3.col-sm-4
+                      i.fa.fa-ticket
+                      | fa-ticket
+                    .col-md-3.col-sm-4
+                      i.fa.fa-times
+                      | fa-times
+                    .col-md-3.col-sm-4
+                      i.fa.fa-times-circle
+                      | fa-times-circle
+                    .col-md-3.col-sm-4
+                      i.fa.fa-times-circle-o
+                      | fa-times-circle-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-tint
+                      | fa-tint
+                    .col-md-3.col-sm-4
+                      i.fa.fa-toggle-down
+                      | fa-toggle-down
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-toggle-left
+                      | fa-toggle-left
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-toggle-right
+                      | fa-toggle-right
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-toggle-up
+                      | fa-toggle-up
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-trash-o
+                      | fa-trash-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-trophy
+                      | fa-trophy
+                    .col-md-3.col-sm-4
+                      i.fa.fa-truck
+                      | fa-truck
+                    .col-md-3.col-sm-4
+                      i.fa.fa-umbrella
+                      | fa-umbrella
+                    .col-md-3.col-sm-4
+                      i.fa.fa-unlock
+                      | fa-unlock
+                    .col-md-3.col-sm-4
+                      i.fa.fa-unlock-alt
+                      | fa-unlock-alt
+                    .col-md-3.col-sm-4
+                      i.fa.fa-unsorted
+                      | fa-unsorted
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-upload
+                      | fa-upload
+                    .col-md-3.col-sm-4
+                      i.fa.fa-user
+                      | fa-user
+                    .col-md-3.col-sm-4
+                      i.fa.fa-users
+                      | fa-users
+                    .col-md-3.col-sm-4
+                      i.fa.fa-video-camera
+                      | fa-video-camera
+                    .col-md-3.col-sm-4
+                      i.fa.fa-volume-down
+                      | fa-volume-down
+                    .col-md-3.col-sm-4
+                      i.fa.fa-volume-off
+                      | fa-volume-off
+                    .col-md-3.col-sm-4
+                      i.fa.fa-volume-up
+                      | fa-volume-up
+                    .col-md-3.col-sm-4
+                      i.fa.fa-warning
+                      | fa-warning
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-wheelchair
+                      | fa-wheelchair
+                    .col-md-3.col-sm-4
+                      i.fa.fa-wrench
+                      | fa-wrench
+                section#form-control
+                  h4.page-header Form Control Icons
+                  .row.list-icon
+                    .col-md-3.col-sm-4
+                      i.fa.fa-check-square
+                      | fa-check-square
+                    .col-md-3.col-sm-4
+                      i.fa.fa-check-square-o
+                      | fa-check-square-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-circle
+                      | fa-circle
+                    .col-md-3.col-sm-4
+                      i.fa.fa-circle-o
+                      | fa-circle-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-dot-circle-o
+                      | fa-dot-circle-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-minus-square
+                      | fa-minus-square
+                    .col-md-3.col-sm-4
+                      i.fa.fa-minus-square-o
+                      | fa-minus-square-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-plus-square
+                      | fa-plus-square
+                    .col-md-3.col-sm-4
+                      i.fa.fa-plus-square-o
+                      | fa-plus-square-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-square
+                      | fa-square
+                    .col-md-3.col-sm-4
+                      i.fa.fa-square-o
+                      | fa-square-o
+                section#currency
+                  h4.page-header Currency Icons
+                  .row.list-icon
+                    .col-md-3.col-sm-4
+                      i.fa.fa-bitcoin
+                      | fa-bitcoin
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-btc
+                      | fa-btc
+                    .col-md-3.col-sm-4
+                      i.fa.fa-cny
+                      | fa-cny
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-dollar
+                      | fa-dollar
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-eur
+                      | fa-eur
+                    .col-md-3.col-sm-4
+                      i.fa.fa-euro
+                      | fa-euro
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-gbp
+                      | fa-gbp
+                    .col-md-3.col-sm-4
+                      i.fa.fa-inr
+                      | fa-inr
+                    .col-md-3.col-sm-4
+                      i.fa.fa-jpy
+                      | fa-jpy
+                    .col-md-3.col-sm-4
+                      i.fa.fa-krw
+                      | fa-krw
+                    .col-md-3.col-sm-4
+                      i.fa.fa-money
+                      | fa-money
+                    .col-md-3.col-sm-4
+                      i.fa.fa-rmb
+                      | fa-rmb
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-rouble
+                      | fa-rouble
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-rub
+                      | fa-rub
+                    .col-md-3.col-sm-4
+                      i.fa.fa-ruble
+                      | fa-ruble
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-rupee
+                      | fa-rupee
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-try
+                      | fa-try
+                    .col-md-3.col-sm-4
+                      i.fa.fa-turkish-lira
+                      | fa-turkish-lira
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-usd
+                      | fa-usd
+                    .col-md-3.col-sm-4
+                      i.fa.fa-won
+                      | fa-won
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-yen
+                      | fa-yen
+                      span.text-muted (alias)
+                section#text-editor
+                  h4.page-header Text Editor Icons
+                  .row.list-icon
+                    .col-md-3.col-sm-4
+                      i.fa.fa-align-center
+                      | fa-align-center
+                    .col-md-3.col-sm-4
+                      i.fa.fa-align-justify
+                      | fa-align-justify
+                    .col-md-3.col-sm-4
+                      i.fa.fa-align-left
+                      | fa-align-left
+                    .col-md-3.col-sm-4
+                      i.fa.fa-align-right
+                      | fa-align-right
+                    .col-md-3.col-sm-4
+                      i.fa.fa-bold
+                      | fa-bold
+                    .col-md-3.col-sm-4
+                      i.fa.fa-chain
+                      | fa-chain
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-chain-broken
+                      | fa-chain-broken
+                    .col-md-3.col-sm-4
+                      i.fa.fa-clipboard
+                      | fa-clipboard
+                    .col-md-3.col-sm-4
+                      i.fa.fa-columns
+                      | fa-columns
+                    .col-md-3.col-sm-4
+                      i.fa.fa-copy
+                      | fa-copy
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-cut
+                      | fa-cut
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-dedent
+                      | fa-dedent
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-eraser
+                      | fa-eraser
+                    .col-md-3.col-sm-4
+                      i.fa.fa-file
+                      | fa-file
+                    .col-md-3.col-sm-4
+                      i.fa.fa-file-o
+                      | fa-file-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-file-text
+                      | fa-file-text
+                    .col-md-3.col-sm-4
+                      i.fa.fa-file-text-o
+                      | fa-file-text-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-files-o
+                      | fa-files-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-floppy-o
+                      | fa-floppy-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-font
+                      | fa-font
+                    .col-md-3.col-sm-4
+                      i.fa.fa-indent
+                      | fa-indent
+                    .col-md-3.col-sm-4
+                      i.fa.fa-italic
+                      | fa-italic
+                    .col-md-3.col-sm-4
+                      i.fa.fa-link
+                      | fa-link
+                    .col-md-3.col-sm-4
+                      i.fa.fa-list
+                      | fa-list
+                    .col-md-3.col-sm-4
+                      i.fa.fa-list-alt
+                      | fa-list-alt
+                    .col-md-3.col-sm-4
+                      i.fa.fa-list-ol
+                      | fa-list-ol
+                    .col-md-3.col-sm-4
+                      i.fa.fa-list-ul
+                      | fa-list-ul
+                    .col-md-3.col-sm-4
+                      i.fa.fa-outdent
+                      | fa-outdent
+                    .col-md-3.col-sm-4
+                      i.fa.fa-paperclip
+                      | fa-paperclip
+                    .col-md-3.col-sm-4
+                      i.fa.fa-paste
+                      | fa-paste
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-repeat
+                      | fa-repeat
+                    .col-md-3.col-sm-4
+                      i.fa.fa-rotate-left
+                      | fa-rotate-left
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-rotate-right
+                      | fa-rotate-right
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-save
+                      | fa-save
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-scissors
+                      | fa-scissors
+                    .col-md-3.col-sm-4
+                      i.fa.fa-strikethrough
+                      | fa-strikethrough
+                    .col-md-3.col-sm-4
+                      i.fa.fa-table
+                      | fa-table
+                    .col-md-3.col-sm-4
+                      i.fa.fa-text-height
+                      | fa-text-height
+                    .col-md-3.col-sm-4
+                      i.fa.fa-text-width
+                      | fa-text-width
+                    .col-md-3.col-sm-4
+                      i.fa.fa-th
+                      | fa-th
+                    .col-md-3.col-sm-4
+                      i.fa.fa-th-large
+                      | fa-th-large
+                    .col-md-3.col-sm-4
+                      i.fa.fa-th-list
+                      | fa-th-list
+                    .col-md-3.col-sm-4
+                      i.fa.fa-underline
+                      | fa-underline
+                    .col-md-3.col-sm-4
+                      i.fa.fa-undo
+                      | fa-undo
+                    .col-md-3.col-sm-4
+                      i.fa.fa-unlink
+                      | fa-unlink
+                      span.text-muted (alias)
+                section#directional
+                  h4.page-header Directional Icons
+                  .row.list-icon
+                    .col-md-3.col-sm-4
+                      i.fa.fa-angle-double-down
+                      | fa-angle-double-down
+                    .col-md-3.col-sm-4
+                      i.fa.fa-angle-double-left
+                      | fa-angle-double-left
+                    .col-md-3.col-sm-4
+                      i.fa.fa-angle-double-right
+                      | fa-angle-double-right
+                    .col-md-3.col-sm-4
+                      i.fa.fa-angle-double-up
+                      | fa-angle-double-up
+                    .col-md-3.col-sm-4
+                      i.fa.fa-angle-down
+                      | fa-angle-down
+                    .col-md-3.col-sm-4
+                      i.fa.fa-angle-left
+                      | fa-angle-left
+                    .col-md-3.col-sm-4
+                      i.fa.fa-angle-right
+                      | fa-angle-right
+                    .col-md-3.col-sm-4
+                      i.fa.fa-angle-up
+                      | fa-angle-up
+                    .col-md-3.col-sm-4
+                      i.fa.fa-arrow-circle-down
+                      | fa-arrow-circle-down
+                    .col-md-3.col-sm-4
+                      i.fa.fa-arrow-circle-left
+                      | fa-arrow-circle-left
+                    .col-md-3.col-sm-4
+                      i.fa.fa-arrow-circle-o-down
+                      | fa-arrow-circle-o-down
+                    .col-md-3.col-sm-4
+                      i.fa.fa-arrow-circle-o-left
+                      | fa-arrow-circle-o-left
+                    .col-md-3.col-sm-4
+                      i.fa.fa-arrow-circle-o-right
+                      | fa-arrow-circle-o-right
+                    .col-md-3.col-sm-4
+                      i.fa.fa-arrow-circle-o-up
+                      | fa-arrow-circle-o-up
+                    .col-md-3.col-sm-4
+                      i.fa.fa-arrow-circle-right
+                      | fa-arrow-circle-right
+                    .col-md-3.col-sm-4
+                      i.fa.fa-arrow-circle-up
+                      | fa-arrow-circle-up
+                    .col-md-3.col-sm-4
+                      i.fa.fa-arrow-down
+                      | fa-arrow-down
+                    .col-md-3.col-sm-4
+                      i.fa.fa-arrow-left
+                      | fa-arrow-left
+                    .col-md-3.col-sm-4
+                      i.fa.fa-arrow-right
+                      | fa-arrow-right
+                    .col-md-3.col-sm-4
+                      i.fa.fa-arrow-up
+                      | fa-arrow-up
+                    .col-md-3.col-sm-4
+                      i.fa.fa-arrows
+                      | fa-arrows
+                    .col-md-3.col-sm-4
+                      i.fa.fa-arrows-alt
+                      | fa-arrows-alt
+                    .col-md-3.col-sm-4
+                      i.fa.fa-arrows-h
+                      | fa-arrows-h
+                    .col-md-3.col-sm-4
+                      i.fa.fa-arrows-v
+                      | fa-arrows-v
+                    .col-md-3.col-sm-4
+                      i.fa.fa-caret-down
+                      | fa-caret-down
+                    .col-md-3.col-sm-4
+                      i.fa.fa-caret-left
+                      | fa-caret-left
+                    .col-md-3.col-sm-4
+                      i.fa.fa-caret-right
+                      | fa-caret-right
+                    .col-md-3.col-sm-4
+                      i.fa.fa-caret-square-o-down
+                      | fa-caret-square-o-down
+                    .col-md-3.col-sm-4
+                      i.fa.fa-caret-square-o-left
+                      | fa-caret-square-o-left
+                    .col-md-3.col-sm-4
+                      i.fa.fa-caret-square-o-right
+                      | fa-caret-square-o-right
+                    .col-md-3.col-sm-4
+                      i.fa.fa-caret-square-o-up
+                      | fa-caret-square-o-up
+                    .col-md-3.col-sm-4
+                      i.fa.fa-caret-up
+                      | fa-caret-up
+                    .col-md-3.col-sm-4
+                      i.fa.fa-chevron-circle-down
+                      | fa-chevron-circle-down
+                    .col-md-3.col-sm-4
+                      i.fa.fa-chevron-circle-left
+                      | fa-chevron-circle-left
+                    .col-md-3.col-sm-4
+                      i.fa.fa-chevron-circle-right
+                      | fa-chevron-circle-right
+                    .col-md-3.col-sm-4
+                      i.fa.fa-chevron-circle-up
+                      | fa-chevron-circle-up
+                    .col-md-3.col-sm-4
+                      i.fa.fa-chevron-down
+                      | fa-chevron-down
+                    .col-md-3.col-sm-4
+                      i.fa.fa-chevron-left
+                      | fa-chevron-left
+                    .col-md-3.col-sm-4
+                      i.fa.fa-chevron-right
+                      | fa-chevron-right
+                    .col-md-3.col-sm-4
+                      i.fa.fa-chevron-up
+                      | fa-chevron-up
+                    .col-md-3.col-sm-4
+                      i.fa.fa-hand-o-down
+                      | fa-hand-o-down
+                    .col-md-3.col-sm-4
+                      i.fa.fa-hand-o-left
+                      | fa-hand-o-left
+                    .col-md-3.col-sm-4
+                      i.fa.fa-hand-o-right
+                      | fa-hand-o-right
+                    .col-md-3.col-sm-4
+                      i.fa.fa-hand-o-up
+                      | fa-hand-o-up
+                    .col-md-3.col-sm-4
+                      i.fa.fa-long-arrow-down
+                      | fa-long-arrow-down
+                    .col-md-3.col-sm-4
+                      i.fa.fa-long-arrow-left
+                      | fa-long-arrow-left
+                    .col-md-3.col-sm-4
+                      i.fa.fa-long-arrow-right
+                      | fa-long-arrow-right
+                    .col-md-3.col-sm-4
+                      i.fa.fa-long-arrow-up
+                      | fa-long-arrow-up
+                    .col-md-3.col-sm-4
+                      i.fa.fa-toggle-down
+                      | fa-toggle-down
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-toggle-left
+                      | fa-toggle-left
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-toggle-right
+                      | fa-toggle-right
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-toggle-up
+                      | fa-toggle-up
+                      span.text-muted (alias)
+                section#video-player
+                  h4.page-header Video Player Icons
+                  .row.list-icon
+                    .col-md-3.col-sm-4
+                      i.fa.fa-arrows-alt
+                      | fa-arrows-alt
+                    .col-md-3.col-sm-4
+                      i.fa.fa-backward
+                      | fa-backward
+                    .col-md-3.col-sm-4
+                      i.fa.fa-compress
+                      | fa-compress
+                    .col-md-3.col-sm-4
+                      i.fa.fa-eject
+                      | fa-eject
+                    .col-md-3.col-sm-4
+                      i.fa.fa-expand
+                      | fa-expand
+                    .col-md-3.col-sm-4
+                      i.fa.fa-fast-backward
+                      | fa-fast-backward
+                    .col-md-3.col-sm-4
+                      i.fa.fa-fast-forward
+                      | fa-fast-forward
+                    .col-md-3.col-sm-4
+                      i.fa.fa-forward
+                      | fa-forward
+                    .col-md-3.col-sm-4
+                      i.fa.fa-pause
+                      | fa-pause
+                    .col-md-3.col-sm-4
+                      i.fa.fa-play
+                      | fa-play
+                    .col-md-3.col-sm-4
+                      i.fa.fa-play-circle
+                      | fa-play-circle
+                    .col-md-3.col-sm-4
+                      i.fa.fa-play-circle-o
+                      | fa-play-circle-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-step-backward
+                      | fa-step-backward
+                    .col-md-3.col-sm-4
+                      i.fa.fa-step-forward
+                      | fa-step-forward
+                    .col-md-3.col-sm-4
+                      i.fa.fa-stop
+                      | fa-stop
+                    .col-md-3.col-sm-4
+                      i.fa.fa-youtube-play
+                      | fa-youtube-play
+                section#brand
+                  h4.page-header Brand Icons
+                  .alert.alert-success
+                    ul.margin-bottom-none.padding-left-lg
+                      li All brand icons are trademarks of their respective owners.
+                      li
+                        | The use of these trademarks does not indicate endorsement of the trademark holder by Font Awesome, nor vice versa.
+                  .row.list-icon
+                    .col-md-3.col-sm-4
+                      i.fa.fa-adn
+                      | fa-adn
+                    .col-md-3.col-sm-4
+                      i.fa.fa-android
+                      | fa-android
+                    .col-md-3.col-sm-4
+                      i.fa.fa-apple
+                      | fa-apple
+                    .col-md-3.col-sm-4
+                      i.fa.fa-bitbucket
+                      | fa-bitbucket
+                    .col-md-3.col-sm-4
+                      i.fa.fa-bitbucket-square
+                      | fa-bitbucket-square
+                    .col-md-3.col-sm-4
+                      i.fa.fa-bitcoin
+                      | fa-bitcoin
+                      span.text-muted (alias)
+                    .col-md-3.col-sm-4
+                      i.fa.fa-btc
+                      | fa-btc
+                    .col-md-3.col-sm-4
+                      i.fa.fa-css3
+                      | fa-css3
+                    .col-md-3.col-sm-4
+                      i.fa.fa-dribbble
+                      | fa-dribbble
+                    .col-md-3.col-sm-4
+                      i.fa.fa-dropbox
+                      | fa-dropbox
+                    .col-md-3.col-sm-4
+                      i.fa.fa-facebook
+                      | fa-facebook
+                    .col-md-3.col-sm-4
+                      i.fa.fa-facebook-square
+                      | fa-facebook-square
+                    .col-md-3.col-sm-4
+                      i.fa.fa-flickr
+                      | fa-flickr
+                    .col-md-3.col-sm-4
+                      i.fa.fa-foursquare
+                      | fa-foursquare
+                    .col-md-3.col-sm-4
+                      i.fa.fa-github
+                      | fa-github
+                    .col-md-3.col-sm-4
+                      i.fa.fa-github-alt
+                      | fa-github-alt
+                    .col-md-3.col-sm-4
+                      i.fa.fa-github-square
+                      | fa-github-square
+                    .col-md-3.col-sm-4
+                      i.fa.fa-gittip
+                      | fa-gittip
+                    .col-md-3.col-sm-4
+                      i.fa.fa-google-plus
+                      | fa-google-plus
+                    .col-md-3.col-sm-4
+                      i.fa.fa-google-plus-square
+                      | fa-google-plus-square
+                    .col-md-3.col-sm-4
+                      i.fa.fa-html5
+                      | fa-html5
+                    .col-md-3.col-sm-4
+                      i.fa.fa-instagram
+                      | fa-instagram
+                    .col-md-3.col-sm-4
+                      i.fa.fa-linkedin
+                      | fa-linkedin
+                    .col-md-3.col-sm-4
+                      i.fa.fa-linkedin-square
+                      | fa-linkedin-square
+                    .col-md-3.col-sm-4
+                      i.fa.fa-linux
+                      | fa-linux
+                    .col-md-3.col-sm-4
+                      i.fa.fa-maxcdn
+                      | fa-maxcdn
+                    .col-md-3.col-sm-4
+                      i.fa.fa-pagelines
+                      | fa-pagelines
+                    .col-md-3.col-sm-4
+                      i.fa.fa-pinterest
+                      | fa-pinterest
+                    .col-md-3.col-sm-4
+                      i.fa.fa-pinterest-square
+                      | fa-pinterest-square
+                    .col-md-3.col-sm-4
+                      i.fa.fa-renren
+                      | fa-renren
+                    .col-md-3.col-sm-4
+                      i.fa.fa-skype
+                      | fa-skype
+                    .col-md-3.col-sm-4
+                      i.fa.fa-stack-exchange
+                      | fa-stack-exchange
+                    .col-md-3.col-sm-4
+                      i.fa.fa-stack-overflow
+                      | fa-stack-overflow
+                    .col-md-3.col-sm-4
+                      i.fa.fa-trello
+                      | fa-trello
+                    .col-md-3.col-sm-4
+                      i.fa.fa-tumblr
+                      | fa-tumblr
+                    .col-md-3.col-sm-4
+                      i.fa.fa-tumblr-square
+                      | fa-tumblr-square
+                    .col-md-3.col-sm-4
+                      i.fa.fa-twitter
+                      | fa-twitter
+                    .col-md-3.col-sm-4
+                      i.fa.fa-twitter-square
+                      | fa-twitter-square
+                    .col-md-3.col-sm-4
+                      i.fa.fa-vimeo-square
+                      | fa-vimeo-square
+                    .col-md-3.col-sm-4
+                      i.fa.fa-vk
+                      | fa-vk
+                    .col-md-3.col-sm-4
+                      i.fa.fa-weibo
+                      | fa-weibo
+                    .col-md-3.col-sm-4
+                      i.fa.fa-windows
+                      | fa-windows
+                    .col-md-3.col-sm-4
+                      i.fa.fa-xing
+                      | fa-xing
+                    .col-md-3.col-sm-4
+                      i.fa.fa-xing-square
+                      | fa-xing-square
+                    .col-md-3.col-sm-4
+                      i.fa.fa-youtube
+                      | fa-youtube
+                    .col-md-3.col-sm-4
+                      i.fa.fa-youtube-play
+                      | fa-youtube-play
+                    .col-md-3.col-sm-4
+                      i.fa.fa-youtube-square
+                      | fa-youtube-square
+                section#medical
+                  h4.page-header Medical Icons
+                  .row.list-icon
+                    .col-md-3.col-sm-4
+                      i.fa.fa-ambulance
+                      | fa-ambulance
+                    .col-md-3.col-sm-4
+                      i.fa.fa-h-square
+                      | fa-h-square
+                    .col-md-3.col-sm-4
+                      i.fa.fa-hospital-o
+                      | fa-hospital-o
+                    .col-md-3.col-sm-4
+                      i.fa.fa-medkit
+                      | fa-medkit
+                    .col-md-3.col-sm-4
+                      i.fa.fa-plus-square
+                      | fa-plus-square
+                    .col-md-3.col-sm-4
+                      i.fa.fa-stethoscope
+                      | fa-stethoscope
+                    .col-md-3.col-sm-4
+                      i.fa.fa-user-md
+                      | fa-user-md
+                    .col-md-3.col-sm-4
+                      i.fa.fa-wheelchair
+                      | fa-wheelchair
+          a.hide.nav-off-screen-block(href='#', data-toggle='class:nav-off-screen,open', data-target='#nav,html')
